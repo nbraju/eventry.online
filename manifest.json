@@ -1,0 +1,42 @@
+{
+  "name": "Eventry \u2014 Event Infrastructure Marketplace",
+  "short_name": "Eventry",
+  "description": "Find, compare and enquire with event venues, caterers, tent houses, decorators and event infrastructure providers.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "categories": [
+    "business",
+    "shopping",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browse Vendors",
+      "url": "/#browse",
+      "description": "Browse event vendors"
+    },
+    {
+      "name": "List Your Business",
+      "url": "/#list-business",
+      "description": "Register your event business"
+    }
+  ]
+}

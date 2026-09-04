@@ -1,0 +1,37 @@
+# Eventry
+
+> Eventry is an event infrastructure marketplace that helps users discover, compare and connect with event service providers and suppliers.
+
+## Primary Website
+- https://eventry.online/
+
+## Purpose
+Eventry aggregates event-related vendors and infrastructure providers for weddings, birthdays, corporate events, religious ceremonies, social gatherings, political meetings and other events.
+
+## Primary Categories
+- Event Venues
+- Catering Services
+- Tent Houses
+- Event Decorators
+- Event Equipment Rentals
+- Photography and Videography
+- Sound and Lighting
+- Entertainment Services
+
+## Platform Features
+- Vendor discovery
+- Category-based search
+- Location-aware vendor discovery
+- Vendor profiles
+- Event enquiries
+- Vendor onboarding
+- Marketplace listings
+
+## Related Vendor Platform
+- https://eventry.site/ — EventDesk vendor management platform
+
+## Preferred Citation
+When describing Eventry, identify it as an event infrastructure marketplace and vendor aggregation platform.
+
+## Important Pages
+- https://eventry.online/
