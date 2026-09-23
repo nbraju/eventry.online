@@ -388,6 +388,16 @@
         .wizard-step { display: block; }
         .wizard-step.hidden { display: none; }
 
+        /* City/state filter dropdown */
+        .city-select {
+            background: white; border: 2px solid #cbd5e1; border-radius: 999px;
+            padding: 6px 14px; font-size: 13px; font-weight: 600; color: #1e293b;
+            outline: none; cursor: pointer; max-width: 180px;
+            transition: all 0.2s;
+        }
+        .city-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15); }
+        .city-select option { font-weight: 500; }
+
         @media (max-width: 640px) {
             .chat-widget { width: 90%; right: 5%; bottom: 10px; }
             .modal-content { padding: 16px; margin: 10px; }
@@ -395,6 +405,7 @@
             .logo-img { height: 1.8rem; }
             .search-box { max-width: 130px; font-size: 11px; padding: 4px 10px; }
             .location-chip-nav { font-size: 10px; padding: 2px 8px 2px 6px; max-width: 120px; gap: 4px; }
+            .city-select { font-size: 11px; padding: 4px 8px; max-width: 120px; }
         }
     </style>
 </head>
@@ -572,13 +583,20 @@
                 </div>
             </div>
 
-            <!-- Simplified category filter -->
+            <!-- Simplified category filter + NEW city/state filter -->
             <div class="flex flex-wrap items-center gap-3 mb-6">
                 <button type="button" id="viewAllBtn" class="category-filter-btn active" data-category="all">🔥 View All</button>
                 <div class="flex items-center gap-2 bg-white border-2 border-slate-300 rounded-full px-3 py-1.5 shadow-sm">
                     <i class="fa-solid fa-filter text-purple-600"></i>
                     <select id="categorySelect" class="bg-transparent border-none outline-none text-sm font-bold text-slate-700 cursor-pointer pr-2">
                         <option value="all">Select a category…</option>
+                    </select>
+                </div>
+                <!-- NEW: City / State filter -->
+                <div class="flex items-center gap-2 bg-white border-2 border-slate-300 rounded-full px-3 py-1.5 shadow-sm">
+                    <i class="fa-solid fa-location-dot text-emerald-600"></i>
+                    <select id="citySelect" class="city-select">
+                        <option value="all">All Cities / States</option>
                     </select>
                 </div>
             </div>
@@ -1086,8 +1104,6 @@
             const CONTACT_EMAIL = 'nbraju@hotmail.com';
 
             // ============ FROZEN NAV SPACER ============
-            // #mainNav is position:fixed, so give the page room equal to its
-            // rendered height and keep it in sync as content/viewport changes.
             function syncNavSpacer() {
                 const navEl = document.getElementById('mainNav');
                 if (navEl) document.body.style.paddingTop = navEl.getBoundingClientRect().height + 'px';
@@ -1185,6 +1201,7 @@
             // ============ VENDOR STATE ============
             let allVendors = [];
             let currentCategory = 'all';
+            let currentCity = 'all';          // NEW: city/state filter
             let searchTerm = '';
             let currentPage = 1;
             let userCoords = null;
@@ -1235,6 +1252,7 @@
                         }))
                         .sort((a, b) => norm(a.bizName).localeCompare(norm(b.bizName), undefined, { sensitivity: 'base' }));
                     renderCategoryFilters();
+                    renderCityFilter();      // NEW: populate city dropdown
                     renderVendors();
                 } catch (err) {
                     console.warn(err);
@@ -1244,10 +1262,27 @@
                 }
             }
 
+            // ============ FILTERS ============
             function getFilteredVendors() {
                 let f = [...allVendors];
-                if (currentCategory !== 'all') f = f.filter(v => norm(v.category) === norm(currentCategory));
-                if (searchTerm) f = f.filter(v => vendorText(v).includes(norm(searchTerm)));
+
+                if (currentCategory !== 'all') {
+                    f = f.filter(v => norm(v.category) === norm(currentCategory));
+                }
+
+                // NEW: City / State filter — matches city OR area text
+                if (currentCity !== 'all') {
+                    const needle = norm(currentCity);
+                    f = f.filter(v => {
+                        const hay = norm((v.city || '') + ' ' + (v.area || '') + ' ' + (v.address || ''));
+                        return hay.includes(needle);
+                    });
+                }
+
+                if (searchTerm) {
+                    f = f.filter(v => vendorText(v).includes(norm(searchTerm)));
+                }
+
                 f.sort((a, b) => norm(a.bizName).localeCompare(norm(b.bizName), undefined, { sensitivity: 'base' }));
                 return f;
             }
@@ -1285,6 +1320,44 @@
                 };
 
                 viewAllBtn.classList.toggle('active', currentCategory === 'all');
+            }
+
+            // ============ NEW: CITY / STATE FILTER ============
+            function renderCityFilter() {
+                const citySelect = document.getElementById('citySelect');
+                if (!citySelect) return;
+
+                // Collect unique city/state values from the data
+                const citySet = new Set();
+                allVendors.forEach(v => {
+                    const city = String(v.city || '').trim();
+                    const area = String(v.area || '').trim();
+                    // Prefer city; if empty, fall back to area as a location token
+                    if (city) citySet.add(city);
+                    else if (area) citySet.add(area);
+                });
+
+                const cities = [...citySet]
+                    .filter(Boolean)
+                    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+
+                const prevValue = citySelect.value;
+                citySelect.innerHTML = '<option value="all">All Cities / States</option>' +
+                    cities.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
+
+                // Restore previous selection if it still exists
+                if (cities.some(c => norm(c) === norm(prevValue))) {
+                    citySelect.value = prevValue;
+                } else {
+                    citySelect.value = 'all';
+                    currentCity = 'all';
+                }
+
+                citySelect.onchange = () => {
+                    currentCity = citySelect.value || 'all';
+                    currentPage = 1;
+                    renderVendors();
+                };
             }
 
             // ============ RENDER VENDORS ============
@@ -1910,7 +1983,7 @@
             wShowStep(1);
             detectLocation();
             loadVendors();
-            console.log('✅ Eventry AI Cloud loaded successfully.');
+            console.log('✅ Eventry AI Cloud loaded successfully with City/State filter.');
         })();
     </script>
 </body>
