@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Eventry — Every Event Vendor, One App</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKZWEG474S"></script>
     <script>
@@ -12,6 +9,22 @@
         gtag('js', new Date());
         gtag('config', 'G-WKZWEG474S');
     </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+    <!-- Eventry adaptive device router: one file, one backend/data source -->
+    <script>
+      (function () {
+        const ua = navigator.userAgent || '';
+        const mobileUA = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(ua);
+        const tabletUA = /iPad|Tablet/i.test(ua);
+        const mobile = mobileUA || tabletUA || window.innerWidth < 768;
+        document.documentElement.dataset.eventryDevice = mobile ? 'mobile' : 'desktop';
+        document.documentElement.classList.add(mobile ? 'eventry-mobile' : 'eventry-desktop');
+      })();
+    </script>
+
+    <title>Eventry AI Cloud — Event Providers &amp; Talent Marketplace</title>
     <meta name="description" content="AI-powered operating system for event infrastructure: list, search, select, enquire, and book venues, caterers, decorators, and more." />
     <link rel="canonical" href="https://nbraju.github.io/TentHouseS-/" />
     <meta property="og:type" content="website" />
@@ -28,219 +41,28 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@700;800&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
     <style>
-        /* ===== MOBILE-FIRST BASE STYLES (from Eventry Moblie version) ===== */
-        :root{
-            --font-main: 'Aparajita', 'Noto Serif', Georgia, 'Times New Roman', serif;
-            --primary:#F2542D; --primary-dark:#D6401D;
-            --ink:#1F2430; --muted:#6B7280;
-            --bg:#F3F3F6; --card:#FFFFFF;
-            --gold:#E3A03D; --maroon:#9C2E44;
-            --line: rgba(31,36,48,0.08);
-            --purple: #7c3aed;
-            --purple-dark: #6d28d9;
-            --purple-light: #ede9fe;
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { max-width: 100%; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; padding-top: 0; }
+        html { scroll-behavior: smooth; }
+
+        /* Frozen (fixed) top nav pane */
+        #mainNav { position: fixed !important; top: 0; left: 0; right: 0; width: 100%; z-index: 60; }
+
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --primary-light: #ede9fe;
             --green: #16a34a;
             --green-dark: #15803d;
-            --ink-desktop: #0f172a;
-            box-sizing:border-box;
-        }
-        *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
-
-        /* ===== BASE BODY ===== */
-        body {
-            background: var(--bg);
-            color: var(--ink);
-            -webkit-font-smoothing: antialiased;
-            font-family: var(--font-main);
-            max-width: 100%;
-            overflow-x: hidden;
+            --ink: #0f172a;
         }
 
-        /* ===== MOBILE FRAME ===== */
-        .frame {
-            max-width: 430px;
-            margin: 0 auto;
-            min-height: 100vh;
-            background: var(--bg);
-            position: relative;
-            padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
-        }
-        @media (min-width: 500px) {
-            body { display: flex; justify-content: center; padding: 24px 0; }
-            .frame { border-radius: 28px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18); overflow: hidden; min-height: 844px; }
-        }
-
-        /* ===== MOBILE TOP BAR ===== */
-        .topbar {
-            background: var(--primary); color: #fff;
-            padding: calc(16px + env(safe-area-inset-top, 0px)) 18px 18px;
-        }
-        .row { display: flex; align-items: center; justify-content: space-between; }
-        .loc-wrap { position: relative; }
-        .loc {
-            background: none; border: none; color: #fff; cursor: pointer;
-            display: flex; align-items: center; gap: 6px; font-weight: 700;
-            font-size: 0.95rem; padding: 0;
-        }
-        .loc small { display: block; font-weight: 400; font-size: 0.72rem; opacity: 0.85; }
-        .loc-menu {
-            display: none; position: absolute; top: 135%; left: 0; background: #fff;
-            border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 6px; min-width: 190px; z-index: 30;
-        }
-        .loc-menu.open { display: block; }
-        .loc-item {
-            padding: 10px 12px; border-radius: 8px; font-size: 0.85rem;
-            color: var(--ink); font-weight: 600; cursor: pointer;
-        }
-        .loc-item:hover { background: #F3F3F6; }
-        .avatar {
-            width: 34px; height: 34px; border-radius: 50%;
-            background: rgba(255, 255, 255, 0.22);
-            display: flex; align-items: center; justify-content: center; font-size: 1rem;
-            cursor: pointer;
-        }
-        .search {
-            margin-top: 16px; background: #fff; border-radius: 14px;
-            padding: 13px 16px; display: flex; align-items: center; gap: 10px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-        }
-        .search input {
-            border: none; outline: none; flex: 1; font-size: 0.92rem;
-            color: var(--ink); background: transparent;
-            font-family: var(--font-main);
-        }
-        .search input::placeholder { color: var(--muted); }
-
-        /* ===== BANNER ===== */
-        .banner {
-            margin: 16px 16px 0; background: var(--maroon); color: #F6EFE1;
-            border-radius: 16px; padding: 20px 18px; text-align: center;
-        }
-        .banner .line1 {
-            display: block; font-size: 1.15rem; font-weight: 700;
-            line-height: 1.35; margin-bottom: 6px;
-        }
-        .banner .line2 { display: block; font-size: 0.85rem; opacity: 0.9; }
-
-        /* ===== SPLIT BOXES ===== */
-        .split { display: flex; gap: 12px; padding: 6px 16px 4px; }
-        .split .box {
-            flex: 1; background: var(--card); border-radius: 16px;
-            padding: 16px 14px; box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-        }
-        .split .box .bi { font-size: 1.6rem; display: block; margin-bottom: 8px; }
-        .split .box h3 { font-size: 0.95rem; margin-bottom: 4px; }
-        .split .box p {
-            font-size: 0.74rem; color: var(--muted); line-height: 1.4;
-            margin-bottom: 12px; min-height: 48px;
-        }
-        .split .box a {
-            display: inline-block; font-size: 0.76rem; font-weight: 700;
-            color: #fff; padding: 8px 12px; border-radius: 9px; text-decoration: none;
-        }
-        .split .vendor a { background: var(--maroon); }
-        .split .customer a { background: var(--primary); }
-
-        /* ===== SECTIONS ===== */
-        .section { padding: 20px 16px 4px; }
-        .section-row {
-            padding: 20px 16px 4px; display: flex;
-            align-items: center; justify-content: space-between;
-        }
-        .section h2, .section-row h2 { font-size: 1.08rem; }
-        .guide-tab {
-            background: var(--gold); color: var(--ink); font-weight: 700;
-            font-size: 0.75rem; letter-spacing: 0.04em; padding: 7px 14px;
-            border-radius: 999px; text-decoration: none; white-space: nowrap;
-        }
-
-        /* ===== CATEGORIES SCROLL ===== */
-        .cats {
-            display: flex; gap: 16px; overflow-x: auto; padding: 12px 16px 4px;
-            scrollbar-width: none;
-        }
-        .cats::-webkit-scrollbar { display: none; }
-        .cat { flex-shrink: 0; width: 68px; text-align: center; cursor: pointer; }
-        .cat .ic {
-            width: 60px; height: 60px; border-radius: 50%; background: var(--card);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.6rem; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
-            margin-bottom: 6px;
-        }
-        .cat span { font-size: 0.72rem; font-weight: 600; color: var(--ink); }
-
-        /* ===== VENDOR FEED ===== */
-        .feed {
-            padding: 6px 16px 4px; display: flex; flex-direction: column; gap: 14px;
-        }
-        .vcard {
-            background: var(--card); border-radius: 16px; overflow: hidden;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
-        }
-        .vthumb {
-            height: 120px; display: flex; align-items: center; justify-content: center;
-            font-size: 2.4rem;
-        }
-        .vbody { padding: 12px 14px 14px; }
-        .vtop { display: flex; align-items: center; justify-content: space-between; }
-        .vname { font-weight: 700; font-size: 0.95rem; }
-        .rating {
-            background: #1F7A3D; color: #fff; font-size: 0.72rem; font-weight: 700;
-            padding: 2px 7px; border-radius: 6px; display: flex; align-items: center; gap: 3px;
-        }
-        .vmeta { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
-        .vtags { display: flex; gap: 6px; margin-top: 9px; flex-wrap: wrap; }
-        .vtag {
-            font-size: 0.7rem; font-weight: 600; background: #F3EDE0;
-            color: #8A5A12; padding: 4px 9px; border-radius: 999px;
-        }
-
-        /* ===== BOTTOM NAV ===== */
-        .navbar {
-            position: absolute; left: 0; right: 0; bottom: 0; background: #fff;
-            border-top: 1px solid var(--line); display: flex;
-            padding: 10px 6px calc(10px + env(safe-area-inset-bottom, 0px));
-        }
-        .navitem {
-            flex: 1; text-align: center; font-size: 0.68rem; font-weight: 600;
-            color: var(--muted); cursor: pointer;
-        }
-        .navitem.active { color: var(--primary); }
-        .navitem .ni { font-size: 1.2rem; display: block; margin-bottom: 2px; }
-
-        /* ===== DESKTOP OVERRIDES ===== */
-        body.desktop-mode { font-family: 'Inter', sans-serif; }
-        body.desktop-mode .frame { max-width: 100%; border-radius: 0; box-shadow: none; min-height: 100vh; padding-bottom: 0; }
-        body.desktop-mode .navbar { display: none; }
-        body.desktop-mode .topbar { display: none; }
-        body.desktop-mode .banner { display: none; }
-        body.desktop-mode .split { display: none; }
-        body.desktop-mode .section-row { display: none; }
-        body.desktop-mode .cats { display: none; }
-        body.desktop-mode .section { display: none; }
-
-        /* Desktop nav */
-        #mainNav {
-            position: fixed !important; top: 0; left: 0; right: 0; width: 100%;
-            z-index: 60; display: none;
-        }
-        body.desktop-mode #mainNav { display: block; }
-
-        /* Desktop tab content */
-        .desktop-only { display: none; }
-        body.desktop-mode .desktop-only { display: block; }
-
-        /* Tab content - mobile hides desktop sections */
-        .mobile-view { display: block; }
-        body.desktop-mode .mobile-view { display: none; }
-
-        /* ===== DESKTOP STYLES (from deepseek_html) ===== */
         .font-display { font-family: 'Sora', sans-serif; }
         .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1c1917 60%, #1e1b0e 100%); }
-        .hero-accent { color: var(--purple); }
+        .hero-accent { color: var(--primary); }
         .blue-glow { text-shadow: 0 0 40px rgba(124, 58, 237, 0.3); }
 
         .badge-live {
@@ -264,32 +86,27 @@
             border-radius: 999px; padding: 5px 14px; border: 1px solid #cbd5e1;
             font-size: 13px; width: 100%; max-width: 200px; outline: none;
             transition: all 0.2s; background: #f8fafc;
-            font-family: 'Inter', sans-serif;
         }
-        .search-box:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2); background: white; }
+        .search-box:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2); background: white; }
 
         .form-input {
             width: 100%; padding: 10px 16px; border: 1px solid #cbd5e1;
             border-radius: 12px; font-size: 14px; outline: none;
             transition: all 0.2s; background: white;
-            font-family: 'Inter', sans-serif;
         }
-        .form-input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15); }
+        .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15); }
 
         .btn-primary {
-            background: var(--purple); color: white; font-weight: 700;
+            background: var(--primary); color: white; font-weight: 700;
             border-radius: 12px; transition: all 0.2s;
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer; border: none;
         }
-        .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
 
         .btn-green {
             background: var(--green); color: white; font-weight: 700;
             border-radius: 12px; transition: all 0.2s;
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            font-family: 'Inter', sans-serif; cursor: pointer; border: none;
         }
         .btn-green:hover { background: var(--green-dark); transform: translateY(-1px); }
 
@@ -297,33 +114,30 @@
             background: #25d366; color: white; font-weight: 700; border-radius: 14px;
             transition: all 0.2s;
             display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            font-family: 'Inter', sans-serif; cursor: pointer; border: none;
         }
         .btn-wa:hover { background: #20bd5c; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
 
         .step-num {
-            width: 40px; height: 40px; background: var(--purple); color: white;
+            width: 40px; height: 40px; background: var(--primary); color: white;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
             font-size: 18px; font-weight: 900; font-family: 'Sora', sans-serif; flex-shrink: 0;
         }
 
         #toast {
-            position: fixed; bottom: 24px; right: 24px; background: var(--ink-desktop);
+            position: fixed; bottom: 24px; right: 24px; background: var(--ink);
             color: white; padding: 14px 20px; border-radius: 14px; font-size: 14px;
             font-weight: 500; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             z-index: 9999; transform: translateY(100px); opacity: 0;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             display: flex; align-items: center; gap: 10px; max-width: 320px;
-            font-family: 'Inter', sans-serif;
         }
         #toast.show { transform: translateY(0); opacity: 1; }
 
         .section-label {
             font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
-            text-transform: uppercase; color: var(--purple);
-            background: var(--purple-light); border: 1px solid #c4b5fd;
+            text-transform: uppercase; color: var(--primary);
+            background: var(--primary-light); border: 1px solid #c4b5fd;
             padding: 4px 16px; border-radius: 999px; display: inline-block;
-            font-family: 'Inter', sans-serif;
         }
 
         .modal-overlay {
@@ -336,7 +150,6 @@
             background: white; border-radius: 24px; max-width: 800px; width: 100%;
             max-height: 90vh; overflow-y: auto; padding: 24px 28px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); position: relative;
-            font-family: 'Inter', sans-serif;
         }
         .modal-close {
             position: sticky; top: 0; float: right; font-size: 28px;
@@ -350,9 +163,8 @@
             font-weight: 600; font-size: 14px; transition: all 0.2s;
             border: 1px solid transparent; background: #f1f5f9; color: #475569;
             text-decoration: none; display: inline-flex; align-items: center;
-            font-family: 'Inter', sans-serif;
         }
-        .vendor-tab-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+        .vendor-tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
         .vendor-tab-btn:hover:not(.active) { background: #e2e8f0; }
         .vendor-tab-content { display: none; }
         .vendor-tab-content.active { display: block; }
@@ -362,11 +174,10 @@
             max-height: 500px; background: white; border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); display: none;
             flex-direction: column; z-index: 999; border: 1px solid #e2e8f0; overflow: hidden;
-            font-family: 'Inter', sans-serif;
         }
         .chat-widget.open { display: flex; }
         .chat-header {
-            background: var(--purple); color: white; padding: 12px 16px;
+            background: var(--primary); color: white; padding: 12px 16px;
             font-weight: 600; display: flex; justify-content: space-between; align-items: center;
         }
         .chat-messages {
@@ -374,7 +185,7 @@
             max-height: 300px; background: #f1f5f9;
         }
         .chat-message { margin-bottom: 8px; padding: 8px 12px; border-radius: 12px; max-width: 85%; }
-        .chat-message.user { background: var(--purple); color: white; margin-left: auto; }
+        .chat-message.user { background: var(--primary); color: white; margin-left: auto; }
         .chat-message.bot { background: white; color: #1e293b; border: 1px solid #e2e8f0; }
         .chat-input-area {
             padding: 12px; border-top: 1px solid #e2e8f0;
@@ -383,16 +194,15 @@
         .chat-input-area input {
             flex: 1; padding: 8px 12px; border: 1px solid #cbd5e1;
             border-radius: 8px; outline: none; font-size: 14px;
-            font-family: 'Inter', sans-serif;
         }
         .chat-toggle {
-            position: fixed; bottom: 24px; right: 24px; background: var(--purple);
+            position: fixed; bottom: 24px; right: 24px; background: var(--primary);
             color: white; width: 60px; height: 60px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
             z-index: 998; border: none; font-size: 24px; transition: all 0.3s;
         }
-        .chat-toggle:hover { transform: scale(1.05); background: var(--purple-dark); }
+        .chat-toggle:hover { transform: scale(1.05); background: var(--primary-dark); }
 
         .logo-img {
             height: 2.2rem; width: auto; border-radius: 8px;
@@ -404,10 +214,9 @@
             font-weight: 800; letter-spacing: 0.02em; cursor: pointer;
             border: 2px solid #cbd5e1; background: white; color: #1e293b;
             transition: all 0.2s; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-            font-family: 'Inter', sans-serif;
         }
         .category-filter-btn.active {
-            background: var(--purple); color: white; border-color: var(--purple);
+            background: var(--primary); color: white; border-color: var(--primary);
             box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
         }
         .category-filter-btn:hover:not(.active) {
@@ -415,10 +224,9 @@
         }
 
         .vendor-type-badge {
-            background: var(--purple-light); color: var(--purple-dark);
+            background: var(--primary-light); color: var(--primary-dark);
             font-size: 10px; font-weight: 700; padding: 2px 10px;
             border-radius: 999px; border: 1px solid #c4b5fd;
-            font-family: 'Inter', sans-serif;
         }
 
         .tab-content { display: none; }
@@ -430,12 +238,11 @@
             display: inline-flex; align-items: center; gap: 5px;
             text-decoration: none; background: transparent;
             border: 2px solid transparent; white-space: nowrap;
-            font-family: 'Inter', sans-serif; cursor: pointer;
         }
         .nav-link i { font-size: 0.85rem; }
         .nav-link:hover { background: #f1f5f9; color: #0f172a; }
         .nav-link.active {
-            background: var(--purple); color: white; border-color: var(--purple);
+            background: var(--primary); color: white; border-color: var(--primary);
             box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
         }
         .nav-link.active i { color: white; }
@@ -453,7 +260,6 @@
             font-size: 12px; font-weight: 600; color: #4c1d95;
             white-space: nowrap; max-width: 200px;
             overflow: hidden; text-overflow: ellipsis;
-            font-family: 'Inter', sans-serif;
         }
         .location-chip-nav i { color: #7c3aed; font-size: 14px; flex-shrink: 0; }
         .location-chip-nav .loc-spinner { animation: spin 1s linear infinite; }
@@ -465,9 +271,8 @@
             padding: 6px 14px; border-radius: 999px; border: 1px solid #e2e8f0;
             background: white; color: #475569; font-weight: 600; font-size: 13px;
             cursor: pointer; transition: all 0.2s;
-            font-family: 'Inter', sans-serif;
         }
-        .pagination button.active-page { background: var(--purple); color: white; border-color: var(--purple); }
+        .pagination button.active-page { background: var(--primary); color: white; border-color: var(--primary); }
         .pagination button:hover:not(.active-page) { background: #f1f5f9; }
         .pagination button:disabled { opacity: 0.4; pointer-events: none; }
 
@@ -530,7 +335,6 @@
             background: none; border: none; font-weight: 700; font-size: 1rem;
             cursor: pointer; display: flex; align-items: center; gap: 8px;
             color: #0f172a; padding: 6px 0; width: 100%; text-align: left;
-            font-family: 'Inter', sans-serif;
         }
         .guide-content .accordion-btn i { transition: transform 0.2s; color: #7c3aed; font-size: 0.9rem; }
         .guide-content .accordion-btn.open i { transform: rotate(90deg); }
@@ -551,7 +355,6 @@
             background: #ecfeff; color: #0e7490; border: 1px solid #a5f3fc;
             font-size: 10px; font-weight: 800; padding: 3px 9px;
             border-radius: 999px; display: inline-flex; gap: 4px; align-items: center;
-            font-family: 'Inter', sans-serif;
         }
         .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
@@ -566,7 +369,6 @@
             padding: 32px 28px 28px; text-align: center;
             box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
             animation: popIn 0.3s ease;
-            font-family: 'Inter', sans-serif;
         }
         @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .popup-box .icon-circle {
@@ -577,12 +379,11 @@
         .popup-box h3 { font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
         .popup-box p { color: #475569; font-size: 15px; line-height: 1.5; margin-bottom: 20px; }
         .popup-box .popup-btn {
-            background: var(--purple); color: white; border: none;
+            background: var(--primary); color: white; border: none;
             padding: 10px 32px; border-radius: 999px; font-weight: 700;
             font-size: 15px; cursor: pointer; transition: 0.2s;
-            font-family: 'Inter', sans-serif;
         }
-        .popup-box .popup-btn:hover { background: var(--purple-dark); transform: scale(1.02); }
+        .popup-box .popup-btn:hover { background: var(--primary-dark); transform: scale(1.02); }
 
         /* Wizard category tiles */
         .w-cat-tile {
@@ -604,9 +405,8 @@
             padding: 6px 14px; font-size: 13px; font-weight: 600; color: #1e293b;
             outline: none; cursor: pointer; max-width: 180px;
             transition: all 0.2s;
-            font-family: 'Inter', sans-serif;
         }
-        .city-select:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15); }
+        .city-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15); }
         .city-select option { font-weight: 500; }
 
         /* Gold bold two-line description on hero */
@@ -620,13 +420,15 @@
             margin-right: auto;
             margin-top: 1.25rem;
             text-shadow: 0 1px 4px rgba(0,0,0,0.35);
-            font-family: 'Inter', sans-serif;
         }
         @media (min-width: 640px) {
             .hero-gold-desc { font-size: 1.25rem; }
         }
-        @media (min-width: 1024px) {
-            .hero-gold-desc { font-size: 1.25rem; }
+
+        /* Top CTA strip — sits directly under the fixed nav pane */
+        .top-cta-strip {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
         }
 
         @media (max-width: 640px) {
@@ -639,28 +441,122 @@
             .city-select { font-size: 11px; padding: 4px 8px; max-width: 120px; }
         }
 
-        /* Utility for hidden */
-        .hidden { display: none !important; }
+        /* ============================================================
+           EVENTRY SINGLE-FILE ADAPTIVE UI
+           Same HTML + same JavaScript + same Google Apps Script backend.
+           The browser is classified as mobile/desktop and the UI adapts.
+           No data, API, vendor logic or existing feature is duplicated.
+           ============================================================ */
 
-        /* Mobile searchable dropdown */
-        .mobile-cat-dropdown {
-            position: absolute; top: 100%; left: 0; right: 0;
-            background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-            max-height: 260px; overflow-y: auto; z-index: 40;
-            margin-top: 4px; display: none;
+        html.eventry-mobile body { font-size: 15px; }
+
+        /* Desktop: preserve the full navigation and spacious directory. */
+        html.eventry-desktop #mainNav .nav-link { display: inline-flex; }
+        html.eventry-desktop #mainNav .search-box { display: block; }
+
+        /* Mobile: compact, touch-first navigation. */
+        html.eventry-mobile #mainNav > div { padding-left: 8px; padding-right: 8px; }
+        html.eventry-mobile #mainNav .nav-link {
+            min-height: 38px;
+            padding: 7px 10px;
+            font-size: 0.72rem;
+            gap: 4px;
+            border-radius: 10px;
         }
-        .mobile-cat-dropdown.open { display: block; }
-        .mobile-cat-dropdown .cat-opt {
-            padding: 12px 16px; font-size: 0.9rem; font-weight: 600;
-            color: var(--ink); cursor: pointer; border-bottom: 1px solid #f1f5f9;
-            display: flex; align-items: center; gap: 10px;
+        html.eventry-mobile #mainNav .nav-link i { font-size: 0.78rem; }
+        html.eventry-mobile #mainNav .location-chip-nav { max-width: 112px; }
+        html.eventry-mobile #mainNav .search-box {
+            order: 99;
+            min-width: 120px;
+            max-width: 135px;
+            min-height: 34px;
         }
-        .mobile-cat-dropdown .cat-opt:last-child { border-bottom: none; }
-        .mobile-cat-dropdown .cat-opt:hover { background: #F3F3F6; }
-        .mobile-cat-dropdown .cat-opt .cat-emoji { font-size: 1.2rem; }
+
+        /* Touch-friendly controls without changing IDs or event handlers. */
+        html.eventry-mobile button,
+        html.eventry-mobile .btn-primary,
+        html.eventry-mobile .btn-green,
+        html.eventry-mobile .btn-wa,
+        html.eventry-mobile .category-filter-btn,
+        html.eventry-mobile .vendor-tab-btn {
+            min-height: 42px;
+        }
+
+        html.eventry-mobile .category-filter-btn {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        /* Mobile directory cards/containers use the full viewport efficiently. */
+        html.eventry-mobile #tab-browse .max-w-7xl,
+        html.eventry-mobile #tab-home .max-w-6xl {
+            width: 100%;
+        }
+        html.eventry-mobile #directoryGrid { gap: 12px; }
+        html.eventry-mobile #tab-browse h2 { font-size: 1.55rem; line-height: 1.2; }
+
+        /* Mobile wizard: one-column, thumb-friendly form. */
+        html.eventry-mobile #tab-list .max-w-3xl { width: 100%; }
+        html.eventry-mobile .w-cat-tile { min-height: 82px; padding: 13px 8px; }
+        html.eventry-mobile .form-input {
+            min-height: 46px;
+            font-size: 16px; /* prevents iOS input zoom */
+        }
+        html.eventry-mobile textarea.form-input { min-height: 110px; }
+
+        /* Mobile modals/chat fit the viewport. */
+        html.eventry-mobile .modal-overlay,
+        html.eventry-mobile .popup-overlay { padding: 8px; }
+        html.eventry-mobile .modal-content {
+            max-height: 94vh;
+            border-radius: 18px;
+            padding: 15px;
+        }
+        html.eventry-mobile .popup-box {
+            max-width: 100%;
+            padding: 25px 18px 20px;
+        }
+        html.eventry-mobile .chat-widget {
+            width: calc(100vw - 20px);
+            right: 10px;
+            bottom: 10px;
+            max-height: 72vh;
+            border-radius: 18px;
+        }
+        html.eventry-mobile .chat-toggle {
+            width: 54px;
+            height: 54px;
+            right: 14px;
+            bottom: 14px;
+        }
+
+        /* Mobile hero: keep every existing feature but reduce vertical bulk. */
+        html.eventry-mobile .hero-bg { padding-bottom: 2.5rem; }
+        html.eventry-mobile .hero-gold-desc {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-top: 0.9rem;
+        }
+        html.eventry-mobile #tab-home .mt-10,
+        html.eventry-mobile #tab-home .mt-12 { margin-top: 1.5rem; }
+        html.eventry-mobile #tab-home .mt-12 { margin-top: 1.75rem; }
+        html.eventry-mobile #tab-home .gap-8 { gap: 1.25rem; }
+
+        /* Mobile tabs/filters can scroll horizontally instead of breaking. */
+        html.eventry-mobile #tab-browse .category-filter-btn,
+        html.eventry-mobile #tab-browse select {
+            font-size: 13px;
+        }
+
+        /* When a phone rotates or the viewport changes, re-evaluate device mode. */
+        @media (max-width: 767px) {
+            html.eventry-desktop body { font-size: 15px; }
+        }
+
     </style>
 </head>
 <body>
+
     <!-- TOAST -->
     <div id="toast"><i class="fa-solid fa-circle-check text-green-400"></i><span id="toastMsg">Done!</span></div>
 
@@ -675,14 +571,14 @@
         </div>
     </div>
 
-    <!-- ===== DESKTOP NAV (hidden on mobile) ===== -->
+    <!-- NAV -->
     <nav id="mainNav" class="bg-white border-b border-slate-200/80 shadow-sm">
         <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-7">
             <div class="flex items-center justify-between py-1.5 gap-1 sm:gap-2 flex-nowrap">
                 <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 overflow-hidden">
                     <a href="#" data-tab="home" class="flex items-center shrink-0 gap-1.5">
                         <div style="width:2rem;height:2rem;background:#7c3aed;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-family:'Sora',sans-serif;">E</div>
-                        <span class="font-display text-lg font-extrabold text-slate-900 hidden sm:inline"><span style="color:var(--purple)">Eventry</span>AI</span>
+                        <span class="font-display text-lg font-extrabold text-slate-900 hidden sm:inline"><span style="color:var(--primary)">Eventry</span>AI</span>
                     </a>
                     <div class="location-chip-nav" id="locationChipNav">
                         <i class="fa-solid fa-location-dot"></i>
@@ -704,705 +600,637 @@
         </div>
     </nav>
 
-    <!-- ===== MOBILE VIEW (shown on mobile) ===== -->
-    <div class="mobile-view" id="mobileView">
-        <div class="frame">
-            <!-- Mobile top bar -->
-            <div class="topbar">
-                <div class="row">
-                    <div class="loc-wrap">
-                        <button class="loc" id="locBtn" type="button">📍 <span id="locLabel">Detecting…</span> ▾</button>
-                        <div class="loc-menu" id="locMenu">
-                            <div class="loc-item">Banjara Hills</div>
-                            <div class="loc-item">Jubilee Hills</div>
-                            <div class="loc-item">Madhapur</div>
-                            <div class="loc-item">Gachibowli</div>
-                            <div class="loc-item">Kondapur</div>
-                            <div class="loc-item">Secunderabad</div>
+    <!-- TAB: HOME -->
+    <section id="tab-home" class="tab-content active">
+        <div class="hero-bg text-white pb-14 sm:pb-20 px-4 relative overflow-hidden">
+
+            <!-- ============================================================
+                 TOP CTA STRIP — placed directly below the fixed nav pane
+                 LEFT = Own an Event Business? | RIGHT = Find Providers Near You
+                 ============================================================ -->
+            <div class="max-w-6xl mx-auto relative z-10 top-cta-strip">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+
+                    <!-- LEFT: Own an Event Business? -->
+                    <div class="bg-white/[0.07] backdrop-blur border-2 border-purple-500/40 rounded-2xl p-5 sm:p-6 text-left relative overflow-hidden order-1">
+                        <div class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Free Listing</div>
+                        <div class="text-3xl mb-2">🏪</div>
+                        <h2 class="font-display text-xl sm:text-2xl font-extrabold text-white">Own an Event Business?</h2>
+                        <p class="text-sm text-slate-300 mt-2 mb-4">Get discovered by customers in your city. Free listing. Live in 1 hour. Zero commission on direct enquiries.</p>
+                        <a href="#" data-tab="list" class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white font-extrabold py-3 rounded-xl shadow-lg shadow-purple-500/30 transition">
+                            List My Business — Free →
+                        </a>
+                        <div class="mt-3 flex flex-wrap gap-3 text-[11px] text-slate-300 font-mono">
+                            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> No commission</span>
+                            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Live in 1 hr</span>
+                            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Edit anytime</span>
                         </div>
                     </div>
-                    <div class="avatar" id="mobileAvatar">🔔</div>
-                </div>
-                <div class="search" style="position:relative;">
-                    <span>🔍</span>
-                    <input placeholder="Search categories…" id="mobileSearchInput" autocomplete="off">
-                    <span>🎙️</span>
-                    <div class="mobile-cat-dropdown" id="mobileCatDropdown"></div>
-                </div>
-            </div>
 
-            <!-- Mobile banner -->
-            <div class="banner">
-                <span class="line1">India's A-Z Event Providers &amp; Talent Network</span>
-                <span class="line2">Resource Platform for Every Event</span>
-            </div>
-
-            <!-- Mobile categories -->
-            <div class="section-row">
-                <h2>What are you planning?</h2>
-                <a href="#" class="guide-tab" data-tab="guide" id="mobileGuideTab">GUIDE</a>
-            </div>
-            <div class="cats" id="mobileCats">
-                <!-- Rendered dynamically -->
-            </div>
-
-            <!-- Mobile split boxes -->
-            <div class="section">
-                <h2>Are you here to hire, or to be hired?</h2>
-            </div>
-            <div class="split">
-                <div class="box vendor">
-                    <span class="bi">🧰</span>
-                    <h3>For Vendors</h3>
-                    <p>List tents, lighting, décor, catering or your talent — zero commission, ever.</p>
-                    <a href="#" data-tab="list">List free →</a>
-                </div>
-                <div class="box customer">
-                    <span class="bi">🎉</span>
-                    <h3>For Customers</h3>
-                    <p>Compare verified vendors near you and get quotes in minutes.</p>
-                    <a href="#" data-tab="browse">Browse now →</a>
+                    <!-- RIGHT: Find Providers Near You -->
+                    <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-5 sm:p-6 text-left order-2">
+                        <div class="text-3xl mb-2">🎪</div>
+                        <h2 class="font-display text-xl sm:text-2xl font-extrabold text-white">Find Providers Near You</h2>
+                        <p class="text-sm text-slate-300 mt-2 mb-4">Search tent houses, caterers, decorators, and lighting pros. Call or WhatsApp them directly.</p>
+                        <a href="#" data-tab="browse" class="block w-full text-center bg-amber-500 hover:bg-amber-600 text-slate-900 font-extrabold py-3 rounded-xl shadow-lg transition">
+                            Find Providers →
+                        </a>
+                        <div class="mt-3 flex flex-wrap gap-3 text-[11px] text-slate-300">
+                            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Free to browse</span>
+                            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Direct contact</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Mobile vendor feed: Event Resource Nearby -->
-            <div class="section-row">
-                <h2>Event Resource Nearby</h2>
-                <a href="#" class="guide-tab" data-tab="browse" id="mobileViewAll">VIEW ALL</a>
-            </div>
-            <div class="feed" id="mobileFeed">
-                <!-- Rendered by JS: only 3 vendors -->
-            </div>
+            <!-- Hero heading + description (below the CTA strip) -->
+            <div class="max-w-6xl mx-auto relative z-10 mt-10 sm:mt-12">
+                <div class="text-center mb-10">
+                    <div class="inline-block bg-purple-500/10 text-purple-300 text-[11px] font-bold tracking-widest uppercase px-5 py-1.5 rounded-full border border-purple-500/20 mb-6">
+                        <i class="fa-solid fa-calendar-check mr-1.5"></i> India's Free Event Providers &amp; Talent Network
+                    </div>
+                    <h1 style="font-family: 'Aparajita', serif; font-size: 24px; font-weight: bold; color: gold;">
+                        Discover Trusted Providers <br class="hidden sm:inline">
+                        <span>or Get Discovered</span>
+                    </h1>
+                    <p class="font-display text-lg sm:text-2xl lg:text-3xl font-extrabold tracking-wide uppercase mt-5 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-300 to-amber-300">
+                        Resource Platform for Every Event
+                    </p>
+                    <p class="font-display text-lg sm:text-2xl lg:text-3xl font-bold mt-1.5 text-slate-100">
+                        Every Provider. Every Talent. <span class="text-amber-300">Zero Commission.</span>
+                    </p>
+                    <!-- Gold, bold, two-line description -->
+                    <p class="hero-gold-desc">
+                        A single destination to source talent for any event, such as: Anchors, Pujari's, Singers, Magicians, and so on and for Hard Inventories such as<br class="hidden sm:block" />
+                        Tent Houses, Lighting, Photography &amp; AVs: two sides — event planners find providers, providers find customers. Zero commission on direct enquiries.
+                    </p>
+                </div>
 
-            <!-- Mobile bottom nav -->
-            <div class="navbar" id="mobileNav">
-                <div class="navitem active" data-tab="home"><span class="ni">🏠</span>Home</div>
-                <div class="navitem" data-tab="browse"><span class="ni">🗂️</span>Categories</div>
-                <div class="navitem" data-tab="list"><span class="ni">📋</span>List</div>
-                <div class="navitem" data-tab="contact"><span class="ni">👤</span>Profile</div>
+                <div class="flex flex-wrap justify-center gap-8 sm:gap-14 mt-12 text-sm text-slate-400">
+                    <div class="text-center">
+                        <div class="font-display text-3xl font-extrabold text-white" id="liveCountHero">0</div>
+                        <div class="mt-1">Live Providers</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-display text-3xl font-extrabold text-white">6+</div>
+                        <div class="mt-1">Categories</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-display text-3xl font-extrabold text-white">0%</div>
+                        <div class="mt-1">Commission*</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-display text-3xl font-extrabold text-white">15 min</div>
+                        <div class="mt-1">Enquiry Response</div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-3 text-center">*Direct enquiries only. Platform fee applies for managed bookings.</p>
+            </div>
+            <div class="absolute -top-32 -right-32 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        </div>
+
+        <div class="py-14 bg-white border-b border-slate-100">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="text-center mb-10"><span class="section-label">How Eventry Works</span></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-purple-50 rounded-2xl p-7 border border-purple-100">
+                        <div class="text-purple-700 font-bold text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-store"></i> For Providers
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3"><div class="step-num text-sm">1</div><div><p class="font-semibold text-slate-800">List your services</p><p class="text-xs text-slate-500 mt-0.5">Venue, catering, decor, tent house, or any event support.</p></div></div>
+                            <div class="flex items-start gap-3"><div class="step-num text-sm">2</div><div><p class="font-semibold text-slate-800">Get discovered</p><p class="text-xs text-slate-500 mt-0.5">Your listing appears in search results filtered by category &amp; location.</p></div></div>
+                            <div class="flex items-start gap-3"><div class="step-num text-sm">3</div><div><p class="font-semibold text-slate-800">Receive enquiries</p><p class="text-xs text-slate-500 mt-0.5">Customers contact you directly via call or WhatsApp.</p></div></div>
+                        </div>
+                        <a href="#" class="btn-primary w-full py-3 mt-6 text-sm rounded-xl" data-tab="list"><i class="fa-solid fa-arrow-right-to-bracket"></i> List My Services Free</a>
+                    </div>
+                    <div class="bg-emerald-50 rounded-2xl p-7 border border-emerald-100">
+                        <div class="text-emerald-700 font-bold text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-users"></i> For Event Planners
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">1</div><div><p class="font-semibold text-slate-800">Search &amp; filter</p><p class="text-xs text-slate-500 mt-0.5">Find providers by category, location, and rating.</p></div></div>
+                            <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">2</div><div><p class="font-semibold text-slate-800">Select &amp; enquire</p><p class="text-xs text-slate-500 mt-0.5">Call directly or submit an enquiry form.</p></div></div>
+                            <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">3</div><div><p class="font-semibold text-slate-800">Book &amp; confirm</p><p class="text-xs text-slate-500 mt-0.5">Provider confirms availability and handles the rest.</p></div></div>
+                        </div>
+                        <a href="#" class="btn-green w-full py-3 mt-6 text-sm rounded-xl" data-tab="browse"><i class="fa-solid fa-search"></i> Find Providers Now</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- ===== DESKTOP VIEW (shown on desktop) ===== -->
-    <div class="desktop-only" id="desktopView">
-        <!-- TAB: HOME -->
-        <section id="tab-home" class="tab-content active">
-            <div class="hero-bg text-white pt-6 pb-14 sm:pt-8 sm:pb-20 px-4 relative overflow-hidden">
-                <div class="max-w-6xl mx-auto relative z-10">
-                    <div class="text-center mb-6">
-                        <div class="inline-block bg-purple-500/10 text-purple-300 text-[11px] font-bold tracking-widest uppercase px-5 py-1.5 rounded-full border border-purple-500/20 mb-6">
-                            <i class="fa-solid fa-calendar-check mr-1.5"></i> India's Free Event Providers &amp; Talent Network
-                        </div>
-                        <h1 style="font-family: 'Aparajita', serif; font-size: 24px; font-weight: bold; color: gold;">
-                            Discover Trusted Providers <br class="hidden sm:inline">
-                            <span>or Get Discovered</span>
-                        </h1>
-                        <p class="font-display text-lg sm:text-2xl lg:text-3xl font-extrabold tracking-wide uppercase mt-5 text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-300 to-amber-300">
-                            Resource Platform for Every Event
-                        </p>
-                        <p class="font-display text-lg sm:text-2xl lg:text-3xl font-bold mt-1.5 text-slate-100">
-                            Every Provider. Every Talent. <span class="text-amber-300">Zero Commission.</span>
-                        </p>
-                        <p class="hero-gold-desc">
-                            A single destination to source talent for any event, such as: Anchors, Pujari's, Singers, Magicians, and so on and for Hard Inventories such as<br class="hidden sm:block" />
-                            Tent Houses, Lighting, Photography &amp; AVs: two sides — event planners find providers, providers find customers. Zero commission on direct enquiries.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto mt-8">
-                        <div class="bg-white/[0.07] backdrop-blur border-2 border-purple-500/40 rounded-2xl p-6 sm:p-7 text-left relative overflow-hidden order-1">
-                            <div class="absolute top-4 right-4 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Free Listing</div>
-                            <div class="text-4xl mb-3">🏪</div>
-                            <h2 class="font-display text-2xl font-extrabold text-white">Own an Event Business?</h2>
-                            <p class="text-sm text-slate-300 mt-2 mb-5">Get discovered by customers in your city. Free listing. Live in 1 hour. Zero commission on direct enquiries.</p>
-                            <a href="#" data-tab="list" class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white font-extrabold py-3.5 rounded-xl shadow-lg shadow-purple-500/30 transition">
-                                List My Business — Free →
-                            </a>
-                            <div class="mt-4 flex flex-wrap gap-3 text-[11px] text-slate-300 font-mono">
-                                <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> No commission</span>
-                                <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Live in 1 hr</span>
-                                <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Edit anytime</span>
-                            </div>
-                        </div>
-
-                        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 sm:p-7 text-left order-2">
-                            <div class="text-4xl mb-3">🎪</div>
-                            <h2 class="font-display text-2xl font-extrabold text-white">Find Providers Near You</h2>
-                            <p class="text-sm text-slate-300 mt-2 mb-5">Search tent houses, caterers, decorators, and lighting pros. Call or WhatsApp them directly.</p>
-                            <a href="#" data-tab="browse" class="block w-full text-center bg-amber-500 hover:bg-amber-600 text-slate-900 font-extrabold py-3.5 rounded-xl shadow-lg transition">
-                                Find Providers →
-                            </a>
-                            <div class="mt-4 flex flex-wrap gap-3 text-[11px] text-slate-300">
-                                <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Free to browse</span>
-                                <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Direct contact</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap justify-center gap-8 sm:gap-14 mt-12 text-sm text-slate-400">
-                        <div class="text-center">
-                            <div class="font-display text-3xl font-extrabold text-white" id="liveCountHero">0</div>
-                            <div class="mt-1">Live Providers</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="font-display text-3xl font-extrabold text-white">6+</div>
-                            <div class="mt-1">Categories</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="font-display text-3xl font-extrabold text-white">0%</div>
-                            <div class="mt-1">Commission*</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="font-display text-3xl font-extrabold text-white">15 min</div>
-                            <div class="mt-1">Enquiry Response</div>
-                        </div>
-                    </div>
-                    <p class="text-[10px] text-slate-500 mt-3 text-center">*Direct enquiries only. Platform fee applies for managed bookings.</p>
+    <!-- TAB: BROWSE -->
+    <section id="tab-browse" class="tab-content py-10 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <span class="section-label">Live Directory</span>
+                    <h2 class="font-display text-3xl font-bold text-slate-900 mt-2">All Event Providers &amp; Talent</h2>
+                    <p class="text-sm text-slate-500 mt-1">Real providers, real ratings · tap <i class="fa-solid fa-phone text-emerald-600"></i> to enquire directly</p>
                 </div>
-                <div class="absolute -top-32 -right-32 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-            </div>
-
-            <div class="py-14 bg-white border-b border-slate-100">
-                <div class="max-w-5xl mx-auto px-4">
-                    <div class="text-center mb-10"><span class="section-label">How Eventry Works</span></div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="bg-purple-50 rounded-2xl p-7 border border-purple-100">
-                            <div class="text-purple-700 font-bold text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-store"></i> For Providers
-                            </div>
-                            <div class="space-y-4">
-                                <div class="flex items-start gap-3"><div class="step-num text-sm">1</div><div><p class="font-semibold text-slate-800">List your services</p><p class="text-xs text-slate-500 mt-0.5">Venue, catering, decor, tent house, or any event support.</p></div></div>
-                                <div class="flex items-start gap-3"><div class="step-num text-sm">2</div><div><p class="font-semibold text-slate-800">Get discovered</p><p class="text-xs text-slate-500 mt-0.5">Your listing appears in search results filtered by category &amp; location.</p></div></div>
-                                <div class="flex items-start gap-3"><div class="step-num text-sm">3</div><div><p class="font-semibold text-slate-800">Receive enquiries</p><p class="text-xs text-slate-500 mt-0.5">Customers contact you directly via call or WhatsApp.</p></div></div>
-                            </div>
-                            <a href="#" class="btn-primary w-full py-3 mt-6 text-sm rounded-xl" data-tab="list"><i class="fa-solid fa-arrow-right-to-bracket"></i> List My Services Free</a>
-                        </div>
-                        <div class="bg-emerald-50 rounded-2xl p-7 border border-emerald-100">
-                            <div class="text-emerald-700 font-bold text-xs uppercase tracking-widest mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-users"></i> For Event Planners
-                            </div>
-                            <div class="space-y-4">
-                                <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">1</div><div><p class="font-semibold text-slate-800">Search &amp; filter</p><p class="text-xs text-slate-500 mt-0.5">Find providers by category, location, and rating.</p></div></div>
-                                <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">2</div><div><p class="font-semibold text-slate-800">Select &amp; enquire</p><p class="text-xs text-slate-500 mt-0.5">Call directly or submit an enquiry form.</p></div></div>
-                                <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">3</div><div><p class="font-semibold text-slate-800">Book &amp; confirm</p><p class="text-xs text-slate-500 mt-0.5">Provider confirms availability and handles the rest.</p></div></div>
-                            </div>
-                            <a href="#" class="btn-green w-full py-3 mt-6 text-sm rounded-xl" data-tab="browse"><i class="fa-solid fa-search"></i> Find Providers Now</a>
-                        </div>
-                    </div>
+                <div class="flex items-center gap-3">
+                    <span id="counter" class="bg-purple-50 border border-purple-200 text-purple-800 text-sm font-bold px-4 py-2 rounded-full flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        <span id="counterNumber">0</span> Active
+                    </span>
+                    <button onclick="shareApp()" class="text-xs font-bold text-slate-600 border border-slate-300 px-3 py-2 rounded-full hover:border-purple-400 hover:text-purple-600 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-share-nodes"></i> Share
+                    </button>
                 </div>
             </div>
-        </section>
 
-        <!-- TAB: BROWSE -->
-        <section id="tab-browse" class="tab-content py-10 bg-white border-t border-slate-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
-                    <div>
-                        <span class="section-label">Live Directory</span>
-                        <h2 class="font-display text-3xl font-bold text-slate-900 mt-2">All Event Providers &amp; Talent</h2>
-                        <p class="text-sm text-slate-500 mt-1">Real providers, real ratings · tap <i class="fa-solid fa-phone text-emerald-600"></i> to enquire directly</p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span id="counter" class="bg-purple-50 border border-purple-200 text-purple-800 text-sm font-bold px-4 py-2 rounded-full flex items-center gap-2">
-                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                            <span id="counterNumber">0</span> Active
-                        </span>
-                        <button onclick="shareApp()" class="text-xs font-bold text-slate-600 border border-slate-300 px-3 py-2 rounded-full hover:border-purple-400 hover:text-purple-600 transition flex items-center gap-1.5">
-                            <i class="fa-solid fa-share-nodes"></i> Share
-                        </button>
-                    </div>
+            <!-- Simplified category filter + city/state filter -->
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+                <button type="button" id="viewAllBtn" class="category-filter-btn active" data-category="all">🔥 View All</button>
+                <div class="flex items-center gap-2 bg-white border-2 border-slate-300 rounded-full px-3 py-1.5 shadow-sm">
+                    <i class="fa-solid fa-filter text-purple-600"></i>
+                    <select id="categorySelect" class="bg-transparent border-none outline-none text-sm font-bold text-slate-700 cursor-pointer pr-2">
+                        <option value="all">Select a category…</option>
+                    </select>
                 </div>
-
-                <div class="flex flex-wrap items-center gap-3 mb-6">
-                    <button type="button" id="viewAllBtn" class="category-filter-btn active" data-category="all">🔥 View All</button>
-                    <div class="flex items-center gap-2 bg-white border-2 border-slate-300 rounded-full px-3 py-1.5 shadow-sm">
-                        <i class="fa-solid fa-filter text-purple-600"></i>
-                        <select id="categorySelect" class="bg-transparent border-none outline-none text-sm font-bold text-slate-700 cursor-pointer pr-2">
-                            <option value="all">Select a category…</option>
-                        </select>
-                    </div>
-                    <div class="flex items-center gap-2 bg-white border-2 border-slate-300 rounded-full px-3 py-1.5 shadow-sm">
-                        <i class="fa-solid fa-location-dot text-emerald-600"></i>
-                        <select id="citySelect" class="city-select">
-                            <option value="all">All Cities / States</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div id="directoryGrid" class="space-y-4"></div>
-                <div id="emptyState" class="hidden text-center py-12">
-                    <i class="fa-solid fa-magnifying-glass text-4xl text-slate-300 mb-4"></i>
-                    <p class="text-slate-500 font-medium">No providers found in your area yet.</p>
-                    <p class="text-sm text-slate-400 mt-1">Be the first! <a href="#" class="text-purple-600 font-semibold hover:underline" data-tab="list">List your services →</a></p>
-                </div>
-
-                <div id="paginationControls" class="pagination"></div>
-
-                <div class="mt-10 bg-purple-50 border border-purple-200 rounded-2xl p-6 text-center">
-                    <p class="font-bold text-slate-800">Your event service isn't listed here yet.</p>
-                    <p class="text-sm text-slate-500 mt-1">Join the network — free listing, direct enquiries to your phone.</p>
-                    <a href="#" class="btn-primary px-6 py-2.5 mt-4 inline-flex text-sm rounded-xl" data-tab="list"><i class="fa-solid fa-plus-circle"></i> List My Services</a>
+                <!-- City / State filter -->
+                <div class="flex items-center gap-2 bg-white border-2 border-slate-300 rounded-full px-3 py-1.5 shadow-sm">
+                    <i class="fa-solid fa-location-dot text-emerald-600"></i>
+                    <select id="citySelect" class="city-select">
+                        <option value="all">All Cities / States</option>
+                    </select>
                 </div>
             </div>
-        </section>
 
-        <!-- TAB: LIST — 7-step wizard -->
-        <section id="tab-list" class="tab-content py-10 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
-            <div class="max-w-3xl mx-auto px-4">
-                <div class="text-center mb-8">
-                    <span class="section-label">Free Provider Listing</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3">Get Listed in 7 Quick Steps</h2>
-                    <p class="text-slate-500 mt-2 max-w-xl mx-auto">No app to download. No commission on direct enquiries. Fill this once and we'll verify within an hour.</p>
+            <div id="directoryGrid" class="space-y-4"></div>
+            <div id="emptyState" class="hidden text-center py-12">
+                <i class="fa-solid fa-magnifying-glass text-4xl text-slate-300 mb-4"></i>
+                <p class="text-slate-500 font-medium">No providers found in your area yet.</p>
+                <p class="text-sm text-slate-400 mt-1">Be the first! <a href="#" class="text-purple-600 font-semibold hover:underline" data-tab="list">List your services →</a></p>
+            </div>
+
+            <div id="paginationControls" class="pagination"></div>
+
+            <div class="mt-10 bg-purple-50 border border-purple-200 rounded-2xl p-6 text-center">
+                <p class="font-bold text-slate-800">Your event service isn't listed here yet.</p>
+                <p class="text-sm text-slate-500 mt-1">Join the network — free listing, direct enquiries to your phone.</p>
+                <a href="#" class="btn-primary px-6 py-2.5 mt-4 inline-flex text-sm rounded-xl" data-tab="list"><i class="fa-solid fa-plus-circle"></i> List My Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB: LIST — 7-step wizard -->
+    <section id="tab-list" class="tab-content py-10 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="section-label">Free Provider Listing</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3">Get Listed in 7 Quick Steps</h2>
+                <p class="text-slate-500 mt-2 max-w-xl mx-auto">No app to download. No commission on direct enquiries. Fill this once and we'll verify within an hour.</p>
+            </div>
+
+            <div class="flex items-center gap-1.5 mb-8" id="wizardProgress">
+                <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
+                <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
+                <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
+                <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
+                <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
+                <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
+                <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8">
+                <!-- Step 1 -->
+                <div class="wizard-step" data-step="1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="step-num">1</div>
+                        <div><h3 class="font-display text-xl font-bold text-slate-900">What's your business name?</h3>
+                            <p class="text-sm text-slate-500">This is how customers will find you.</p></div>
+                    </div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Business Name <span class="text-red-500">*</span></label>
+                    <input type="text" id="wBizName" placeholder="e.g., Grand Tent House" class="form-input" />
                 </div>
 
-                <div class="flex items-center gap-1.5 mb-8" id="wizardProgress">
-                    <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
-                    <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
-                    <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
-                    <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
-                    <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
-                    <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
-                    <div class="h-1.5 flex-1 rounded-full bg-slate-200"></div>
+                <!-- Step 2 -->
+                <div class="wizard-step hidden" data-step="2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="step-num">2</div>
+                        <div><h3 class="font-display text-xl font-bold text-slate-900">Your WhatsApp number</h3>
+                            <p class="text-sm text-slate-500">Customers will reach you here.</p></div>
+                    </div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">WhatsApp Number <span class="text-red-500">*</span></label>
+                    <input type="tel" id="wPhone" placeholder="+91 99887 76655" class="form-input" />
                 </div>
 
-                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8">
-                    <!-- Step 1 -->
-                    <div class="wizard-step" data-step="1">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="step-num">1</div>
-                            <div><h3 class="font-display text-xl font-bold text-slate-900">What's your business name?</h3>
-                                <p class="text-sm text-slate-500">This is how customers will find you.</p></div>
-                        </div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Business Name <span class="text-red-500">*</span></label>
-                        <input type="text" id="wBizName" placeholder="e.g., Grand Tent House" class="form-input" />
+                <!-- Step 3 -->
+                <div class="wizard-step hidden" data-step="3">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="step-num">3</div>
+                        <div><h3 class="font-display text-xl font-bold text-slate-900">Pick your main category</h3></div>
                     </div>
-
-                    <!-- Step 2 -->
-                    <div class="wizard-step hidden" data-step="2">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="step-num">2</div>
-                            <div><h3 class="font-display text-xl font-bold text-slate-900">Your WhatsApp number</h3>
-                                <p class="text-sm text-slate-500">Customers will reach you here.</p></div>
-                        </div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">WhatsApp Number <span class="text-red-500">*</span></label>
-                        <input type="tel" id="wPhone" placeholder="+91 99887 76655" class="form-input" />
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="wizard-step hidden" data-step="3">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="step-num">3</div>
-                            <div><h3 class="font-display text-xl font-bold text-slate-900">Pick your main category</h3></div>
-                        </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                            <button type="button" class="w-cat-tile" data-cat="Tent House"><div class="text-2xl mb-1">🏕️</div><div class="text-sm font-bold">Tent House</div></button>
-                            <button type="button" class="w-cat-tile" data-cat="Venue"><div class="text-2xl mb-1">🏛️</div><div class="text-sm font-bold">Venue</div></button>
-                            <button type="button" class="w-cat-tile" data-cat="Catering"><div class="text-2xl mb-1">🍽️</div><div class="text-sm font-bold">Catering</div></button>
-                            <button type="button" class="w-cat-tile" data-cat="Lighting"><div class="text-2xl mb-1">💡</div><div class="text-sm font-bold">Lighting</div></button>
-                            <button type="button" class="w-cat-tile" data-cat="Decorations"><div class="text-2xl mb-1">🎨</div><div class="text-sm font-bold">Decorations</div></button>
-                            <button type="button" class="w-cat-tile" data-cat="Others"><div class="text-2xl mb-1">📦</div><div class="text-sm font-bold">Others</div></button>
-                        </div>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="wizard-step hidden" data-step="4">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="step-num">4</div>
-                            <div><h3 class="font-display text-xl font-bold text-slate-900">Where do you operate?</h3></div>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">City <span class="text-red-500">*</span></label>
-                                <input type="text" id="wCity" placeholder="e.g., Hyderabad" class="form-input" /></div>
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Area / Locality</label>
-                                <input type="text" id="wArea" placeholder="e.g., Banjara Hills" class="form-input" /></div>
-                            <div class="sm:col-span-2"><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">PIN Code</label>
-                                <input type="text" id="wPin" placeholder="e.g., 500034" class="form-input" /></div>
-                        </div>
-                    </div>
-
-                    <!-- Step 5 -->
-                    <div class="wizard-step hidden" data-step="5">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="step-num">5</div>
-                            <div><h3 class="font-display text-xl font-bold text-slate-900">What do you rent or provide?</h3></div>
-                        </div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Items / Services <span class="text-red-500">*</span></label>
-                        <textarea id="wItems" rows="4" placeholder="e.g., 200 chairs, 20 tables, shamiyana tent, LED lights, stage setup" class="form-input resize-none"></textarea>
-                    </div>
-
-                    <!-- Step 6 -->
-                    <div class="wizard-step hidden" data-step="6">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="step-num">6</div>
-                            <div><h3 class="font-display text-xl font-bold text-slate-900">A short description</h3></div>
-                        </div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Description <span class="text-red-500">*</span></label>
-                        <textarea id="wDescription" rows="3" placeholder="e.g., Family-run tent house since 2005. Specialising in weddings." class="form-input resize-none"></textarea>
-                        <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo URL 1</label>
-                                <input type="url" id="wImg1" placeholder="https://…" class="form-input" /></div>
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo URL 2</label>
-                                <input type="url" id="wImg2" placeholder="https://…" class="form-input" /></div>
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo URL 3</label>
-                                <input type="url" id="wImg3" placeholder="https://…" class="form-input" /></div>
-                        </div>
-                    </div>
-
-                    <!-- Step 7 -->
-                    <div class="wizard-step hidden" data-step="7">
-                        <div class="flex items-center gap-3 mb-6">
-                            <div class="step-num">7</div>
-                            <div><h3 class="font-display text-xl font-bold text-slate-900">Ready to submit!</h3>
-                                <p class="text-sm text-slate-500">Review what you're about to send. We'll verify within 1 hour.</p></div>
-                        </div>
-                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 text-sm text-slate-700 space-y-1.5">
-                            <p><b>Business:</b> <span id="wReviewBiz">—</span></p>
-                            <p><b>Phone:</b> <span id="wReviewPhone">—</span></p>
-                            <p><b>Category:</b> <span id="wReviewCat">—</span></p>
-                            <p><b>City:</b> <span id="wReviewCity">—</span></p>
-                        </div>
-                        <p class="text-xs text-slate-500 mt-4"><i class="fa-solid fa-shield-halved text-emerald-500 mr-1"></i> By submitting, you agree to be contacted by Eventry ops for verification.</p>
-                    </div>
-
-                    <div class="flex items-center justify-between gap-3 mt-8 pt-5 border-t border-slate-100">
-                        <button type="button" id="wBackBtn" class="hidden px-5 py-2.5 rounded-xl border-2 border-slate-300 text-slate-700 font-bold text-sm hover:border-purple-400 hover:text-purple-700 transition">← Back</button>
-                        <button type="button" id="wNextBtn" class="btn-primary px-6 py-2.5 rounded-xl text-sm shadow-md ml-auto">Continue →</button>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <button type="button" class="w-cat-tile" data-cat="Tent House"><div class="text-2xl mb-1">🏕️</div><div class="text-sm font-bold">Tent House</div></button>
+                        <button type="button" class="w-cat-tile" data-cat="Venue"><div class="text-2xl mb-1">🏛️</div><div class="text-sm font-bold">Venue</div></button>
+                        <button type="button" class="w-cat-tile" data-cat="Catering"><div class="text-2xl mb-1">🍽️</div><div class="text-sm font-bold">Catering</div></button>
+                        <button type="button" class="w-cat-tile" data-cat="Lighting"><div class="text-2xl mb-1">💡</div><div class="text-sm font-bold">Lighting</div></button>
+                        <button type="button" class="w-cat-tile" data-cat="Decorations"><div class="text-2xl mb-1">🎨</div><div class="text-sm font-bold">Decorations</div></button>
+                        <button type="button" class="w-cat-tile" data-cat="Others"><div class="text-2xl mb-1">📦</div><div class="text-sm font-bold">Others</div></button>
                     </div>
                 </div>
 
-                <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
-                        <div class="w-11 h-11 bg-purple-100 rounded-xl flex items-center justify-center text-xl mb-3">🔍</div>
-                        <h3 class="font-bold text-slate-900">Get Found</h3>
-                        <p class="text-sm text-slate-600 mt-2">Your listing appears in category and city searches.</p>
+                <!-- Step 4 -->
+                <div class="wizard-step hidden" data-step="4">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="step-num">4</div>
+                        <div><h3 class="font-display text-xl font-bold text-slate-900">Where do you operate?</h3></div>
                     </div>
-                    <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
-                        <div class="w-11 h-11 bg-emerald-100 rounded-xl flex items-center justify-center text-xl mb-3">📅</div>
-                        <h3 class="font-bold text-slate-900">Manage Bookings</h3>
-                        <p class="text-sm text-slate-600 mt-2">Track every booking, delivery, and return.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">City <span class="text-red-500">*</span></label>
+                            <input type="text" id="wCity" placeholder="e.g., Hyderabad" class="form-input" /></div>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Area / Locality</label>
+                            <input type="text" id="wArea" placeholder="e.g., Banjara Hills" class="form-input" /></div>
+                        <div class="sm:col-span-2"><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">PIN Code</label>
+                            <input type="text" id="wPin" placeholder="e.g., 500034" class="form-input" /></div>
                     </div>
-                    <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
-                        <div class="w-11 h-11 bg-amber-100 rounded-xl flex items-center justify-center text-xl mb-3">₹</div>
-                        <h3 class="font-bold text-slate-900">Track Money</h3>
-                        <p class="text-sm text-slate-600 mt-2">Record advances and balances. Know who owes what.</p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="wizard-step hidden" data-step="5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="step-num">5</div>
+                        <div><h3 class="font-display text-xl font-bold text-slate-900">What do you rent or provide?</h3></div>
                     </div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Items / Services <span class="text-red-500">*</span></label>
+                    <textarea id="wItems" rows="4" placeholder="e.g., 200 chairs, 20 tables, shamiyana tent, LED lights, stage setup" class="form-input resize-none"></textarea>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="wizard-step hidden" data-step="6">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="step-num">6</div>
+                        <div><h3 class="font-display text-xl font-bold text-slate-900">A short description</h3></div>
+                    </div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Description <span class="text-red-500">*</span></label>
+                    <textarea id="wDescription" rows="3" placeholder="e.g., Family-run tent house since 2005. Specialising in weddings." class="form-input resize-none"></textarea>
+                    <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo URL 1</label>
+                            <input type="url" id="wImg1" placeholder="https://…" class="form-input" /></div>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo URL 2</label>
+                            <input type="url" id="wImg2" placeholder="https://…" class="form-input" /></div>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo URL 3</label>
+                            <input type="url" id="wImg3" placeholder="https://…" class="form-input" /></div>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="wizard-step hidden" data-step="7">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="step-num">7</div>
+                        <div><h3 class="font-display text-xl font-bold text-slate-900">Ready to submit!</h3>
+                            <p class="text-sm text-slate-500">Review what you're about to send. We'll verify within 1 hour.</p></div>
+                    </div>
+                    <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 text-sm text-slate-700 space-y-1.5">
+                        <p><b>Business:</b> <span id="wReviewBiz">—</span></p>
+                        <p><b>Phone:</b> <span id="wReviewPhone">—</span></p>
+                        <p><b>Category:</b> <span id="wReviewCat">—</span></p>
+                        <p><b>City:</b> <span id="wReviewCity">—</span></p>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4"><i class="fa-solid fa-shield-halved text-emerald-500 mr-1"></i> By submitting, you agree to be contacted by Eventry ops for verification.</p>
+                </div>
+
+                <div class="flex items-center justify-between gap-3 mt-8 pt-5 border-t border-slate-100">
+                    <button type="button" id="wBackBtn" class="hidden px-5 py-2.5 rounded-xl border-2 border-slate-300 text-slate-700 font-bold text-sm hover:border-purple-400 hover:text-purple-700 transition">← Back</button>
+                    <button type="button" id="wNextBtn" class="btn-primary px-6 py-2.5 rounded-xl text-sm shadow-md ml-auto">Continue →</button>
                 </div>
             </div>
-        </section>
 
-        <!-- TAB: AI ONBOARD -->
-        <section id="tab-ai-onboard" class="tab-content py-10 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
-            <div class="max-w-5xl mx-auto px-4">
-                <div class="text-center mb-8">
-                    <span class="section-label">AI Onboarding Agent</span>
-                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3">Instant Provider Extraction</h2>
-                    <p class="text-slate-500 mt-2 max-w-xl mx-auto">Paste any text — WhatsApp message, email, or voice transcript — and let AI extract provider details.</p>
+            <!-- Value prop cards -->
+            <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                    <div class="w-11 h-11 bg-purple-100 rounded-xl flex items-center justify-center text-xl mb-3">🔍</div>
+                    <h3 class="font-bold text-slate-900">Get Found</h3>
+                    <p class="text-sm text-slate-600 mt-2">Your listing appears in category and city searches.</p>
                 </div>
-                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 max-w-3xl mx-auto mb-6">
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        <i class="fa-regular fa-message text-purple-500 mr-1.5"></i> Paste Provider Message
-                    </label>
-                    <textarea id="aiInput" rows="4" class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none text-sm transition resize-none"
-                    placeholder='Paste any provider message here... Example: "Grand Banquet Hall in Banjara Hills. 500 capacity, in-house catering. Contact 9988776655."'></textarea>
-                    <div class="flex flex-wrap gap-3 mt-4">
-                        <button id="aiExtractBtn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-2.5 rounded-xl transition flex items-center gap-2 text-sm">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> AI Extract
-                        </button>
-                        <button id="aiClearBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-6 py-2.5 rounded-xl transition text-sm">
-                            <i class="fa-regular fa-trash-can"></i> Clear
-                        </button>
-                    </div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                    <div class="w-11 h-11 bg-emerald-100 rounded-xl flex items-center justify-center text-xl mb-3">📅</div>
+                    <h3 class="font-bold text-slate-900">Manage Bookings</h3>
+                    <p class="text-sm text-slate-600 mt-2">Track every booking, delivery, and return.</p>
                 </div>
-                <div id="aiResults" class="max-w-3xl mx-auto hidden">
-                    <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 mb-6">
-                        <div class="flex items-center justify-between flex-wrap gap-4">
-                            <div>
-                                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Quality Score</span>
-                                <div class="flex items-center gap-3 mt-1">
-                                    <span id="aiQualityScore" class="text-3xl font-bold text-slate-900">0%</span>
-                                    <span id="aiQualityLabel" class="px-3 py-1 rounded-full text-sm font-bold">Pending</span>
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap gap-2">
-                                <span id="aiStatusBadge" class="px-4 py-2 bg-slate-100 rounded-xl text-sm font-medium text-slate-700"><i class="fa-regular fa-clock mr-1.5"></i> Needs Review</span>
-                            </div>
-                        </div>
-                        <div id="aiMissingFields" class="mt-3 flex flex-wrap gap-1.5"></div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6">
-                            <h3 class="font-bold text-slate-800 flex items-center gap-2 mb-4"><i class="fa-solid fa-store text-purple-500"></i> Provider Details</h3>
-                            <div class="space-y-3">
-                                <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Business Name</label><p id="aiExtractedName" class="text-slate-800 font-medium">—</p></div>
-                                <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Category</label><p id="aiExtractedCategory" class="text-slate-800 font-medium">—</p></div>
-                                <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone</label><p id="aiExtractedPhone" class="text-slate-800 font-medium">—</p></div>
-                                <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Area</label><p id="aiExtractedArea" class="text-slate-800 font-medium">—</p></div>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6">
-                            <h3 class="font-bold text-slate-800 flex items-center gap-2 mb-4"><i class="fa-solid fa-boxes text-purple-500"></i> Services Offered</h3>
-                            <div id="aiExtractedItems" class="flex flex-wrap gap-2 min-h-[80px] items-start">
-                                <p class="text-sm text-slate-400 w-full text-center py-4">No services extracted yet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 mb-6">
-                        <h3 class="font-bold text-slate-800 flex items-center gap-2 mb-4"><i class="fa-regular fa-pen-to-square text-purple-500"></i> Auto-Fill Form</h3>
-                        <form id="aiOnboardingForm" class="space-y-4">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Provider Name *</label><input type="text" id="aiFormName" required placeholder="Business name" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm" /></div>
-                                <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Category *</label><select id="aiFormCategory" required class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm"><option value="Tent House">Tent House</option><option value="Venue">Venue</option><option value="Catering">Catering</option><option value="Lighting">Lighting</option><option value="Decorations">Decorations</option><option value="Others">Others</option></select></div>
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phone *</label><input type="tel" id="aiFormPhone" required placeholder="+91 9988776655" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm" /></div>
-                                <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Area / Locality</label><input type="text" id="aiFormArea" placeholder="e.g., Banjara Hills" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm" /></div>
-                            </div>
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Services Offered *</label><textarea id="aiFormItems" required rows="2" placeholder="e.g., 300-capacity hall, 5-course menu" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm resize-none"></textarea></div>
-                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow transition flex items-center justify-center gap-2 text-sm"><i class="fa-solid fa-cloud-arrow-up"></i> Publish Provider</button>
-                        </form>
-                    </div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                    <div class="w-11 h-11 bg-amber-100 rounded-xl flex items-center justify-center text-xl mb-3">₹</div>
+                    <h3 class="font-bold text-slate-900">Track Money</h3>
+                    <p class="text-sm text-slate-600 mt-2">Record advances and balances. Know who owes what.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- TAB: GUIDE -->
-        <section id="tab-guide" class="tab-content py-10 bg-white border-t border-slate-200">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="guide-iframe-wrap">
-                    <div class="guide-content">
-                        <div class="header">
-                            <div class="badge"><i class="fa-regular fa-compass"></i> Eventry Guide</div>
-                            <h1>Plan · Budget · Execute</h1>
-                            <p>Everything you need to plan, source, and run a flawless event.</p>
-                        </div>
-
-                        <div class="section">
-                            <h2><i class="fa-solid fa-boxes"></i> Ideal Inventory per Event Type</h2>
-                            <div class="grid-2">
-                                <div class="card-stat" style="border-left-color:#7c3aed;">
-                                    <div class="num">🎉 Wedding</div>
-                                    <ul style="margin-top:6px;font-size:0.9rem;padding-left:18px;">
-                                        <li><strong>Furniture:</strong> Chairs x300+, round tables x30, sofa sets x8</li>
-                                        <li><strong>Tent:</strong> Shamiyana 40×40 ft or larger</li>
-                                        <li><strong>Lighting:</strong> Stage lights, LED uplights, fairy lights</li>
-                                        <li><strong>Decor:</strong> Flower arrangements, drapes, centrepieces</li>
-                                        <li><strong>Catering:</strong> Buffet setup, serving stations, crockery for 500+</li>
-                                    </ul>
-                                </div>
-                                <div class="card-stat" style="border-left-color:#16a34a;">
-                                    <div class="num">🏢 Corporate</div>
-                                    <ul style="margin-top:6px;font-size:0.9rem;padding-left:18px;">
-                                        <li><strong>Furniture:</strong> Conference chairs x100, modular stages</li>
-                                        <li><strong>AV:</strong> LCD projector, large screen, wireless mics x4</li>
-                                        <li><strong>Lighting:</strong> Stage wash, LED video wall</li>
-                                        <li><strong>Catering:</strong> Breakfast/tea stations, lunch buffet</li>
-                                    </ul>
-                                </div>
-                                <div class="card-stat" style="border-left-color:#f59e0b;">
-                                    <div class="num">🎂 Birthday / Social</div>
-                                    <ul style="margin-top:6px;font-size:0.9rem;padding-left:18px;">
-                                        <li><strong>Furniture:</strong> Chairs x80, round tables x10</li>
-                                        <li><strong>Decor:</strong> Balloon arches, theme backdrops</li>
-                                        <li><strong>Catering:</strong> Snack counters, cake table</li>
-                                        <li><strong>Lighting:</strong> Fairy lights, disco ball</li>
-                                    </ul>
-                                </div>
-                                <div class="card-stat" style="border-left-color:#3b82f6;">
-                                    <div class="num">🏟️ Exhibition</div>
-                                    <ul style="margin-top:6px;font-size:0.9rem;padding-left:18px;">
-                                        <li><strong>Furniture:</strong> Modular booths, display tables x50</li>
-                                        <li><strong>Lighting:</strong> Track lights, spotlights, LED strips</li>
-                                        <li><strong>AV:</strong> Digital signage, screens, PA system</li>
-                                    </ul>
-                                </div>
+    <!-- TAB: AI ONBOARD -->
+    <section id="tab-ai-onboard" class="tab-content py-10 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="section-label">AI Onboarding Agent</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3">Instant Provider Extraction</h2>
+                <p class="text-slate-500 mt-2 max-w-xl mx-auto">Paste any text — WhatsApp message, email, or voice transcript — and let AI extract provider details.</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 max-w-3xl mx-auto mb-6">
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                    <i class="fa-regular fa-message text-purple-500 mr-1.5"></i> Paste Provider Message
+                </label>
+                <textarea id="aiInput" rows="4" class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none text-sm transition resize-none"
+                placeholder='Paste any provider message here... Example: "Grand Banquet Hall in Banjara Hills. 500 capacity, in-house catering. Contact 9988776655."'></textarea>
+                <div class="flex flex-wrap gap-3 mt-4">
+                    <button id="aiExtractBtn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-2.5 rounded-xl transition flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> AI Extract
+                    </button>
+                    <button id="aiClearBtn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-6 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-regular fa-trash-can"></i> Clear
+                    </button>
+                </div>
+            </div>
+            <div id="aiResults" class="max-w-3xl mx-auto hidden">
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 mb-6">
+                    <div class="flex items-center justify-between flex-wrap gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Quality Score</span>
+                            <div class="flex items-center gap-3 mt-1">
+                                <span id="aiQualityScore" class="text-3xl font-bold text-slate-900">0%</span>
+                                <span id="aiQualityLabel" class="px-3 py-1 rounded-full text-sm font-bold">Pending</span>
                             </div>
                         </div>
-
-                        <div class="section">
-                            <h2><i class="fa-solid fa-indian-rupee-sign"></i> Budget Benchmarks</h2>
-                            <div class="table-wrap">
-                                <table>
-                                    <thead><tr><th>Event Type</th><th>Venue</th><th>Catering</th><th>Decor</th><th>Total Range</th></tr></thead>
-                                    <tbody>
-                                        <tr><td><strong>Wedding (300 guests)</strong></td><td>₹2–5L</td><td>₹3–8L</td><td>₹1.5–4L</td><td><span class="highlight-purple">₹7–19L</span></td></tr>
-                                        <tr><td><strong>Corporate (200 pax)</strong></td><td>₹1–3L</td><td>₹1.5–3L</td><td>₹30k–1L</td><td><span class="highlight-purple">₹3.8–10L</span></td></tr>
-                                        <tr><td><strong>Birthday (80 guests)</strong></td><td>₹30–80k</td><td>₹30–70k</td><td>₹20–60k</td><td><span class="highlight-purple">₹0.95–2.5L</span></td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span id="aiStatusBadge" class="px-4 py-2 bg-slate-100 rounded-xl text-sm font-medium text-slate-700"><i class="fa-regular fa-clock mr-1.5"></i> Needs Review</span>
                         </div>
-
-                        <div class="section">
-                            <h2><i class="fa-solid fa-clipboard-list"></i> Standard Operating Procedures</h2>
-                            <div class="accordion-btn open" onclick="toggleAccordionGuide(this)">
-                                <i class="fa-solid fa-chevron-right"></i> Phase 1: Planning &amp; Sourcing
-                            </div>
-                            <div class="accordion-body open">
-                                <div class="sop-step"><div class="sop-num">1</div><div class="sop-content"><strong>Define event brief</strong><span>Guest count, date, location, budget, theme.</span></div></div>
-                                <div class="sop-step"><div class="sop-num">2</div><div class="sop-content"><strong>Provider shortlisting</strong><span>Use Eventry to find 3–5 providers per category.</span></div></div>
-                                <div class="sop-step"><div class="sop-num">3</div><div class="sop-content"><strong>Enquiry &amp; site visits</strong><span>Send enquiries, visit top 2–3 venues.</span></div></div>
-                                <div class="sop-step"><div class="sop-num">4</div><div class="sop-content"><strong>Finalise &amp; sign</strong><span>Compare quotes, negotiate, sign agreements.</span></div></div>
-                            </div>
-                            <div class="accordion-btn" onclick="toggleAccordionGuide(this)">
-                                <i class="fa-solid fa-chevron-right"></i> Phase 2: Pre-event Coordination
-                            </div>
-                            <div class="accordion-body">
-                                <div class="sop-step"><div class="sop-num">5</div><div class="sop-content"><strong>Run-through meeting</strong><span>Call all providers 7 days before.</span></div></div>
-                                <div class="sop-step"><div class="sop-num">6</div><div class="sop-content"><strong>Floor plan &amp; run sheet</strong><span>Share layout with providers.</span></div></div>
-                            </div>
-                            <div class="accordion-btn" onclick="toggleAccordionGuide(this)">
-                                <i class="fa-solid fa-chevron-right"></i> Phase 3: Event Day Execution
-                            </div>
-                            <div class="accordion-body">
-                                <div class="sop-step"><div class="sop-num">7</div><div class="sop-content"><strong>Provider check-in</strong><span>Welcome providers at load-in.</span></div></div>
-                                <div class="sop-step"><div class="sop-num">8</div><div class="sop-content"><strong>Quality control</strong><span>Inspect setup: tables, linens, lighting.</span></div></div>
-                            </div>
-                            <div class="accordion-btn" onclick="toggleAccordionGuide(this)">
-                                <i class="fa-solid fa-chevron-right"></i> Phase 4: Teardown &amp; Follow-up
-                            </div>
-                            <div class="accordion-body">
-                                <div class="sop-step"><div class="sop-num">9</div><div class="sop-content"><strong>Supervised teardown</strong><span>Ensure providers pack out safely.</span></div></div>
-                                <div class="sop-step"><div class="sop-num">10</div><div class="sop-content"><strong>Provider feedback</strong><span>Rate providers on Eventry.</span></div></div>
-                            </div>
+                    </div>
+                    <div id="aiMissingFields" class="mt-3 flex flex-wrap gap-1.5"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6">
+                        <h3 class="font-bold text-slate-800 flex items-center gap-2 mb-4"><i class="fa-solid fa-store text-purple-500"></i> Provider Details</h3>
+                        <div class="space-y-3">
+                            <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Business Name</label><p id="aiExtractedName" class="text-slate-800 font-medium">—</p></div>
+                            <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Category</label><p id="aiExtractedCategory" class="text-slate-800 font-medium">—</p></div>
+                            <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Phone</label><p id="aiExtractedPhone" class="text-slate-800 font-medium">—</p></div>
+                            <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Area</label><p id="aiExtractedArea" class="text-slate-800 font-medium">—</p></div>
                         </div>
-
-                        <div class="section">
-                            <h2><i class="fa-solid fa-triangle-exclamation"></i> Disaster Recovery (Plan B)</h2>
-                            <div class="grid-2">
-                                <div><span class="tag amber">Rain / Bad weather</span> — Backup indoor venue</div>
-                                <div><span class="tag amber">Power outage</span> — Generator + battery lights</div>
-                                <div><span class="tag amber">Provider no-show</span> — Standby list of 2–3 providers</div>
-                                <div><span class="tag amber">Medical emergency</span> — First-aid kit + hospital contact</div>
-                            </div>
-                        </div>
-
-                        <div class="footer-note">
-                            <i class="fa-regular fa-compass"></i> Eventry Guide — v1.0 &middot; Part of Eventry AI Cloud &middot; <a href="#" onclick="window.__eventrySwitchTab&&window.__eventrySwitchTab('enquire');return false;">Get help</a>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6">
+                        <h3 class="font-bold text-slate-800 flex items-center gap-2 mb-4"><i class="fa-solid fa-boxes text-purple-500"></i> Services Offered</h3>
+                        <div id="aiExtractedItems" class="flex flex-wrap gap-2 min-h-[80px] items-start">
+                            <p class="text-sm text-slate-400 w-full text-center py-4">No services extracted yet.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- TAB: ENQUIRE -->
-        <section id="tab-enquire" class="tab-content py-10 bg-white border-t border-slate-200">
-            <div class="max-w-2xl mx-auto px-4">
-                <div class="text-center mb-8">
-                    <span class="section-label">Enquiry</span>
-                    <h2 class="font-display text-3xl font-bold text-slate-900 mt-3">Tell Us What You Need</h2>
-                    <p class="text-slate-500 mt-2">Our ops team will match you with the right provider and call you back within 15 minutes.</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-10">
-                    <form id="enquiryForm" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Full Name <span class="text-red-500">*</span></label><input type="text" id="enqName" required placeholder="Your name" class="form-input" /></div>
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Mobile <span class="text-red-500">*</span></label><input type="tel" id="enqPhone" required placeholder="10-digit number" class="form-input" /></div>
+                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 mb-6">
+                    <h3 class="font-bold text-slate-800 flex items-center gap-2 mb-4"><i class="fa-regular fa-pen-to-square text-purple-500"></i> Auto-Fill Form</h3>
+                    <form id="aiOnboardingForm" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Provider Name *</label><input type="text" id="aiFormName" required placeholder="Business name" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm" /></div>
+                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Category *</label><select id="aiFormCategory" required class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm"><option value="Tent House">Tent House</option><option value="Venue">Venue</option><option value="Catering">Catering</option><option value="Lighting">Lighting</option><option value="Decorations">Decorations</option><option value="Others">Others</option></select></div>
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Event Date <span class="text-red-500">*</span></label><input type="date" id="enqDate" required class="form-input" /></div>
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Guest Count</label><select id="enqSize" class="form-input"><option value="Under 50">Under 50</option><option value="50–100">50—100</option><option value="100–300" selected>100—300</option><option value="300–500">300—500</option><option value="500+">500+</option></select></div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phone *</label><input type="tel" id="aiFormPhone" required placeholder="+91 9988776655" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm" /></div>
+                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Area / Locality</label><input type="text" id="aiFormArea" placeholder="e.g., Banjara Hills" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm" /></div>
                         </div>
-                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Event Location <span class="text-red-500">*</span></label><input type="text" id="enqArea" required placeholder="e.g., Banjara Hills, Hyderabad" class="form-input" /></div>
-                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">What do you need?</label><textarea id="enqNeeds" rows="2" placeholder="e.g., Venue for 200 guests, catering, decor" class="form-input resize-none"></textarea></div>
-                        <div class="flex flex-col sm:flex-row gap-3 pt-1">
-                            <button type="submit" class="btn-wa flex-1 py-3.5 text-base rounded-xl shadow-lg"><i class="fa-brands fa-whatsapp text-xl"></i> Send via WhatsApp</button>
-                            <button type="button" id="enqCallbackBtn" class="btn-green flex-1 py-3 text-sm rounded-xl"><i class="fa-solid fa-phone"></i> Request Callback</button>
-                        </div>
-                        <div id="enquiryFeedback" class="hidden text-sm font-medium text-center py-2 rounded-xl"></div>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Services Offered *</label><textarea id="aiFormItems" required rows="2" placeholder="e.g., 300-capacity hall, 5-course menu" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm resize-none"></textarea></div>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow transition flex items-center justify-center gap-2 text-sm"><i class="fa-solid fa-cloud-arrow-up"></i> Publish Provider</button>
                     </form>
                 </div>
-                <div class="mt-6 text-center">
-                    <p class="text-sm text-slate-500 mb-3">Or reach us directly:</p>
-                    <a href="https://wa.me/919948680017?text=Hi%20Eventry%2C%20I%20need%20help%20with%20my%20event." target="_blank" rel="noopener noreferrer" class="btn-wa inline-flex px-8 py-3 rounded-xl text-sm shadow"><i class="fa-brands fa-whatsapp text-lg"></i> Chat on WhatsApp</a>
-                    <p class="text-xs text-slate-400 mt-2">WhatsApp</p>
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- TAB: CONTACT US -->
-        <section id="tab-contact" class="tab-content py-10 bg-white border-t border-slate-200">
-            <div class="max-w-2xl mx-auto px-4">
-                <div class="text-center mb-8">
-                    <span class="section-label">Contact Us</span>
-                    <h2 class="font-display text-3xl font-bold text-slate-900 mt-3">Get in Touch</h2>
-                    <p class="text-slate-500 mt-2">Send us a message and it'll open in your email app, ready to send to <span class="font-semibold text-slate-700">nbraju@hotmail.com</span>.</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-10">
-                    <form id="contactForm" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Full Name <span class="text-red-500">*</span></label><input type="text" id="cuName" required placeholder="Your name" class="form-input" /></div>
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Email <span class="text-red-500">*</span></label><input type="email" id="cuEmail" required placeholder="you@example.com" class="form-input" /></div>
-                        </div>
-                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Phone</label><input type="tel" id="cuPhone" placeholder="10-digit number (optional)" class="form-input" /></div>
-                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Subject <span class="text-red-500">*</span></label><input type="text" id="cuSubject" required placeholder="What is this about?" class="form-input" /></div>
-                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Message <span class="text-red-500">*</span></label><textarea id="cuMessage" rows="4" required placeholder="Write your message…" class="form-input resize-none"></textarea></div>
-                        <div class="pt-1">
-                            <button type="submit" class="btn-primary w-full py-3.5 text-base rounded-xl shadow-lg"><i class="fa-solid fa-paper-plane"></i> Send Email</button>
-                        </div>
-                        <div id="contactFeedback" class="hidden text-sm font-medium text-center py-2 rounded-xl"></div>
-                    </form>
-                </div>
-                <div class="mt-6 text-center">
-                    <p class="text-sm text-slate-500 mb-1">Or reach us directly:</p>
-                    <a href="mailto:nbraju@hotmail.com" class="text-purple-600 font-semibold hover:underline text-sm"><i class="fa-solid fa-envelope mr-1"></i> nbraju@hotmail.com</a>
-                </div>
-            </div>
-        </section>
+    <!-- TAB: GUIDE -->
+    <section id="tab-guide" class="tab-content py-10 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="guide-iframe-wrap">
+                <div class="guide-content">
+                    <div class="header">
+                        <div class="badge"><i class="fa-regular fa-compass"></i> Eventry Guide</div>
+                        <h1>Plan · Budget · Execute</h1>
+                        <p>Everything you need to plan, source, and run a flawless event.</p>
+                    </div>
 
-        <!-- PARTNER CTA -->
-        <section class="bg-slate-900 text-white py-14 px-4 border-t border-slate-800">
-            <div class="max-w-5xl mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                    <div>
-                        <span class="text-purple-400 text-xs font-bold tracking-widest uppercase bg-purple-500/10 px-4 py-1 rounded-full inline-block border border-purple-500/20">Partner Network</span>
-                        <h3 class="font-display text-3xl font-bold mt-4">Own an Event Service Business?</h3>
-                        <p class="text-slate-300 text-lg mt-2 max-w-md">Get your services in front of thousands of event planners. <strong class="text-white">Zero upfront cost.</strong></p>
-                        <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
-                            <li><i class="fa-solid fa-check-circle text-emerald-400 w-6"></i> Free listing &amp; direct enquiry routing</li>
-                            <li><i class="fa-solid fa-check-circle text-emerald-400 w-6"></i> No commission on direct calls</li>
-                            <li><i class="fa-solid fa-check-circle text-emerald-400 w-6"></i> Visibility across all event categories</li>
-                        </ul>
-                    </div>
-                    <div class="space-y-3">
-                        <a href="#" class="btn-primary w-full py-4 text-lg rounded-xl shadow-xl" data-tab="list"><i class="fa-solid fa-store"></i> List My Services — Free</a>
-                        <a href="https://wa.me/919948680017?text=Hello%2C%20I%20want%20to%20partner%20with%20Eventry" target="_blank" rel="noopener noreferrer" class="btn-wa w-full py-3.5 text-base rounded-xl"><i class="fa-brands fa-whatsapp text-xl"></i> Partner via WhatsApp</a>
-                        <p class="text-xs text-slate-500 text-center">📞 Ops Line: WhatsAPP</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="bg-white border-t border-slate-200 py-10 px-4">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-wrap justify-between items-center gap-6">
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <div style="width:2rem;height:2rem;background:#7c3aed;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-family:'Sora',sans-serif;">E</div>
-                            <span class="font-display text-xl font-extrabold text-slate-900"><span style="color:var(--purple)">Eventry</span>AI</span>
+                    <div class="section">
+                        <h2><i class="fa-solid fa-boxes"></i> Ideal Inventory per Event Type</h2>
+                        <div class="grid-2">
+                            <div class="card-stat" style="border-left-color:#7c3aed;">
+                                <div class="num">🎉 Wedding</div>
+                                <ul style="margin-top:6px;font-size:0.9rem;padding-left:18px;">
+                                    <li><strong>Furniture:</strong> Chairs x300+, round tables x30, sofa sets x8</li>
+                                    <li><strong>Tent:</strong> Shamiyana 40×40 ft or larger</li>
+                                    <li><strong>Lighting:</strong> Stage lights, LED uplights, fairy lights</li>
+                                    <li><strong>Decor:</strong> Flower arrangements, drapes, centrepieces</li>
+                                    <li><strong>Catering:</strong> Buffet setup, serving stations, crockery for 500+</li>
+                                </ul>
+                            </div>
+                            <div class="card-stat" style="border-left-color:#16a34a;">
+                                <div class="num">🏢 Corporate</div>
+                                <ul style="margin-top:6px;font-size:0.9rem;padding-left:18px;">
+                                    <li><strong>Furniture:</strong> Conference chairs x100, modular stages</li>
+                                    <li><strong>AV:</strong> LCD projector, large screen, wireless mics x4</li>
+                                    <li><strong>Lighting:</strong> Stage wash, LED video wall</li>
+                                    <li><strong>Catering:</strong> Breakfast/tea stations, lunch buffet</li>
+                                </ul>
+                            </div>
+                            <div class="card-stat" style="border-left-color:#f59e0b;">
+                                <div class="num">🎂 Birthday / Social</div>
+                                <ul style="margin-top:6px;font-size:0.9rem;padding-left:18px;">
+                                    <li><strong>Furniture:</strong> Chairs x80, round tables x10</li>
+                                    <li><strong>Decor:</strong> Balloon arches, theme backdrops</li>
+                                    <li><strong>Catering:</strong> Snack counters, cake table</li>
+                                    <li><strong>Lighting:</strong> Fairy lights, disco ball</li>
+                                </ul>
+                            </div>
+                            <div class="card-stat" style="border-left-color:#3b82f6;">
+                                <div class="num">🏟️ Exhibition</div>
+                                <ul style="margin-top:6px;font-size:0.9rem;padding-left:18px;">
+                                    <li><strong>Furniture:</strong> Modular booths, display tables x50</li>
+                                    <li><strong>Lighting:</strong> Track lights, spotlights, LED strips</li>
+                                    <li><strong>AV:</strong> Digital signage, screens, PA system</li>
+                                </ul>
+                            </div>
                         </div>
-                        <p class="text-xs text-slate-400 mt-1">India's AI event provider &amp; talent network</p>
-                        <p class="text-xs text-slate-400">A BharatStack Ventures initiative · Contact Us</p>
                     </div>
-                    <div class="flex flex-wrap gap-4 text-sm text-slate-500">
-                        <a href="#" data-tab="home" class="hover:text-purple-600 transition">Home</a>
-                        <a href="#" data-tab="browse" class="hover:text-purple-600 transition">Browse</a>
-                        <a href="#" data-tab="list" class="hover:text-purple-600 transition">List Services</a>
-                        <a href="#" data-tab="ai-onboard" class="hover:text-purple-600 transition">AI Onboard</a>
-                        <a href="#" data-tab="guide" class="hover:text-amber-600 transition">Guide</a>
-                        <a href="#" data-tab="enquire" class="hover:text-purple-600 transition">Enquire</a>
-                        <a href="https://wa.me/919948680017" target="_blank" rel="noopener noreferrer" class="hover:text-green-600 transition"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-                        <a href="#" data-tab="contact" class="hover:text-purple-600 transition font-semibold"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+
+                    <div class="section">
+                        <h2><i class="fa-solid fa-indian-rupee-sign"></i> Budget Benchmarks</h2>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Event Type</th><th>Venue</th><th>Catering</th><th>Decor</th><th>Total Range</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Wedding (300 guests)</strong></td><td>₹2–5L</td><td>₹3–8L</td><td>₹1.5–4L</td><td><span class="highlight-purple">₹7–19L</span></td></tr>
+                                    <tr><td><strong>Corporate (200 pax)</strong></td><td>₹1–3L</td><td>₹1.5–3L</td><td>₹30k–1L</td><td><span class="highlight-purple">₹3.8–10L</span></td></tr>
+                                    <tr><td><strong>Birthday (80 guests)</strong></td><td>₹30–80k</td><td>₹30–70k</td><td>₹20–60k</td><td><span class="highlight-purple">₹0.95–2.5L</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-                <div class="mt-6 pt-6 border-t border-slate-100 text-center text-xs text-slate-400">
-                    <p>© 2026 Eventry AI Cloud · BharatStack Ventures. Built for hyper-local event provider aggregation.</p>
+
+                    <div class="section">
+                        <h2><i class="fa-solid fa-clipboard-list"></i> Standard Operating Procedures</h2>
+                        <div class="accordion-btn open" onclick="toggleAccordionGuide(this)">
+                            <i class="fa-solid fa-chevron-right"></i> Phase 1: Planning &amp; Sourcing
+                        </div>
+                        <div class="accordion-body open">
+                            <div class="sop-step"><div class="sop-num">1</div><div class="sop-content"><strong>Define event brief</strong><span>Guest count, date, location, budget, theme.</span></div></div>
+                            <div class="sop-step"><div class="sop-num">2</div><div class="sop-content"><strong>Provider shortlisting</strong><span>Use Eventry to find 3–5 providers per category.</span></div></div>
+                            <div class="sop-step"><div class="sop-num">3</div><div class="sop-content"><strong>Enquiry &amp; site visits</strong><span>Send enquiries, visit top 2–3 venues.</span></div></div>
+                            <div class="sop-step"><div class="sop-num">4</div><div class="sop-content"><strong>Finalise &amp; sign</strong><span>Compare quotes, negotiate, sign agreements.</span></div></div>
+                        </div>
+                        <div class="accordion-btn" onclick="toggleAccordionGuide(this)">
+                            <i class="fa-solid fa-chevron-right"></i> Phase 2: Pre-event Coordination
+                        </div>
+                        <div class="accordion-body">
+                            <div class="sop-step"><div class="sop-num">5</div><div class="sop-content"><strong>Run-through meeting</strong><span>Call all providers 7 days before.</span></div></div>
+                            <div class="sop-step"><div class="sop-num">6</div><div class="sop-content"><strong>Floor plan &amp; run sheet</strong><span>Share layout with providers.</span></div></div>
+                        </div>
+                        <div class="accordion-btn" onclick="toggleAccordionGuide(this)">
+                            <i class="fa-solid fa-chevron-right"></i> Phase 3: Event Day Execution
+                        </div>
+                        <div class="accordion-body">
+                            <div class="sop-step"><div class="sop-num">7</div><div class="sop-content"><strong>Provider check-in</strong><span>Welcome providers at load-in.</span></div></div>
+                            <div class="sop-step"><div class="sop-num">8</div><div class="sop-content"><strong>Quality control</strong><span>Inspect setup: tables, linens, lighting.</span></div></div>
+                        </div>
+                        <div class="accordion-btn" onclick="toggleAccordionGuide(this)">
+                            <i class="fa-solid fa-chevron-right"></i> Phase 4: Teardown &amp; Follow-up
+                        </div>
+                        <div class="accordion-body">
+                            <div class="sop-step"><div class="sop-num">9</div><div class="sop-content"><strong>Supervised teardown</strong><span>Ensure providers pack out safely.</span></div></div>
+                            <div class="sop-step"><div class="sop-num">10</div><div class="sop-content"><strong>Provider feedback</strong><span>Rate providers on Eventry.</span></div></div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2><i class="fa-solid fa-triangle-exclamation"></i> Disaster Recovery (Plan B)</h2>
+                        <div class="grid-2">
+                            <div><span class="tag amber">Rain / Bad weather</span> — Backup indoor venue</div>
+                            <div><span class="tag amber">Power outage</span> — Generator + battery lights</div>
+                            <div><span class="tag amber">Provider no-show</span> — Standby list of 2–3 providers</div>
+                            <div><span class="tag amber">Medical emergency</span> — First-aid kit + hospital contact</div>
+                        </div>
+                    </div>
+
+                    <div class="footer-note">
+                        <i class="fa-regular fa-compass"></i> Eventry Guide — v1.0 &middot; Part of Eventry AI Cloud &middot; <a href="#" onclick="window.__eventrySwitchTab&&window.__eventrySwitchTab('enquire');return false;">Get help</a>
+                    </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <!-- TAB: ENQUIRE -->
+    <section id="tab-enquire" class="tab-content py-10 bg-white border-t border-slate-200">
+        <div class="max-w-2xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="section-label">Enquiry</span>
+                <h2 class="font-display text-3xl font-bold text-slate-900 mt-3">Tell Us What You Need</h2>
+                <p class="text-slate-500 mt-2">Our ops team will match you with the right provider and call you back within 15 minutes.</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-10">
+                <form id="enquiryForm" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Full Name <span class="text-red-500">*</span></label><input type="text" id="enqName" required placeholder="Your name" class="form-input" /></div>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Mobile <span class="text-red-500">*</span></label><input type="tel" id="enqPhone" required placeholder="10-digit number" class="form-input" /></div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Event Date <span class="text-red-500">*</span></label><input type="date" id="enqDate" required class="form-input" /></div>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Guest Count</label><select id="enqSize" class="form-input"><option value="Under 50">Under 50</option><option value="50–100">50—100</option><option value="100–300" selected>100—300</option><option value="300–500">300—500</option><option value="500+">500+</option></select></div>
+                    </div>
+                    <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Event Location <span class="text-red-500">*</span></label><input type="text" id="enqArea" required placeholder="e.g., Banjara Hills, Hyderabad" class="form-input" /></div>
+                    <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">What do you need?</label><textarea id="enqNeeds" rows="2" placeholder="e.g., Venue for 200 guests, catering, decor" class="form-input resize-none"></textarea></div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-1">
+                        <button type="submit" class="btn-wa flex-1 py-3.5 text-base rounded-xl shadow-lg"><i class="fa-brands fa-whatsapp text-xl"></i> Send via WhatsApp</button>
+                        <button type="button" id="enqCallbackBtn" class="btn-green flex-1 py-3 text-sm rounded-xl"><i class="fa-solid fa-phone"></i> Request Callback</button>
+                    </div>
+                    <div id="enquiryFeedback" class="hidden text-sm font-medium text-center py-2 rounded-xl"></div>
+                </form>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="text-sm text-slate-500 mb-3">Or reach us directly:</p>
+                <a href="https://wa.me/919948680017?text=Hi%20Eventry%2C%20I%20need%20help%20with%20my%20event." target="_blank" rel="noopener noreferrer" class="btn-wa inline-flex px-8 py-3 rounded-xl text-sm shadow"><i class="fa-brands fa-whatsapp text-lg"></i> Chat on WhatsApp</a>
+                <p class="text-xs text-slate-400 mt-2">WhatsApp</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB: CONTACT US -->
+    <section id="tab-contact" class="tab-content py-10 bg-white border-t border-slate-200">
+        <div class="max-w-2xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="section-label">Contact Us</span>
+                <h2 class="font-display text-3xl font-bold text-slate-900 mt-3">Get in Touch</h2>
+                <p class="text-slate-500 mt-2">Send us a message and it'll open in your email app, ready to send to <span class="font-semibold text-slate-700">nbraju@hotmail.com</span>.</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-10">
+                <form id="contactForm" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Full Name <span class="text-red-500">*</span></label><input type="text" id="cuName" required placeholder="Your name" class="form-input" /></div>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Email <span class="text-red-500">*</span></label><input type="email" id="cuEmail" required placeholder="you@example.com" class="form-input" /></div>
+                    </div>
+                    <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Phone</label><input type="tel" id="cuPhone" placeholder="10-digit number (optional)" class="form-input" /></div>
+                    <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Subject <span class="text-red-500">*</span></label><input type="text" id="cuSubject" required placeholder="What is this about?" class="form-input" /></div>
+                    <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Message <span class="text-red-500">*</span></label><textarea id="cuMessage" rows="4" required placeholder="Write your message…" class="form-input resize-none"></textarea></div>
+                    <div class="pt-1">
+                        <button type="submit" class="btn-primary w-full py-3.5 text-base rounded-xl shadow-lg"><i class="fa-solid fa-paper-plane"></i> Send Email</button>
+                    </div>
+                    <div id="contactFeedback" class="hidden text-sm font-medium text-center py-2 rounded-xl"></div>
+                </form>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="text-sm text-slate-500 mb-1">Or reach us directly:</p>
+                <a href="mailto:nbraju@hotmail.com" class="text-purple-600 font-semibold hover:underline text-sm"><i class="fa-solid fa-envelope mr-1"></i> nbraju@hotmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNER CTA -->
+    <section class="bg-slate-900 text-white py-14 px-4 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <span class="text-purple-400 text-xs font-bold tracking-widest uppercase bg-purple-500/10 px-4 py-1 rounded-full inline-block border border-purple-500/20">Partner Network</span>
+                    <h3 class="font-display text-3xl font-bold mt-4">Own an Event Service Business?</h3>
+                    <p class="text-slate-300 text-lg mt-2 max-w-md">Get your services in front of thousands of event planners. <strong class="text-white">Zero upfront cost.</strong></p>
+                    <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+                        <li><i class="fa-solid fa-check-circle text-emerald-400 w-6"></i> Free listing &amp; direct enquiry routing</li>
+                        <li><i class="fa-solid fa-check-circle text-emerald-400 w-6"></i> No commission on direct calls</li>
+                        <li><i class="fa-solid fa-check-circle text-emerald-400 w-6"></i> Visibility across all event categories</li>
+                    </ul>
+                </div>
+                <div class="space-y-3">
+                    <a href="#" class="btn-primary w-full py-4 text-lg rounded-xl shadow-xl" data-tab="list"><i class="fa-solid fa-store"></i> List My Services — Free</a>
+                    <a href="https://wa.me/919948680017?text=Hello%2C%20I%20want%20to%20partner%20with%20Eventry" target="_blank" rel="noopener noreferrer" class="btn-wa w-full py-3.5 text-base rounded-xl"><i class="fa-brands fa-whatsapp text-xl"></i> Partner via WhatsApp</a>
+                    <p class="text-xs text-slate-500 text-center">📞 Ops Line: WhatsAPP</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-10 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap justify-between items-center gap-6">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <div style="width:2rem;height:2rem;background:#7c3aed;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-family:'Sora',sans-serif;">E</div>
+                        <span class="font-display text-xl font-extrabold text-slate-900"><span style="color:var(--primary)">Eventry</span>AI</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">India's AI event provider &amp; talent network</p>
+                    <p class="text-xs text-slate-400">A BharatStack Ventures initiative · Contact Us</p>
+                </div>
+                <div class="flex flex-wrap gap-4 text-sm text-slate-500">
+                    <a href="#" data-tab="home" class="hover:text-purple-600 transition">Home</a>
+                    <a href="#" data-tab="browse" class="hover:text-purple-600 transition">Browse</a>
+                    <a href="#" data-tab="list" class="hover:text-purple-600 transition">List Services</a>
+                    <a href="#" data-tab="ai-onboard" class="hover:text-purple-600 transition">AI Onboard</a>
+                    <a href="#" data-tab="guide" class="hover:text-amber-600 transition">Guide</a>
+                    <a href="#" data-tab="enquire" class="hover:text-purple-600 transition">Enquire</a>
+                    <a href="https://wa.me/919948680017" target="_blank" rel="noopener noreferrer" class="hover:text-green-600 transition"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#" data-tab="contact" class="hover:text-purple-600 transition font-semibold"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-slate-100 text-center text-xs text-slate-400">
+                <p>© 2026 Eventry AI Cloud · BharatStack Ventures. Built for hyper-local event provider aggregation.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- MODAL -->
     <div class="modal-overlay" id="vendorModal">
@@ -1427,35 +1255,6 @@
         (function () {
             'use strict';
 
-            // ============ DEVICE DETECTION ============
-            function isMobileDevice() {
-                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
-            }
-
-            const mobileView = document.getElementById('mobileView');
-            const desktopView = document.getElementById('desktopView');
-            const bodyEl = document.body;
-
-            function applyDeviceMode() {
-                if (isMobileDevice()) {
-                    bodyEl.classList.remove('desktop-mode');
-                    bodyEl.classList.add('mobile-mode');
-                    mobileView.style.display = 'block';
-                    desktopView.style.display = 'none';
-                } else {
-                    bodyEl.classList.remove('mobile-mode');
-                    bodyEl.classList.add('desktop-mode');
-                    mobileView.style.display = 'none';
-                    desktopView.style.display = 'block';
-                }
-            }
-
-            applyDeviceMode();
-            window.addEventListener('resize', function () {
-                applyDeviceMode();
-                if (typeof syncNavSpacer === 'function') syncNavSpacer();
-            });
-
             // ============ CONFIG ============
             const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoVztxlXPiVu6zCecoS8TToKQCegm3MxzkOodmKMA2eM12QiD5RGrXQ2dC1h_yzFGQ-w/exec';
             const OPS_WA_NUMBER = 'WhatsApp';
@@ -1465,12 +1264,11 @@
             // ============ FROZEN NAV SPACER ============
             function syncNavSpacer() {
                 const navEl = document.getElementById('mainNav');
-                if (navEl && bodyEl.classList.contains('desktop-mode')) {
-                    document.body.style.paddingTop = navEl.getBoundingClientRect().height + 'px';
-                } else {
-                    document.body.style.paddingTop = '0px';
-                }
+                if (navEl) document.body.style.paddingTop = navEl.getBoundingClientRect().height + 'px';
             }
+            syncNavSpacer();
+            window.addEventListener('resize', syncNavSpacer);
+            window.addEventListener('load', syncNavSpacer);
 
             // ============ UTILITIES ============
             const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -1509,10 +1307,10 @@
                 document.getElementById('listSubmittedPopup').classList.add('open');
             };
             document.querySelectorAll('.popup-overlay').forEach(el => {
-                el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
+                el.addEventListener('click', e => { if (e.target === this) el.classList.remove('open'); });
             });
 
-            // ============ TABS (desktop) ============
+            // ============ TABS ============
             const tabContents = {
                 home: document.getElementById('tab-home'),
                 browse: document.getElementById('tab-browse'),
@@ -1558,18 +1356,6 @@
                 });
             });
 
-            // ============ MOBILE TABS / NAV ============
-            document.querySelectorAll('.navitem[data-tab]').forEach(item => {
-                item.addEventListener('click', function () {
-                    const tab = this.dataset.tab;
-                    if (tab) {
-                        switchTab(tab);
-                        document.querySelectorAll('.navitem').forEach(n => n.classList.remove('active'));
-                        this.classList.add('active');
-                    }
-                });
-            });
-
             // ============ VENDOR STATE ============
             let allVendors = [];
             let currentCategory = 'all';
@@ -1600,11 +1386,9 @@
             // ============ LOAD VENDORS ============
             async function loadVendors() {
                 const grid = document.getElementById('directoryGrid');
-                const mobileFeed = document.getElementById('mobileFeed');
                 if (!grid) return;
                 try {
-                    if (grid) grid.innerHTML = '<div class="text-center py-10 text-slate-500"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Loading live provider directory…</div>';
-                    if (mobileFeed) mobileFeed.innerHTML = '<div class="text-center py-6 text-slate-400" style="font-size:0.85rem;">Loading providers…</div>';
+                    grid.innerHTML = '<div class="text-center py-10 text-slate-500"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Loading live provider directory…</div>';
                     const res = await fetch(GOOGLE_SCRIPT_URL, { cache: 'no-store' });
                     const data = await res.json();
                     if (!Array.isArray(data)) throw new Error('Invalid response');
@@ -1628,13 +1412,9 @@
                     renderCategoryFilters();
                     renderCityFilter();
                     renderVendors();
-                    renderMobileFeed();
-                    renderMobileCategories();       // <-- NEW: dynamic categories for mobile
-                    renderMobileCategoryDropdown(); // <-- NEW: searchable dropdown
                 } catch (err) {
                     console.warn(err);
-                    if (grid) grid.innerHTML = '<div class="text-center text-red-500 py-10">Could not load the live provider directory. Please refresh.</div>';
-                    if (mobileFeed) mobileFeed.innerHTML = '<div class="text-center text-red-400 py-6" style="font-size:0.85rem;">Could not load providers.</div>';
+                    grid.innerHTML = '<div class="text-center text-red-500 py-10">Could not load the live provider directory. Please refresh.</div>';
                     document.getElementById('counterNumber').textContent = '0';
                     document.getElementById('liveCountHero').textContent = '0';
                 }
@@ -1664,7 +1444,7 @@
                 return f;
             }
 
-            // ============ CATEGORY FILTERS (DESKTOP) ============
+            // ============ CATEGORY FILTERS ============
             function renderCategoryFilters() {
                 const select = document.getElementById('categorySelect');
                 const viewAllBtn = document.getElementById('viewAllBtn');
@@ -1687,7 +1467,6 @@
                     select.value = 'all';
                     viewAllBtn.classList.add('active');
                     renderVendors();
-                    renderMobileFeed();
                 };
 
                 select.onchange = () => {
@@ -1695,7 +1474,6 @@
                     currentPage = 1;
                     viewAllBtn.classList.toggle('active', currentCategory === 'all');
                     renderVendors();
-                    renderMobileFeed();
                 };
 
                 viewAllBtn.classList.toggle('active', currentCategory === 'all');
@@ -1733,19 +1511,16 @@
                     currentCity = citySelect.value || 'all';
                     currentPage = 1;
                     renderVendors();
-                    renderMobileFeed();
                 };
             }
 
-            // ============ RENDER VENDORS (DESKTOP) ============
+            // ============ RENDER VENDORS ============
             function renderVendors() {
                 const grid = document.getElementById('directoryGrid'),
                     empty = document.getElementById('emptyState'),
                     counter = document.getElementById('counterNumber'),
                     hero = document.getElementById('liveCountHero'),
                     pagination = document.getElementById('paginationControls');
-
-                if (!grid) return;
 
                 const f = getFilteredVendors(),
                     total = f.length,
@@ -1754,15 +1529,15 @@
                 const page = f.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 
                 counter.textContent = total;
-                if (hero) hero.textContent = total;
+                hero.textContent = total;
 
                 if (!total) {
                     grid.innerHTML = '';
-                    if (empty) empty.classList.remove('hidden');
-                    if (pagination) pagination.innerHTML = '';
+                    empty.classList.remove('hidden');
+                    pagination.innerHTML = '';
                     return;
                 }
-                if (empty) empty.classList.add('hidden');
+                empty.classList.add('hidden');
                 grid.innerHTML = page.map(v => {
                     const phone = String(v.phone || ''),
                         clean = phone.replace(/\D/g, ''),
@@ -1796,174 +1571,6 @@
                 }
                 pagination.innerHTML = pg;
                 attachViewDetailListeners();
-            }
-
-            // ============ RENDER MOBILE FEED (ONLY 3 NEAREST VENDORS) ============
-            function renderMobileFeed() {
-                const feed = document.getElementById('mobileFeed');
-                if (!feed) return;
-
-                let vendors = getFilteredVendors();
-
-                // If user location is available, sort by distance and pick 3 nearest
-                if (userCoords) {
-                    vendors = vendors
-                        .map(v => ({ ...v, distanceKm: distanceKm(v) }))
-                        .filter(v => v.distanceKm !== null)
-                        .sort((a, b) => a.distanceKm - b.distanceKm)
-                        .slice(0, 3);
-                } else {
-                    // fallback: first 3 alphabetically
-                    vendors = vendors.slice(0, 3);
-                }
-
-                if (vendors.length === 0) {
-                    feed.innerHTML = '<div class="text-center py-6 text-slate-400" style="font-size:0.85rem;">No providers found nearby.</div>';
-                    return;
-                }
-
-                const icons = ['⛺', '💡', '🎥', '📷', '🍽️', '🎨', '💃', '🎤', '🕉️', '🎙️'];
-                feed.innerHTML = vendors.map((v, i) => {
-                    const phone = String(v.phone || '');
-                    const clean = phone.replace(/\D/g, '');
-                    const icon = icons[i % icons.length];
-                    const dist = v.distanceKm != null ? `<span style="font-size:0.65rem; color:#0e7490; font-weight:700; margin-left:4px;"><i class="fa-solid fa-location-arrow"></i> ${v.distanceKm.toFixed(1)} km</span>` : '';
-                    return `
-                        <div class="vcard">
-                            <div class="vthumb" style="background:${['#FDE8D0','#D0E8F2','#E8D0F0','#D0F0E0','#F0E8D0','#E0D0F0'][i%6]}">${icon}</div>
-                            <div class="vbody">
-                                <div class="vtop">
-                                    <span class="vname">${esc(v.bizName)}</span>
-                                    <span class="rating">⭐ 4.${(i%9)+1}</span>
-                                </div>
-                                <div class="vmeta">${esc(v.area || v.city || 'India')} · ${esc(v.category || 'Event')} ${dist}</div>
-                                <div class="vtags">
-                                    <span class="vtag">${esc(v.category || 'Provider')}</span>
-                                    <span class="vtag">Verified</span>
-                                </div>
-                                <div style="display:flex; gap:8px; margin-top:10px;">
-                                    <a href="tel:${esc(phone)}" style="flex:1; background:var(--green); color:#fff; padding:8px; border-radius:8px; text-align:center; text-decoration:none; font-size:0.75rem; font-weight:700;">📞 Call</a>
-                                    <a href="https://wa.me/${clean}?text=${encodeURIComponent('Hi, I saw your listing on Eventry.')}" target="_blank" rel="noopener noreferrer" style="flex:1; background:#25d366; color:#fff; padding:8px; border-radius:8px; text-align:center; text-decoration:none; font-size:0.75rem; font-weight:700;">💬 WhatsApp</a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
-
-            // ============ NEW: RENDER MOBILE CATEGORIES ============
-            function renderMobileCategories() {
-                const container = document.getElementById('mobileCats');
-                if (!container) return;
-                const dataCats = [...new Set(allVendors.map(v => String(v.category || 'Other').trim()).filter(Boolean))];
-                const extraCats = dataCats
-                    .filter(c => !CORE_CATEGORIES.some(core => norm(core) === norm(c)))
-                    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
-                const cats = [...CORE_CATEGORIES, ...extraCats];
-
-                const emojiMap = {
-                    'Tent House': '⛺', 'Venue': '🏛️', 'Catering': '🍽️',
-                    'Lighting': '💡', 'Decorations': '🎨', 'Others': '📦',
-                    'AV': '🎥', 'Photography': '📷', 'Dance': '💃',
-                    'Singers': '🎤', 'Pujaris': '🕉️', 'Anchors': '🎙️'
-                };
-
-                container.innerHTML = cats.map(cat => {
-                    const emoji = emojiMap[cat] || '📌';
-                    return `<div class="cat" data-category="${esc(cat)}">
-                        <div class="ic">${emoji}</div>
-                        <span>${esc(cat)}</span>
-                    </div>`;
-                }).join('');
-
-                // Re-attach click handlers for mobile categories
-                container.querySelectorAll('.cat[data-category]').forEach(catEl => {
-                    catEl.addEventListener('click', function () {
-                        const catName = this.dataset.category;
-                        switchTab('browse');
-                        // Set desktop filter if available
-                        const catSelect = document.getElementById('categorySelect');
-                        if (catSelect) {
-                            for (let opt of catSelect.options) {
-                                if (norm(opt.value) === norm(catName)) {
-                                    catSelect.value = opt.value;
-                                    catSelect.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                    });
-                });
-            }
-
-            // ============ NEW: RENDER MOBILE CATEGORY DROPDOWN (SEARCHABLE) ============
-            function renderMobileCategoryDropdown() {
-                const dropdown = document.getElementById('mobileCatDropdown');
-                if (!dropdown) return;
-
-                const dataCats = [...new Set(allVendors.map(v => String(v.category || 'Other').trim()).filter(Boolean))];
-                const extraCats = dataCats
-                    .filter(c => !CORE_CATEGORIES.some(core => norm(core) === norm(c)))
-                    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
-                const cats = [...CORE_CATEGORIES, ...extraCats];
-
-                const emojiMap = {
-                    'Tent House': '⛺', 'Venue': '🏛️', 'Catering': '🍽️',
-                    'Lighting': '💡', 'Decorations': '🎨', 'Others': '📦',
-                    'AV': '🎥', 'Photography': '📷', 'Dance': '💃',
-                    'Singers': '🎤', 'Pujaris': '🕉️', 'Anchors': '🎙️'
-                };
-
-                dropdown.innerHTML = cats.map(cat => {
-                    const emoji = emojiMap[cat] || '📌';
-                    return `<div class="cat-opt" data-category="${esc(cat)}">
-                        <span class="cat-emoji">${emoji}</span> ${esc(cat)}
-                    </div>`;
-                }).join('');
-
-                // Click handler for dropdown options
-                dropdown.querySelectorAll('.cat-opt').forEach(opt => {
-                    opt.addEventListener('click', function () {
-                        const catName = this.dataset.category;
-                        dropdown.classList.remove('open');
-                        switchTab('browse');
-                        const catSelect = document.getElementById('categorySelect');
-                        if (catSelect) {
-                            for (let o of catSelect.options) {
-                                if (norm(o.value) === norm(catName)) {
-                                    catSelect.value = o.value;
-                                    catSelect.dispatchEvent(new Event('change'));
-                                    break;
-                                }
-                            }
-                        }
-                    });
-                });
-
-                // Toggle dropdown on input focus
-                const mobileSearchInput = document.getElementById('mobileSearchInput');
-                if (mobileSearchInput) {
-                    mobileSearchInput.addEventListener('focus', function () {
-                        dropdown.classList.add('open');
-                        // filter options based on input value
-                        const val = this.value.trim().toLowerCase();
-                        dropdown.querySelectorAll('.cat-opt').forEach(opt => {
-                            opt.style.display = opt.textContent.toLowerCase().includes(val) ? '' : 'none';
-                        });
-                    });
-                    mobileSearchInput.addEventListener('input', function () {
-                        const val = this.value.trim().toLowerCase();
-                        dropdown.querySelectorAll('.cat-opt').forEach(opt => {
-                            opt.style.display = opt.textContent.toLowerCase().includes(val) ? '' : 'none';
-                        });
-                    });
-                    // Close dropdown on outside click
-                    document.addEventListener('click', function (e) {
-                        if (!e.target.closest('.search')) {
-                            dropdown.classList.remove('open');
-                        }
-                    });
-                }
             }
 
             window.goToPage = function (p) {
@@ -2119,44 +1726,28 @@
                 currentPage = 1;
                 if (searchTerm) switchTab('browse');
                 renderVendors();
-                renderMobileFeed();
             }
             const navSearch = document.getElementById('searchInput');
-            if (navSearch) navSearch.addEventListener('input', function () { runGlobalSearch(this.value); });
+            navSearch.addEventListener('input', function () { runGlobalSearch(this.value); });
 
-            // Mobile search now uses the dropdown (handled in renderMobileCategoryDropdown)
-
-            // ============ GEOLOCATION (SILENT) ============
+            // ============ GEOLOCATION ============
             const locationStatusNav = document.getElementById('locationStatusNav');
-            const mobileLocLabel = document.getElementById('locLabel');
-
             function detectLocation() {
-                if (!navigator.geolocation) {
-                    if (locationStatusNav) locationStatusNav.textContent = '📍 Unavailable';
-                    if (mobileLocLabel) mobileLocLabel.textContent = 'Location unavailable';
-                    return;
-                }
-                // Silent detection: no loading state on mobile label, just update when done
-                if (locationStatusNav) {
-                    locationStatusNav.innerHTML = '<i class="fa-solid fa-spinner fa-spin loc-spinner"></i> Detecting…';
-                }
+                if (!navigator.geolocation) { locationStatusNav.textContent = '📍 Unavailable'; return; }
+                locationStatusNav.innerHTML = '<i class="fa-solid fa-spinner fa-spin loc-spinner"></i> Detecting…';
                 navigator.geolocation.getCurrentPosition(async pos => {
                     userCoords = { lat: pos.coords.latitude, lng: pos.coords.longitude };
                     try {
                         const r = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${userCoords.lat}&lon=${userCoords.lng}&zoom=10&addressdetails=1`);
                         const d = await r.json(), a = d.address || {};
                         const district = a.city || a.town || a.municipality || a.county || a.state_district || a.village || a.state || 'your area';
-                        if (locationStatusNav) locationStatusNav.textContent = district;
-                        if (mobileLocLabel) mobileLocLabel.textContent = district;
+                        locationStatusNav.textContent = district;
                     } catch (e) {
-                        if (locationStatusNav) locationStatusNav.textContent = '📍 Location ready';
-                        if (mobileLocLabel) mobileLocLabel.textContent = 'Location ready';
+                        locationStatusNav.textContent = '📍 Location ready';
                     }
                     renderVendors();
-                    renderMobileFeed();
                 }, () => {
-                    if (locationStatusNav) locationStatusNav.textContent = '📍 Permission denied';
-                    if (mobileLocLabel) mobileLocLabel.textContent = 'Location denied';
+                    locationStatusNav.textContent = '📍 Permission denied';
                 }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 300000 });
             }
 
@@ -2173,8 +1764,8 @@
                 });
                 const backBtn = document.getElementById('wBackBtn');
                 const nextBtn = document.getElementById('wNextBtn');
-                if (backBtn) backBtn.classList.toggle('hidden', n === 1);
-                if (nextBtn) nextBtn.textContent = n === wTotal ? 'Submit Listing ✓' : 'Continue →';
+                backBtn.classList.toggle('hidden', n === 1);
+                nextBtn.textContent = n === wTotal ? 'Submit Listing ✓' : 'Continue →';
                 if (n === 7) {
                     document.getElementById('wReviewBiz').textContent = draft.bizName || '—';
                     document.getElementById('wReviewPhone').textContent = draft.phone || '—';
@@ -2540,44 +2131,26 @@
                 }
             };
 
-            // ============ MOBILE LOCATION MENU ============
-            const locBtn = document.getElementById('locBtn');
-            const locMenu = document.getElementById('locMenu');
-            const locLabel = document.getElementById('locLabel');
-            if (locBtn) {
-                locBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    locMenu.classList.toggle('open');
-                });
-            }
-            document.querySelectorAll('.loc-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    if (locLabel) locLabel.textContent = item.textContent + ', Hyderabad';
-                    if (locMenu) locMenu.classList.remove('open');
-                    // Apply city filter on desktop too
-                    const citySelect = document.getElementById('citySelect');
-                    if (citySelect) {
-                        const cityName = item.textContent.trim();
-                        for (let opt of citySelect.options) {
-                            if (norm(opt.value).includes(norm(cityName)) || norm(cityName).includes(norm(opt.value))) {
-                                citySelect.value = opt.value;
-                                citySelect.dispatchEvent(new Event('change'));
-                                break;
-                            }
-                        }
-                    }
-                });
-            });
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.loc-wrap') && locMenu) locMenu.classList.remove('open');
-            });
-
             // ============ INIT ============
             wShowStep(1);
             detectLocation();
             loadVendors();
-            syncNavSpacer();
-            console.log('✅ Eventry AI Cloud loaded with device detection.');
+            console.log('✅ Eventry AI Cloud loaded successfully with City/State filter.');
+            // Adaptive mode can change after rotation/window resize.
+            let _eventryDeviceTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(_eventryDeviceTimer);
+                _eventryDeviceTimer = setTimeout(function () {
+                    const ua = navigator.userAgent || '';
+                    const mobileUA = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(ua);
+                    const tabletUA = /iPad|Tablet/i.test(ua);
+                    const mobile = mobileUA || tabletUA || window.innerWidth < 768;
+                    document.documentElement.dataset.eventryDevice = mobile ? 'mobile' : 'desktop';
+                    document.documentElement.classList.toggle('eventry-mobile', mobile);
+                    document.documentElement.classList.toggle('eventry-desktop', !mobile);
+                }, 150);
+            });
+
         })();
     </script>
 </body>
