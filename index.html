@@ -163,7 +163,7 @@
             scrollbar-width: none;
         }
         .cats::-webkit-scrollbar { display: none; }
-        .cat { flex-shrink: 0; width: 68px; text-align: center; }
+        .cat { flex-shrink: 0; width: 68px; text-align: center; cursor: pointer; }
         .cat .ic {
             width: 60px; height: 60px; border-radius: 50%; background: var(--card);
             display: flex; align-items: center; justify-content: center;
@@ -641,6 +641,23 @@
 
         /* Utility for hidden */
         .hidden { display: none !important; }
+
+        /* Mobile searchable dropdown */
+        .mobile-cat-dropdown {
+            position: absolute; top: 100%; left: 0; right: 0;
+            background: #fff; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            max-height: 260px; overflow-y: auto; z-index: 40;
+            margin-top: 4px; display: none;
+        }
+        .mobile-cat-dropdown.open { display: block; }
+        .mobile-cat-dropdown .cat-opt {
+            padding: 12px 16px; font-size: 0.9rem; font-weight: 600;
+            color: var(--ink); cursor: pointer; border-bottom: 1px solid #f1f5f9;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .mobile-cat-dropdown .cat-opt:last-child { border-bottom: none; }
+        .mobile-cat-dropdown .cat-opt:hover { background: #F3F3F6; }
+        .mobile-cat-dropdown .cat-opt .cat-emoji { font-size: 1.2rem; }
     </style>
 </head>
 <body>
@@ -694,7 +711,7 @@
             <div class="topbar">
                 <div class="row">
                     <div class="loc-wrap">
-                        <button class="loc" id="locBtn" type="button">📍 <span id="locLabel">Banjara Hills, Hyderabad</span> ▾</button>
+                        <button class="loc" id="locBtn" type="button">📍 <span id="locLabel">Detecting…</span> ▾</button>
                         <div class="loc-menu" id="locMenu">
                             <div class="loc-item">Banjara Hills</div>
                             <div class="loc-item">Jubilee Hills</div>
@@ -706,10 +723,11 @@
                     </div>
                     <div class="avatar" id="mobileAvatar">🔔</div>
                 </div>
-                <div class="search">
+                <div class="search" style="position:relative;">
                     <span>🔍</span>
-                    <input placeholder="Search tents, DJs, decorators, pujaris…" id="mobileSearchInput">
+                    <input placeholder="Search categories…" id="mobileSearchInput" autocomplete="off">
                     <span>🎙️</span>
+                    <div class="mobile-cat-dropdown" id="mobileCatDropdown"></div>
                 </div>
             </div>
 
@@ -722,19 +740,10 @@
             <!-- Mobile categories -->
             <div class="section-row">
                 <h2>What are you planning?</h2>
-                <a href="#" class="guide-tab" data-tab="guide">GUIDE</a>
+                <a href="#" class="guide-tab" data-tab="guide" id="mobileGuideTab">GUIDE</a>
             </div>
-            <div class="cats">
-                <div class="cat" data-category="Tent House"><div class="ic">⛺</div><span>Tents</span></div>
-                <div class="cat" data-category="Lighting"><div class="ic">💡</div><span>Lighting</span></div>
-                <div class="cat" data-category="AV"><div class="ic">🎥</div><span>AV</span></div>
-                <div class="cat" data-category="Photography"><div class="ic">📷</div><span>Photo</span></div>
-                <div class="cat" data-category="Catering"><div class="ic">🍽️</div><span>Catering</span></div>
-                <div class="cat" data-category="Decorations"><div class="ic">🎨</div><span>Decor</span></div>
-                <div class="cat" data-category="Dance"><div class="ic">💃</div><span>Dance</span></div>
-                <div class="cat" data-category="Singers"><div class="ic">🎤</div><span>Singers</span></div>
-                <div class="cat" data-category="Pujaris"><div class="ic">🕉️</div><span>Pujaris</span></div>
-                <div class="cat" data-category="Anchors"><div class="ic">🎙️</div><span>Anchors</span></div>
+            <div class="cats" id="mobileCats">
+                <!-- Rendered dynamically -->
             </div>
 
             <!-- Mobile split boxes -->
@@ -756,13 +765,13 @@
                 </div>
             </div>
 
-            <!-- Mobile vendor feed -->
+            <!-- Mobile vendor feed: Event Resource Nearby -->
             <div class="section-row">
-                <h2>Live Providers</h2>
-                <a href="#" class="guide-tab" data-tab="browse">VIEW ALL</a>
+                <h2>Event Resource Nearby</h2>
+                <a href="#" class="guide-tab" data-tab="browse" id="mobileViewAll">VIEW ALL</a>
             </div>
             <div class="feed" id="mobileFeed">
-                <!-- Rendered by JS -->
+                <!-- Rendered by JS: only 3 vendors -->
             </div>
 
             <!-- Mobile bottom nav -->
@@ -1560,23 +1569,6 @@
                     }
                 });
             });
-            document.querySelectorAll('.cat[data-category]').forEach(cat => {
-                cat.addEventListener('click', function () {
-                    const catName = this.dataset.category;
-                    switchTab('browse');
-                    // Set desktop filter if available
-                    const catSelect = document.getElementById('categorySelect');
-                    if (catSelect) {
-                        for (let opt of catSelect.options) {
-                            if (norm(opt.value) === norm(catName)) {
-                                catSelect.value = opt.value;
-                                catSelect.dispatchEvent(new Event('change'));
-                                break;
-                            }
-                        }
-                    }
-                });
-            });
 
             // ============ VENDOR STATE ============
             let allVendors = [];
@@ -1637,6 +1629,8 @@
                     renderCityFilter();
                     renderVendors();
                     renderMobileFeed();
+                    renderMobileCategories();       // <-- NEW: dynamic categories for mobile
+                    renderMobileCategoryDropdown(); // <-- NEW: searchable dropdown
                 } catch (err) {
                     console.warn(err);
                     if (grid) grid.innerHTML = '<div class="text-center text-red-500 py-10">Could not load the live provider directory. Please refresh.</div>';
@@ -1670,7 +1664,7 @@
                 return f;
             }
 
-            // ============ CATEGORY FILTERS ============
+            // ============ CATEGORY FILTERS (DESKTOP) ============
             function renderCategoryFilters() {
                 const select = document.getElementById('categorySelect');
                 const viewAllBtn = document.getElementById('viewAllBtn');
@@ -1804,20 +1798,36 @@
                 attachViewDetailListeners();
             }
 
-            // ============ RENDER MOBILE FEED ============
+            // ============ RENDER MOBILE FEED (ONLY 3 NEAREST VENDORS) ============
             function renderMobileFeed() {
                 const feed = document.getElementById('mobileFeed');
                 if (!feed) return;
-                const vendors = getFilteredVendors().slice(0, 6); // show first 6
+
+                let vendors = getFilteredVendors();
+
+                // If user location is available, sort by distance and pick 3 nearest
+                if (userCoords) {
+                    vendors = vendors
+                        .map(v => ({ ...v, distanceKm: distanceKm(v) }))
+                        .filter(v => v.distanceKm !== null)
+                        .sort((a, b) => a.distanceKm - b.distanceKm)
+                        .slice(0, 3);
+                } else {
+                    // fallback: first 3 alphabetically
+                    vendors = vendors.slice(0, 3);
+                }
+
                 if (vendors.length === 0) {
-                    feed.innerHTML = '<div class="text-center py-6 text-slate-400" style="font-size:0.85rem;">No providers found.</div>';
+                    feed.innerHTML = '<div class="text-center py-6 text-slate-400" style="font-size:0.85rem;">No providers found nearby.</div>';
                     return;
                 }
+
                 const icons = ['⛺', '💡', '🎥', '📷', '🍽️', '🎨', '💃', '🎤', '🕉️', '🎙️'];
                 feed.innerHTML = vendors.map((v, i) => {
                     const phone = String(v.phone || '');
                     const clean = phone.replace(/\D/g, '');
                     const icon = icons[i % icons.length];
+                    const dist = v.distanceKm != null ? `<span style="font-size:0.65rem; color:#0e7490; font-weight:700; margin-left:4px;"><i class="fa-solid fa-location-arrow"></i> ${v.distanceKm.toFixed(1)} km</span>` : '';
                     return `
                         <div class="vcard">
                             <div class="vthumb" style="background:${['#FDE8D0','#D0E8F2','#E8D0F0','#D0F0E0','#F0E8D0','#E0D0F0'][i%6]}">${icon}</div>
@@ -1826,7 +1836,7 @@
                                     <span class="vname">${esc(v.bizName)}</span>
                                     <span class="rating">⭐ 4.${(i%9)+1}</span>
                                 </div>
-                                <div class="vmeta">${esc(v.area || v.city || 'India')} · ${esc(v.category || 'Event')}</div>
+                                <div class="vmeta">${esc(v.area || v.city || 'India')} · ${esc(v.category || 'Event')} ${dist}</div>
                                 <div class="vtags">
                                     <span class="vtag">${esc(v.category || 'Provider')}</span>
                                     <span class="vtag">Verified</span>
@@ -1839,6 +1849,121 @@
                         </div>
                     `;
                 }).join('');
+            }
+
+            // ============ NEW: RENDER MOBILE CATEGORIES ============
+            function renderMobileCategories() {
+                const container = document.getElementById('mobileCats');
+                if (!container) return;
+                const dataCats = [...new Set(allVendors.map(v => String(v.category || 'Other').trim()).filter(Boolean))];
+                const extraCats = dataCats
+                    .filter(c => !CORE_CATEGORIES.some(core => norm(core) === norm(c)))
+                    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+                const cats = [...CORE_CATEGORIES, ...extraCats];
+
+                const emojiMap = {
+                    'Tent House': '⛺', 'Venue': '🏛️', 'Catering': '🍽️',
+                    'Lighting': '💡', 'Decorations': '🎨', 'Others': '📦',
+                    'AV': '🎥', 'Photography': '📷', 'Dance': '💃',
+                    'Singers': '🎤', 'Pujaris': '🕉️', 'Anchors': '🎙️'
+                };
+
+                container.innerHTML = cats.map(cat => {
+                    const emoji = emojiMap[cat] || '📌';
+                    return `<div class="cat" data-category="${esc(cat)}">
+                        <div class="ic">${emoji}</div>
+                        <span>${esc(cat)}</span>
+                    </div>`;
+                }).join('');
+
+                // Re-attach click handlers for mobile categories
+                container.querySelectorAll('.cat[data-category]').forEach(catEl => {
+                    catEl.addEventListener('click', function () {
+                        const catName = this.dataset.category;
+                        switchTab('browse');
+                        // Set desktop filter if available
+                        const catSelect = document.getElementById('categorySelect');
+                        if (catSelect) {
+                            for (let opt of catSelect.options) {
+                                if (norm(opt.value) === norm(catName)) {
+                                    catSelect.value = opt.value;
+                                    catSelect.dispatchEvent(new Event('change'));
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            // ============ NEW: RENDER MOBILE CATEGORY DROPDOWN (SEARCHABLE) ============
+            function renderMobileCategoryDropdown() {
+                const dropdown = document.getElementById('mobileCatDropdown');
+                if (!dropdown) return;
+
+                const dataCats = [...new Set(allVendors.map(v => String(v.category || 'Other').trim()).filter(Boolean))];
+                const extraCats = dataCats
+                    .filter(c => !CORE_CATEGORIES.some(core => norm(core) === norm(c)))
+                    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+                const cats = [...CORE_CATEGORIES, ...extraCats];
+
+                const emojiMap = {
+                    'Tent House': '⛺', 'Venue': '🏛️', 'Catering': '🍽️',
+                    'Lighting': '💡', 'Decorations': '🎨', 'Others': '📦',
+                    'AV': '🎥', 'Photography': '📷', 'Dance': '💃',
+                    'Singers': '🎤', 'Pujaris': '🕉️', 'Anchors': '🎙️'
+                };
+
+                dropdown.innerHTML = cats.map(cat => {
+                    const emoji = emojiMap[cat] || '📌';
+                    return `<div class="cat-opt" data-category="${esc(cat)}">
+                        <span class="cat-emoji">${emoji}</span> ${esc(cat)}
+                    </div>`;
+                }).join('');
+
+                // Click handler for dropdown options
+                dropdown.querySelectorAll('.cat-opt').forEach(opt => {
+                    opt.addEventListener('click', function () {
+                        const catName = this.dataset.category;
+                        dropdown.classList.remove('open');
+                        switchTab('browse');
+                        const catSelect = document.getElementById('categorySelect');
+                        if (catSelect) {
+                            for (let o of catSelect.options) {
+                                if (norm(o.value) === norm(catName)) {
+                                    catSelect.value = o.value;
+                                    catSelect.dispatchEvent(new Event('change'));
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                });
+
+                // Toggle dropdown on input focus
+                const mobileSearchInput = document.getElementById('mobileSearchInput');
+                if (mobileSearchInput) {
+                    mobileSearchInput.addEventListener('focus', function () {
+                        dropdown.classList.add('open');
+                        // filter options based on input value
+                        const val = this.value.trim().toLowerCase();
+                        dropdown.querySelectorAll('.cat-opt').forEach(opt => {
+                            opt.style.display = opt.textContent.toLowerCase().includes(val) ? '' : 'none';
+                        });
+                    });
+                    mobileSearchInput.addEventListener('input', function () {
+                        const val = this.value.trim().toLowerCase();
+                        dropdown.querySelectorAll('.cat-opt').forEach(opt => {
+                            opt.style.display = opt.textContent.toLowerCase().includes(val) ? '' : 'none';
+                        });
+                    });
+                    // Close dropdown on outside click
+                    document.addEventListener('click', function (e) {
+                        if (!e.target.closest('.search')) {
+                            dropdown.classList.remove('open');
+                        }
+                    });
+                }
             }
 
             window.goToPage = function (p) {
@@ -1998,14 +2123,23 @@
             }
             const navSearch = document.getElementById('searchInput');
             if (navSearch) navSearch.addEventListener('input', function () { runGlobalSearch(this.value); });
-            const mobileSearch = document.getElementById('mobileSearchInput');
-            if (mobileSearch) mobileSearch.addEventListener('input', function () { runGlobalSearch(this.value); });
 
-            // ============ GEOLOCATION ============
+            // Mobile search now uses the dropdown (handled in renderMobileCategoryDropdown)
+
+            // ============ GEOLOCATION (SILENT) ============
             const locationStatusNav = document.getElementById('locationStatusNav');
+            const mobileLocLabel = document.getElementById('locLabel');
+
             function detectLocation() {
-                if (!navigator.geolocation) { if (locationStatusNav) locationStatusNav.textContent = '📍 Unavailable'; return; }
-                if (locationStatusNav) locationStatusNav.innerHTML = '<i class="fa-solid fa-spinner fa-spin loc-spinner"></i> Detecting…';
+                if (!navigator.geolocation) {
+                    if (locationStatusNav) locationStatusNav.textContent = '📍 Unavailable';
+                    if (mobileLocLabel) mobileLocLabel.textContent = 'Location unavailable';
+                    return;
+                }
+                // Silent detection: no loading state on mobile label, just update when done
+                if (locationStatusNav) {
+                    locationStatusNav.innerHTML = '<i class="fa-solid fa-spinner fa-spin loc-spinner"></i> Detecting…';
+                }
                 navigator.geolocation.getCurrentPosition(async pos => {
                     userCoords = { lat: pos.coords.latitude, lng: pos.coords.longitude };
                     try {
@@ -2013,13 +2147,16 @@
                         const d = await r.json(), a = d.address || {};
                         const district = a.city || a.town || a.municipality || a.county || a.state_district || a.village || a.state || 'your area';
                         if (locationStatusNav) locationStatusNav.textContent = district;
+                        if (mobileLocLabel) mobileLocLabel.textContent = district;
                     } catch (e) {
                         if (locationStatusNav) locationStatusNav.textContent = '📍 Location ready';
+                        if (mobileLocLabel) mobileLocLabel.textContent = 'Location ready';
                     }
                     renderVendors();
                     renderMobileFeed();
                 }, () => {
                     if (locationStatusNav) locationStatusNav.textContent = '📍 Permission denied';
+                    if (mobileLocLabel) mobileLocLabel.textContent = 'Location denied';
                 }, { enableHighAccuracy: true, timeout: 15000, maximumAge: 300000 });
             }
 
