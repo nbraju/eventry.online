@@ -553,6 +553,129 @@
             html.eventry-desktop body { font-size: 15px; }
         }
 
+        /* ============================================================
+           MOBILE LANDING REDESIGN (per approved mobile mock)
+           Desktop is completely untouched: every rule below is scoped
+           to html.eventry-mobile, and .mobile-only is force-hidden on
+           html.eventry-desktop. No desktop selector, ID or class is
+           changed in meaning — only new, mobile-scoped rules are added.
+           ============================================================ */
+
+        html.eventry-desktop .mobile-only { display: none !important; }
+        html.eventry-mobile .mobile-bottom-nav { display: flex; }
+
+        /* --- Top bar: location + bell + full-width search --- */
+        html.eventry-mobile #mainNav {
+            background: linear-gradient(135deg, #fb7040 0%, #f0473d 55%, #e11d48 100%);
+            border-bottom: none;
+        }
+        html.eventry-mobile #mainNav > div { position: relative; padding-top: 8px; padding-bottom: 8px; }
+        html.eventry-mobile #mainNav > div > div { flex-wrap: wrap; row-gap: 10px; }
+        html.eventry-mobile #mainNav > div > div > div:first-child {
+            flex: 1 1 100%; order: 1; justify-content: space-between; padding-right: 42px;
+        }
+        html.eventry-mobile #mainNav > div > div > div:first-child > a { display: none; }
+        html.eventry-mobile #mainNav .location-chip-nav {
+            background: transparent; border: none; padding: 0; gap: 7px;
+            color: #fff; font-size: 14.5px; font-weight: 800; max-width: none;
+        }
+        html.eventry-mobile #mainNav .location-chip-nav i.fa-location-dot { color: #fff; font-size: 15px; }
+        html.eventry-mobile #mainNav .location-chip-nav::after {
+            font-family: "Font Awesome 6 Free"; font-weight: 900; content: "\f078";
+            font-size: 10px; margin-left: 2px; opacity: .9;
+        }
+        html.eventry-mobile #mainNav > div > div > div:nth-child(2) { order: 2; flex: 1 1 100%; overflow: visible; }
+        html.eventry-mobile #mainNav .nav-link { display: none !important; }
+        html.eventry-mobile #mainNav #searchInput {
+            order: 1; width: 100%; max-width: 100%; min-width: 0; flex: 1 1 100%;
+            background: #fff; border: none; border-radius: 999px; color: #0f172a;
+            padding: 12px 16px 12px 38px; font-size: 15px; min-height: 44px;
+            box-shadow: 0 2px 10px rgba(0,0,0,.15);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.2'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: 12px center; background-size: 16px;
+        }
+        html.eventry-mobile .mobile-bell-btn {
+            position: absolute; top: 8px; right: 4px; width: 34px; height: 34px;
+            border-radius: 50%; background: rgba(255,255,255,.2); border: none;
+            color: #fff; display: flex; align-items: center; justify-content: center;
+            font-size: 15px; cursor: pointer;
+        }
+        html.eventry-desktop .mobile-bell-btn { display: none; }
+        html.eventry-mobile #toast { bottom: 78px; }
+        html.eventry-mobile .chat-toggle { bottom: 76px; }
+        html.eventry-mobile .chat-widget { bottom: 76px; }
+
+        /* --- New mobile landing content (inside tab-home, above the desktop hero) --- */
+        html.eventry-mobile #tab-home .hero-bg { display: none; }
+        .mobile-landing { background: #fff; padding: 14px 16px 6px; }
+        .mobile-listbiz-banner {
+            background: linear-gradient(135deg, #7a1330, #9c1f45);
+            border-radius: 16px; padding: 16px 18px; color: #fff;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 12px; margin-bottom: 20px;
+        }
+        .mobile-listbiz-banner h3 { font-size: 15px; font-weight: 800; margin: 0 0 3px; }
+        .mobile-listbiz-banner p { font-size: 12px; color: #f3d9e2; margin: 0; line-height: 1.4; }
+        .mobile-listbiz-banner a {
+            flex-shrink: 0; background: #fff; color: #7a1330; font-weight: 800;
+            font-size: 13px; padding: 10px 18px; border-radius: 999px; text-decoration: none;
+        }
+        .mobile-plan-row {
+            display: flex; align-items: baseline; justify-content: space-between;
+            margin-bottom: 14px;
+        }
+        .mobile-plan-row h4 { font-size: 16px; font-weight: 800; color: #0f172a; margin: 0; }
+        .mobile-plan-row a { font-size: 13px; font-weight: 800; color: #d97706; text-decoration: none; }
+        .mobile-cat-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+            margin-bottom: 22px;
+        }
+        .mobile-cat-item {
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            background: none; border: none; cursor: pointer; font-family: inherit; padding: 0;
+        }
+        .mobile-cat-icon {
+            width: 54px; height: 54px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; color: #fff;
+        }
+        .mobile-cat-item span { font-size: 11.5px; font-weight: 700; color: #334155; }
+        .mobile-landing-copy { padding-bottom: 6px; }
+        .mobile-landing-copy .eyebrow {
+            font-size: 15px; font-weight: 800; color: #0f172a; margin: 0 0 10px; line-height: 1.3;
+        }
+        .mobile-landing-copy h2 { font-size: 19px; font-weight: 800; color: #0f172a; margin: 0 0 8px; line-height: 1.3; }
+        .mobile-landing-copy h5 { font-size: 15px; font-weight: 700; color: #334155; margin: 0 0 14px; }
+        .mobile-highlight-box {
+            background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;
+            border-radius: 14px; padding: 16px; font-weight: 600; font-size: 13.5px;
+            line-height: 1.65; margin-bottom: 18px;
+        }
+
+        /* --- Bottom tab bar --- */
+        html.eventry-mobile body { padding-bottom: 60px; }
+        .mobile-bottom-nav {
+            display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+            background: #fff; border-top: 1px solid #e2e8f0;
+            box-shadow: 0 -2px 12px rgba(0,0,0,.06);
+            padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+            justify-content: space-around; align-items: center;
+        }
+        .mobile-bottom-nav .nav-link.mobile-bottom-item,
+        .mobile-bottom-nav a.mobile-bottom-item {
+            flex-direction: column; gap: 2px; padding: 4px 6px; min-height: 0;
+            border-radius: 10px; background: transparent; border: none;
+            color: #64748b; font-size: 10.5px; font-weight: 700;
+        }
+        .mobile-bottom-nav .nav-link.mobile-bottom-item i,
+        .mobile-bottom-nav a.mobile-bottom-item i { font-size: 17px; color: #94a3b8; }
+        .mobile-bottom-nav .nav-link.mobile-bottom-item.active,
+        .mobile-bottom-nav a.mobile-bottom-item.active {
+            background: transparent; color: #7c3aed; box-shadow: none;
+        }
+        .mobile-bottom-nav .nav-link.mobile-bottom-item.active i,
+        .mobile-bottom-nav a.mobile-bottom-item.active i { color: #7c3aed; }
+
     </style>
 </head>
 <body>
@@ -585,6 +708,7 @@
                         <span class="loc-label" id="locationStatusNav">Detecting…</span>
                     </div>
                 </div>
+                <button type="button" class="mobile-bell-btn" id="mobileBellBtn" aria-label="Notifications" title="Notifications"><i class="fa-regular fa-bell"></i></button>
                 <div class="flex items-center gap-0.5 sm:gap-1.5 overflow-x-auto flex-nowrap [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     <a href="#" class="nav-link active" data-tab="home"><i class="fa-solid fa-house"></i> Home</a>
                     <a href="#" class="nav-link" data-tab="browse"><i class="fa-solid fa-store"></i> Browse</a>
@@ -602,6 +726,54 @@
 
     <!-- TAB: HOME -->
     <section id="tab-home" class="tab-content active">
+
+        <!-- MOBILE-ONLY LANDING (redesigned per approved mobile mock; desktop hero below is unchanged and untouched) -->
+        <div class="mobile-only mobile-landing">
+            <div class="mobile-listbiz-banner">
+                <div>
+                    <h3>List your business Free</h3>
+                    <p>Zero commission, always. Takes 2 minutes.</p>
+                </div>
+                <a href="#" data-tab="list">List now</a>
+            </div>
+
+            <div class="mobile-plan-row">
+                <h4>What are you planning?</h4>
+                <a href="#" data-tab="browse">Search By Category</a>
+            </div>
+            <div class="mobile-cat-grid">
+                <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('Tent House','Tent')">
+                    <span class="mobile-cat-icon" style="background:#16a34a;"><i class="fa-solid fa-campground"></i></span>
+                    <span>Tents</span>
+                </button>
+                <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('Lighting','Light')">
+                    <span class="mobile-cat-icon" style="background:#eab308;"><i class="fa-solid fa-lightbulb"></i></span>
+                    <span>Lighting</span>
+                </button>
+                <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('AV','AV')">
+                    <span class="mobile-cat-icon" style="background:#1e293b;"><i class="fa-solid fa-video"></i></span>
+                    <span>AV</span>
+                </button>
+                <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('Photography','Photo')">
+                    <span class="mobile-cat-icon" style="background:#64748b;"><i class="fa-solid fa-camera"></i></span>
+                    <span>Photo</span>
+                </button>
+                <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('Catering','Catering')">
+                    <span class="mobile-cat-icon" style="background:#db2777;"><i class="fa-solid fa-utensils"></i></span>
+                    <span>Catering</span>
+                </button>
+            </div>
+
+            <div class="mobile-landing-copy">
+                <p class="eyebrow">India's Largest Event Resources &amp; Talent Network</p>
+                <h2>Discover Trusted Sources or Get Discovered</h2>
+                <h5>Platform for Every Type of Event</h5>
+                <div class="mobile-highlight-box">
+                    A single destination to source talent for any event: Anchors, Pujari's, Singers, Magicians, and so on and to hire inventories such as Tent Houses, Lighting, Photography &amp; AVs. Two sides — event planners find providers, providers find customers. Zero commission on direct enquiries.
+                </div>
+            </div>
+        </div>
+
         <div class="hero-bg text-white pb-14 sm:pb-20 px-4 relative overflow-hidden">
 
             <!-- ============================================================
@@ -1250,6 +1422,14 @@
             <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition text-sm font-bold" id="chatSend">Send</button>
         </div>
     </div>
+
+    <!-- MOBILE-ONLY BOTTOM TAB BAR -->
+    <nav class="mobile-only mobile-bottom-nav" id="mobileBottomNav">
+        <a href="#" class="nav-link mobile-bottom-item active" data-tab="home"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="#" class="nav-link mobile-bottom-item" data-tab="enquire"><i class="fa-solid fa-magnifying-glass"></i><span>Enquire</span></a>
+        <a href="https://wa.me/919948680017?text=Hi%2C%20I%27d%20like%20to%20check%20my%20booking%20status" target="_blank" rel="noopener noreferrer" class="mobile-bottom-item"><i class="fa-regular fa-clipboard"></i><span>Bookings</span></a>
+        <a href="#" class="nav-link mobile-bottom-item" data-tab="guide"><i class="fa-solid fa-book"></i><span>Guide</span></a>
+    </nav>
 
     <script>
         (function () {
@@ -2151,6 +2331,51 @@
                 }, 150);
             });
 
+        })();
+    </script>
+
+    <!-- MOBILE-ONLY HELPERS: category shortcuts + bell. Reuses the exact
+         same search/filter/tab functions above — no data, backend, or
+         desktop behaviour is duplicated or altered. -->
+    <script>
+        (function () {
+            'use strict';
+            window.mobileCategoryGo = function (searchTerm, categoryGuess) {
+                var select = document.getElementById('categorySelect');
+                var matched = false;
+                if (select && categoryGuess) {
+                    var needle = categoryGuess.toLowerCase();
+                    for (var i = 0; i < select.options.length; i++) {
+                        if (select.options[i].value.toLowerCase().indexOf(needle) !== -1) {
+                            select.value = select.options[i].value;
+                            matched = true;
+                            if (typeof select.onchange === 'function') select.onchange();
+                            break;
+                        }
+                    }
+                }
+                if (!matched) {
+                    var input = document.getElementById('searchInput');
+                    if (input) {
+                        input.value = searchTerm;
+                        input.dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+                }
+                if (typeof window.__eventrySwitchTab === 'function') window.__eventrySwitchTab('browse');
+            };
+
+            var bell = document.getElementById('mobileBellBtn');
+            if (bell) {
+                bell.addEventListener('click', function () {
+                    var toastEl = document.getElementById('toast');
+                    var toastMsg = document.getElementById('toastMsg');
+                    if (toastEl && toastMsg) {
+                        toastMsg.textContent = "You're all caught up!";
+                        toastEl.classList.add('show');
+                        setTimeout(function () { toastEl.classList.remove('show'); }, 2200);
+                    }
+                });
+            }
         })();
     </script>
 </body>
