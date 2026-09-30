@@ -25,25 +25,19 @@
     </script>
 
     <title>Eventry AI Cloud — Event Providers &amp; Talent Marketplace</title>
-<meta name="description" content="AI-powered operating system for event infrastructure: list, search, select, enquire, and book venues, caterers, decorators, and more." />
-
-<!-- ✅ Self-referencing canonical -->
-<link rel="canonical" href="https://eventry.online/" />
-
-<!-- ✅ Open Graph pointing to the real domain -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Eventry AI Cloud — Event Providers & Talent Marketplace" />
-<meta property="og:description" content="AI-powered operating system for event infrastructure." />
-<meta property="og:url" content="https://eventry.online/" />
-<meta property="og:image" content="https://eventry.online/Logo.jpg" />
-
-<!-- ✅ Twitter card -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:image" content="https://eventry.online/Logo.jpg" />
-
-<!-- ✅ Manifest + theme -->
-<link rel="manifest" href="manifest.json" />
-<meta name="theme-color" content="#7c3aed" />
+    <meta name="description" content="AI-powered operating system for event infrastructure: list, search, select, enquire, and book venues, caterers, decorators, and more." />
+    <link rel="canonical" href="https://nbraju.github.io/TentHouseS-/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Eventry AI Cloud — Event Providers & Talent Marketplace" />
+    <meta property="og:description" content="AI-powered operating system for event infrastructure." />
+    <meta property="og:url" content="https://nbraju.github.io/TentHouseS-/" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#7c3aed" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E" />
+    <meta property="og:image" content="https://nbraju.github.io/TentHouseS-/Logo.jpg" />
+    <meta name="twitter:image" content="https://nbraju.github.io/TentHouseS-/Logo.jpg" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -607,80 +601,154 @@
             font-size: 15px; cursor: pointer;
         }
         html.eventry-desktop .mobile-bell-btn { display: none; }
-        html.eventry-mobile #toast { bottom: 78px; }
-        html.eventry-mobile .chat-toggle { bottom: 76px; }
-        html.eventry-mobile .chat-widget { bottom: 76px; }
+        html.eventry-mobile #toast { bottom: 86px; }
+        html.eventry-mobile .chat-toggle { bottom: 84px; }
+        html.eventry-mobile .chat-widget { bottom: 84px; }
 
         /* --- New mobile landing content (inside tab-home, above the desktop hero) --- */
         html.eventry-mobile #tab-home .hero-bg { display: none; }
-        .mobile-landing { background: #fff; padding: 14px 16px 6px; }
-        .mobile-listbiz-banner {
-            background: linear-gradient(135deg, #7a1330, #9c1f45);
-            border-radius: 16px; padding: 16px 18px; color: #fff;
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 12px; margin-bottom: 20px;
+        .mobile-landing { background: #f8fafc; padding: 14px 14px 4px; }
+
+        @keyframes mlFadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .mobile-hero-card, .mobile-ticker-wrap, .mobile-plan-row, .mobile-cat-grid, .mobile-landing-copy {
+            animation: mlFadeUp .5s ease both;
         }
-        .mobile-listbiz-banner h3 { font-size: 15px; font-weight: 800; margin: 0 0 3px; }
-        .mobile-listbiz-banner p { font-size: 12px; color: #f3d9e2; margin: 0; line-height: 1.4; }
-        .mobile-listbiz-banner a {
-            flex-shrink: 0; background: #fff; color: #7a1330; font-weight: 800;
-            font-size: 13px; padding: 10px 18px; border-radius: 999px; text-decoration: none;
+        .mobile-ticker-wrap { animation-delay: .05s; }
+        .mobile-plan-row { animation-delay: .1s; }
+        .mobile-cat-grid { animation-delay: .12s; }
+        .mobile-landing-copy { animation-delay: .16s; }
+
+        .mobile-hero-card {
+            position: relative; overflow: hidden;
+            background: linear-gradient(150deg, #171334 0%, #2c1b4d 45%, #4c1d95 100%);
+            border-radius: 22px; padding: 22px 20px 20px; color: #fff;
+            box-shadow: 0 14px 30px -10px rgba(76, 29, 149, .45);
+            margin-bottom: 16px;
         }
+        .mobile-hero-glow { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(30px); }
+        .mobile-hero-glow-1 { width: 160px; height: 160px; background: rgba(168,85,247,.35); top: -60px; right: -40px; }
+        .mobile-hero-glow-2 { width: 140px; height: 140px; background: rgba(251,191,36,.18); bottom: -50px; left: -30px; }
+        .mobile-hero-badge {
+            position: relative; display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18);
+            color: #fcd34d; font-size: 10.5px; font-weight: 800; letter-spacing: .04em;
+            text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
+        }
+        .mobile-hero-card h1 {
+            position: relative; font-family: 'Sora', sans-serif; font-size: 21px; line-height: 1.28;
+            font-weight: 800; margin: 0 0 6px; color: #fff;
+        }
+        .mobile-hero-card h1 span { display: block; color: #fcd34d; }
+        .mobile-hero-sub { position: relative; font-size: 13px; color: #d8d3ea; margin: 0 0 16px; }
+        .mobile-hero-sub strong { color: #fff; }
+        .mobile-hero-stats {
+            position: relative; display: flex; gap: 8px; margin-bottom: 16px;
+        }
+        .mobile-hero-stat {
+            flex: 1; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+            border-radius: 13px; padding: 9px 6px; text-align: center;
+        }
+        .mobile-hero-stat .num {
+            font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 800; color: #fff;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+        .mobile-hero-stat .live-dot {
+            width: 6px; height: 6px; border-radius: 50%; background: #4ade80;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        .mobile-hero-stat .lbl { font-size: 9.5px; color: #c4bce0; margin-top: 2px; }
+        .mobile-hero-cta-row { position: relative; display: flex; gap: 10px; }
+        .mobile-hero-cta {
+            flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
+            padding: 12px 8px; border-radius: 13px; font-weight: 800; font-size: 13.5px;
+            text-decoration: none; transition: transform .15s;
+        }
+        .mobile-hero-cta:active { transform: scale(.96); }
+        .mobile-hero-cta.primary { background: #fbbf24; color: #1c1917; box-shadow: 0 6px 16px -4px rgba(251,191,36,.5); }
+        .mobile-hero-cta.secondary { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+
+        .mobile-ticker-wrap {
+            overflow: hidden; margin-bottom: 18px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+        .mobile-ticker-track {
+            display: flex; gap: 10px; width: max-content;
+            animation: mlScroll 16s linear infinite;
+        }
+        @keyframes mlScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .mobile-ticker-track span {
+            display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+            background: #fff; border: 1px solid #ede9fe; color: #5b21b6;
+            font-size: 11.5px; font-weight: 700; padding: 7px 14px; border-radius: 999px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.04);
+        }
+        .mobile-ticker-track span i { color: #7c3aed; font-size: 11px; }
+
         .mobile-plan-row {
             display: flex; align-items: baseline; justify-content: space-between;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
         .mobile-plan-row h4 { font-size: 16px; font-weight: 800; color: #0f172a; margin: 0; }
-        .mobile-plan-row a { font-size: 13px; font-weight: 800; color: #d97706; text-decoration: none; }
+        .mobile-plan-row a { font-size: 12.5px; font-weight: 800; color: #7c3aed; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+        .mobile-plan-row a i { font-size: 10px; }
         .mobile-cat-grid {
             display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
         .mobile-cat-item {
             display: flex; flex-direction: column; align-items: center; gap: 6px;
             background: none; border: none; cursor: pointer; font-family: inherit; padding: 0;
+            transition: transform .15s;
         }
+        .mobile-cat-item:active { transform: scale(.92); }
         .mobile-cat-icon {
-            width: 54px; height: 54px; border-radius: 50%;
+            width: 56px; height: 56px; border-radius: 18px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 20px; color: #fff;
+            font-size: 20px; color: #fff; box-shadow: 0 6px 14px -4px rgba(15,23,42,.25);
         }
-        .mobile-cat-item span { font-size: 11.5px; font-weight: 700; color: #334155; }
-        .mobile-landing-copy { padding-bottom: 6px; }
-        .mobile-landing-copy .eyebrow {
-            font-size: 15px; font-weight: 800; color: #0f172a; margin: 0 0 10px; line-height: 1.3;
-        }
-        .mobile-landing-copy h2 { font-size: 19px; font-weight: 800; color: #0f172a; margin: 0 0 8px; line-height: 1.3; }
-        .mobile-landing-copy h5 { font-size: 15px; font-weight: 700; color: #334155; margin: 0 0 14px; }
+        .mobile-cat-icon.grad-green { background: linear-gradient(145deg,#4ade80,#16a34a); }
+        .mobile-cat-icon.grad-amber { background: linear-gradient(145deg,#fde047,#eab308); }
+        .mobile-cat-icon.grad-slate { background: linear-gradient(145deg,#475569,#1e293b); }
+        .mobile-cat-icon.grad-blue  { background: linear-gradient(145deg,#60a5fa,#2563eb); }
+        .mobile-cat-icon.grad-pink  { background: linear-gradient(145deg,#f472b6,#db2777); }
+        .mobile-cat-item span:last-child { font-size: 11px; font-weight: 700; color: #334155; }
+
+        .mobile-landing-copy { padding-bottom: 8px; }
         .mobile-highlight-box {
-            background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;
-            border-radius: 14px; padding: 16px; font-weight: 600; font-size: 13.5px;
-            line-height: 1.65; margin-bottom: 18px;
+            display: flex; gap: 10px; align-items: flex-start;
+            background: #fff; border: 1px solid #eef2f6; color: #334155;
+            border-radius: 16px; padding: 15px 16px; box-shadow: 0 2px 10px rgba(15,23,42,.04);
+            margin-bottom: 4px;
         }
+        .mobile-highlight-box i { color: #7c3aed; font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+        .mobile-highlight-box p { margin: 0; font-size: 13px; line-height: 1.6; font-weight: 500; }
 
         /* --- Bottom tab bar --- */
-        html.eventry-mobile body { padding-bottom: 60px; }
+        html.eventry-mobile body { padding-bottom: 72px; }
         .mobile-bottom-nav {
-            display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
-            background: #fff; border-top: 1px solid #e2e8f0;
-            box-shadow: 0 -2px 12px rgba(0,0,0,.06);
-            padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+            display: none; position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 70;
+            background: rgba(255,255,255,.92); backdrop-filter: blur(10px);
+            border: 1px solid #eef2f6; border-radius: 20px;
+            box-shadow: 0 10px 30px -8px rgba(15,23,42,.18);
+            padding: 7px 4px calc(7px + env(safe-area-inset-bottom, 0px));
             justify-content: space-around; align-items: center;
         }
         .mobile-bottom-nav .nav-link.mobile-bottom-item,
         .mobile-bottom-nav a.mobile-bottom-item {
-            flex-direction: column; gap: 2px; padding: 4px 6px; min-height: 0;
-            border-radius: 10px; background: transparent; border: none;
-            color: #64748b; font-size: 10.5px; font-weight: 700;
+            flex-direction: column; gap: 2px; padding: 5px 10px; min-height: 0;
+            border-radius: 13px; background: transparent; border: none;
+            color: #94a3b8; font-size: 10.5px; font-weight: 700; transition: all .15s;
         }
         .mobile-bottom-nav .nav-link.mobile-bottom-item i,
-        .mobile-bottom-nav a.mobile-bottom-item i { font-size: 17px; color: #94a3b8; }
+        .mobile-bottom-nav a.mobile-bottom-item i { font-size: 17px; color: #94a3b8; transition: color .15s; }
         .mobile-bottom-nav .nav-link.mobile-bottom-item.active,
         .mobile-bottom-nav a.mobile-bottom-item.active {
-            background: transparent; color: #7c3aed; box-shadow: none;
+            background: var(--primary-light); color: #6d28d9; box-shadow: none;
         }
         .mobile-bottom-nav .nav-link.mobile-bottom-item.active i,
         .mobile-bottom-nav a.mobile-bottom-item.active i { color: #7c3aed; }
+        .mobile-bottom-nav .nav-link.mobile-bottom-item:active,
+        .mobile-bottom-nav a.mobile-bottom-item:active { transform: scale(.92); }
 
     </style>
 </head>
@@ -733,49 +801,85 @@
     <!-- TAB: HOME -->
     <section id="tab-home" class="tab-content active">
 
-        <!-- MOBILE-ONLY LANDING (redesigned per approved mobile mock; desktop hero below is unchanged and untouched) -->
+        <!-- MOBILE-ONLY LANDING v2 (elevated visual design; desktop hero below is unchanged and untouched) -->
         <div class="mobile-only mobile-landing">
-            <div class="mobile-listbiz-banner">
-                <div>
-                    <h3>List your business Free</h3>
-                    <p>Zero commission, always. Takes 2 minutes.</p>
+
+            <!-- Gradient hero card: value prop + live stats + dual CTA -->
+            <div class="mobile-hero-card">
+                <div class="mobile-hero-glow mobile-hero-glow-1"></div>
+                <div class="mobile-hero-glow mobile-hero-glow-2"></div>
+                <span class="mobile-hero-badge"><i class="fa-solid fa-bolt"></i> India's Largest Event Network</span>
+                <h1>Discover Trusted Providers <span>or Get Discovered</span></h1>
+                <p class="mobile-hero-sub">Every Provider. Every Talent. <strong>Zero Commission.</strong></p>
+
+                <div class="mobile-hero-stats">
+                    <div class="mobile-hero-stat">
+                        <div class="num"><span id="liveCountHeroMobile">0</span><span class="live-dot"></span></div>
+                        <div class="lbl">Live Providers</div>
+                    </div>
+                    <div class="mobile-hero-stat">
+                        <div class="num">6+</div>
+                        <div class="lbl">Categories</div>
+                    </div>
+                    <div class="mobile-hero-stat">
+                        <div class="num">15 min</div>
+                        <div class="lbl">Response</div>
+                    </div>
                 </div>
-                <a href="#" data-tab="list">List now</a>
+
+                <div class="mobile-hero-cta-row">
+                    <a href="#" data-tab="list" class="mobile-hero-cta primary"><i class="fa-solid fa-store"></i> List Free</a>
+                    <a href="#" data-tab="browse" class="mobile-hero-cta secondary"><i class="fa-solid fa-magnifying-glass"></i> Find Providers</a>
+                </div>
             </div>
 
+            <!-- Trust ticker -->
+            <div class="mobile-ticker-wrap">
+                <div class="mobile-ticker-track">
+                    <span><i class="fa-solid fa-shield-heart"></i> Verified Providers</span>
+                    <span><i class="fa-solid fa-indian-rupee-sign"></i> Zero Commission</span>
+                    <span><i class="fa-solid fa-bolt"></i> 15-min Response</span>
+                    <span><i class="fa-solid fa-map-location-dot"></i> Pan-India Reach</span>
+                    <span><i class="fa-solid fa-shield-heart"></i> Verified Providers</span>
+                    <span><i class="fa-solid fa-indian-rupee-sign"></i> Zero Commission</span>
+                    <span><i class="fa-solid fa-bolt"></i> 15-min Response</span>
+                    <span><i class="fa-solid fa-map-location-dot"></i> Pan-India Reach</span>
+                </div>
+            </div>
+
+            <!-- Category shortcuts -->
             <div class="mobile-plan-row">
                 <h4>What are you planning?</h4>
-                <a href="#" data-tab="browse">Search By Category</a>
+                <a href="#" data-tab="browse">View All <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             <div class="mobile-cat-grid">
                 <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('Tent House','Tent')">
-                    <span class="mobile-cat-icon" style="background:#16a34a;"><i class="fa-solid fa-campground"></i></span>
+                    <span class="mobile-cat-icon grad-green"><i class="fa-solid fa-campground"></i></span>
                     <span>Tents</span>
                 </button>
                 <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('Lighting','Light')">
-                    <span class="mobile-cat-icon" style="background:#eab308;"><i class="fa-solid fa-lightbulb"></i></span>
+                    <span class="mobile-cat-icon grad-amber"><i class="fa-solid fa-lightbulb"></i></span>
                     <span>Lighting</span>
                 </button>
                 <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('AV','AV')">
-                    <span class="mobile-cat-icon" style="background:#1e293b;"><i class="fa-solid fa-video"></i></span>
+                    <span class="mobile-cat-icon grad-slate"><i class="fa-solid fa-video"></i></span>
                     <span>AV</span>
                 </button>
                 <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('Photography','Photo')">
-                    <span class="mobile-cat-icon" style="background:#64748b;"><i class="fa-solid fa-camera"></i></span>
+                    <span class="mobile-cat-icon grad-blue"><i class="fa-solid fa-camera"></i></span>
                     <span>Photo</span>
                 </button>
                 <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('Catering','Catering')">
-                    <span class="mobile-cat-icon" style="background:#db2777;"><i class="fa-solid fa-utensils"></i></span>
+                    <span class="mobile-cat-icon grad-pink"><i class="fa-solid fa-utensils"></i></span>
                     <span>Catering</span>
                 </button>
             </div>
 
+            <!-- Story / description -->
             <div class="mobile-landing-copy">
-                <p class="eyebrow">India's Largest Event Resources &amp; Talent Network</p>
-                <h2>Discover Trusted Sources or Get Discovered</h2>
-                <h5>Platform for Every Type of Event</h5>
                 <div class="mobile-highlight-box">
-                    A single destination to source talent for any event: Anchors, Pujari's, Singers, Magicians, and so on and to hire inventories such as Tent Houses, Lighting, Photography &amp; AVs. Two sides — event planners find providers, providers find customers. Zero commission on direct enquiries.
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p>A single destination to source talent for any event: Anchors, Pujari's, Singers, Magicians, and so on — and to hire inventories such as Tent Houses, Lighting, Photography &amp; AVs. Two sides — event planners find providers, providers find customers. Zero commission on direct enquiries.</p>
                 </div>
             </div>
         </div>
@@ -1334,7 +1438,7 @@
             <div class="text-center mb-8">
                 <span class="section-label">Contact Us</span>
                 <h2 class="font-display text-3xl font-bold text-slate-900 mt-3">Get in Touch</h2>
-                <p class="text-slate-500 mt-2">Send us a message and it'll open in your email app, ready to send to <span class="font-semibold text-slate-700">nbraju@hotmail.com</span>.</p>
+                <p class="text-slate-500 mt-2">Send us a message and it'll open in your email app, ready to send to <span class="font-semibold text-slate-700">Fill This Message</span>.</p>
             </div>
             <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-10">
                 <form id="contactForm" class="space-y-4">
@@ -1353,7 +1457,7 @@
             </div>
             <div class="mt-6 text-center">
                 <p class="text-sm text-slate-500 mb-1">Or reach us directly:</p>
-                <a href="mailto:nbraju@hotmail.com" class="text-purple-600 font-semibold hover:underline text-sm"><i class="fa-solid fa-envelope mr-1"></i> nbraju@hotmail.com</a>
+                <a href="mailto:WhatsApp Us" class="text-purple-600 font-semibold hover:underline text-sm"><i class="fa-solid fa-envelope mr-1"></i> Click WhatsApp</a>
             </div>
         </div>
     </section>
@@ -2381,6 +2485,17 @@
                         setTimeout(function () { toastEl.classList.remove('show'); }, 2200);
                     }
                 });
+            }
+
+            // Mirror the live provider count (desktop hero counter) into the
+            // mobile hero card's stat, without touching the counting logic.
+            var srcCount = document.getElementById('liveCountHero');
+            var mirrorCount = document.getElementById('liveCountHeroMobile');
+            if (srcCount && mirrorCount) {
+                mirrorCount.textContent = srcCount.textContent;
+                new MutationObserver(function () {
+                    mirrorCount.textContent = srcCount.textContent;
+                }).observe(srcCount, { childList: true, characterData: true, subtree: true });
             }
         })();
     </script>
