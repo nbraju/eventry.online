@@ -26,17 +26,17 @@
 
     <title>Eventry AI Cloud — Event Providers &amp; Talent Marketplace</title>
     <meta name="description" content="AI-powered operating system for event infrastructure: list, search, select, enquire, and book venues, caterers, decorators, and more." />
-    <link rel="canonical" href="https://nbraju.github.io/TentHouseS-/" />
+    <link rel="canonical" href="https://eventry.online/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Eventry AI Cloud — Event Providers & Talent Marketplace" />
     <meta property="og:description" content="AI-powered operating system for event infrastructure." />
-    <meta property="og:url" content="https://nbraju.github.io/TentHouseS-/" />
+    <meta property="og:url" content="https://eventry.online/" />
     <meta name="twitter:card" content="summary" />
     <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#7c3aed" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E" />
-    <meta property="og:image" content="https://nbraju.github.io/TentHouseS-/Logo.jpg" />
-    <meta name="twitter:image" content="https://nbraju.github.io/TentHouseS-/Logo.jpg" />
+    <meta property="og:image" content="https://eventry.online/Logo.jpg" />
+    <meta name="twitter:image" content="https://eventry.online/Logo.jpg" />
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E" />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -553,6 +553,10 @@
             html.eventry-desktop body { font-size: 15px; }
         }
 
+        /* Shared loading indicator for live counts (hero, counter, mobile
+           mirror) so a slow backend reads as "checking…" not "zero". */
+        .count-loading { opacity: .45; animation: pulse 1.1s ease-in-out infinite; }
+
         /* ============================================================
            MOBILE LANDING REDESIGN (per approved mobile mock)
            Desktop is completely untouched: every rule below is scoped
@@ -814,7 +818,7 @@
 
                 <div class="mobile-hero-stats">
                     <div class="mobile-hero-stat">
-                        <div class="num"><span id="liveCountHeroMobile">0</span><span class="live-dot"></span></div>
+                        <div class="num"><span id="liveCountHeroMobile" class="count-loading">…</span><span class="live-dot"></span></div>
                         <div class="lbl">Live Providers</div>
                     </div>
                     <div class="mobile-hero-stat">
@@ -950,7 +954,7 @@
 
                 <div class="flex flex-wrap justify-center gap-8 sm:gap-14 mt-12 text-sm text-slate-400">
                     <div class="text-center">
-                        <div class="font-display text-3xl font-extrabold text-white" id="liveCountHero">0</div>
+                        <div class="font-display text-3xl font-extrabold text-white count-loading" id="liveCountHero">…</div>
                         <div class="mt-1">Live Providers</div>
                     </div>
                     <div class="text-center">
@@ -1015,7 +1019,7 @@
                 <div class="flex items-center gap-3">
                     <span id="counter" class="bg-purple-50 border border-purple-200 text-purple-800 text-sm font-bold px-4 py-2 rounded-full flex items-center gap-2">
                         <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                        <span id="counterNumber">0</span> Active
+                        <span id="counterNumber" class="count-loading">…</span> Active
                     </span>
                     <button onclick="shareApp()" class="text-xs font-bold text-slate-600 border border-slate-300 px-3 py-2 rounded-full hover:border-purple-400 hover:text-purple-600 transition flex items-center gap-1.5">
                         <i class="fa-solid fa-share-nodes"></i> Share
@@ -1438,7 +1442,7 @@
             <div class="text-center mb-8">
                 <span class="section-label">Contact Us</span>
                 <h2 class="font-display text-3xl font-bold text-slate-900 mt-3">Get in Touch</h2>
-                <p class="text-slate-500 mt-2">Send us a message and it'll open in your email app, ready to send to <span class="font-semibold text-slate-700">Fill This Message</span>.</p>
+                <p class="text-slate-500 mt-2">Send us a message and it'll open in your email app, ready to send to <span class="font-semibold text-slate-700">nbraju@hotmail.com</span>.</p>
             </div>
             <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-10">
                 <form id="contactForm" class="space-y-4">
@@ -1457,7 +1461,7 @@
             </div>
             <div class="mt-6 text-center">
                 <p class="text-sm text-slate-500 mb-1">Or reach us directly:</p>
-                <a href="mailto:WhatsApp Us" class="text-purple-600 font-semibold hover:underline text-sm"><i class="fa-solid fa-envelope mr-1"></i> Click WhatsApp</a>
+                <a href="mailto:nbraju@hotmail.com" class="text-purple-600 font-semibold hover:underline text-sm"><i class="fa-solid fa-envelope mr-1"></i> nbraju@hotmail.com</a>
             </div>
         </div>
     </section>
@@ -1705,8 +1709,12 @@
                 } catch (err) {
                     console.warn(err);
                     grid.innerHTML = '<div class="text-center text-red-500 py-10">Could not load the live provider directory. Please refresh.</div>';
-                    document.getElementById('counterNumber').textContent = '0';
-                    document.getElementById('liveCountHero').textContent = '0';
+                    // On a real load failure, never show "0" — that would misreport an
+                    // unknown count as a verified zero. Show a plain "couldn't load" dash.
+                    ['counterNumber', 'liveCountHero'].forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) { el.textContent = '–'; el.classList.remove('count-loading'); el.title = 'Could not load — refresh to check the real count'; }
+                    });
                 }
             }
 
@@ -1820,6 +1828,8 @@
 
                 counter.textContent = total;
                 hero.textContent = total;
+                counter.classList.remove('count-loading');
+                hero.classList.remove('count-loading');
 
                 if (!total) {
                     grid.innerHTML = '';
@@ -2492,10 +2502,12 @@
             var srcCount = document.getElementById('liveCountHero');
             var mirrorCount = document.getElementById('liveCountHeroMobile');
             if (srcCount && mirrorCount) {
-                mirrorCount.textContent = srcCount.textContent;
-                new MutationObserver(function () {
+                var syncCount = function () {
                     mirrorCount.textContent = srcCount.textContent;
-                }).observe(srcCount, { childList: true, characterData: true, subtree: true });
+                    mirrorCount.classList.toggle('count-loading', srcCount.classList.contains('count-loading'));
+                };
+                syncCount();
+                new MutationObserver(syncCount).observe(srcCount, { childList: true, characterData: true, subtree: true, attributes: true, attributeFilter: ['class'] });
             }
         })();
     </script>
