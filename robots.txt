@@ -1,0 +1,17 @@
+# eventry-seo-generated
+User-agent: *
+Allow: /
+
+# AI and answer-engine crawlers
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://eventry.online/sitemap.xml

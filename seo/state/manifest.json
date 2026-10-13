@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "vendorCount": 0,
+    "builtAt": "2026-10-13T06:05:32.223Z"
+  },
+  "pages": {
+    "https://eventry.online/hyderabad/wedding-photographers/": {
+      "rel": "hyderabad/wedding-photographers/index.html",
+      "hash": "3673bf636dee90da38d8292af0aecc632e9e7685",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    },
+    "https://eventry.online/hyderabad/wedding-caterers/": {
+      "rel": "hyderabad/wedding-caterers/index.html",
+      "hash": "921c9fd76767eac0db4c48f76e87ef82035752d7",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    },
+    "https://eventry.online/guntur/event-decorators/": {
+      "rel": "guntur/event-decorators/index.html",
+      "hash": "b0a4bee52c9d083aa738f0595dfc19218529d7f8",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    },
+    "https://eventry.online/nellore/tent-houses/": {
+      "rel": "nellore/tent-houses/index.html",
+      "hash": "0dbda7350ce28f50b658012d7a654ef022cfabf5",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    },
+    "https://eventry.online/berhampur/wedding-vendors/": {
+      "rel": "berhampur/wedding-vendors/index.html",
+      "hash": "4e135190c7a7e076b064389df5e167139e3c59cd",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    },
+    "https://eventry.online/hyderabad/": {
+      "rel": "hyderabad/index.html",
+      "hash": "b98a18cfc94ce76906917d68f9a96b2addfe5101",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    },
+    "https://eventry.online/guntur/": {
+      "rel": "guntur/index.html",
+      "hash": "12ad60942f9457a317130e1231925c8781cdd46c",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    },
+    "https://eventry.online/nellore/": {
+      "rel": "nellore/index.html",
+      "hash": "e801d7a42394fb0b913927d3986e4497d9805b65",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    },
+    "https://eventry.online/berhampur/": {
+      "rel": "berhampur/index.html",
+      "hash": "c78b59f2a51e89daac11ad8795ea9c30623081db",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    },
+    "https://eventry.online/locations/": {
+      "rel": "locations/index.html",
+      "hash": "d1986bdb971db66089bb7e5df0cb285dd4ce9c57",
+      "lastmod": "2026-10-13",
+      "indexable": false
+    }
+  }
+}
