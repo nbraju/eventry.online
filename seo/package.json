@@ -1,0 +1,13 @@
+{
+  "name": "eventry-seo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static SEO landing-page generator for Eventry. Writes city/category pages, sitemap.xml and robots.txt without touching the PWA.",
+  "scripts": {
+    "fetch": "node scripts/fetch-vendors.js",
+    "preview": "node src/build.js --data data/vendors.sample.json --out out && node scripts/validate.js --out out",
+    "build:live": "node src/build.js --out .. --prune",
+    "validate:live": "node scripts/validate.js --out .."
+  },
+  "engines": { "node": ">=18" }
+}

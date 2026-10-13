@@ -1,0 +1,50 @@
+{
+  "hyderabad": {
+    "name": "Hyderabad",
+    "state": "Telangana",
+    "aliases": ["Secunderabad", "Cyberabad", "Hyderabad Telangana"],
+    "nearby": ["guntur"],
+    "localities": ["Banjara Hills", "Jubilee Hills", "Madhapur", "Gachibowli", "Kukatpally", "Secunderabad", "LB Nagar", "Ameerpet"],
+    "intro": "Hyderabad is one of India's busiest event cities, with celebrations spread from function halls in Secunderabad and the old city to convention centres, resorts and farmhouses on the outskirts.",
+    "tips": {
+      "general": "Traffic across Hyderabad can change set-up timings sharply, so ask each vendor how they plan transport and crew arrival for your venue and date.",
+      "tent": "Many venues sit far from the city centre; confirm delivery and labour charges when your venue is a long way from the vendor's godown.",
+      "catering": "Ask whether the caterer has worked at your venue before and what the venue's rules are on outside kitchens, gas and water."
+    }
+  },
+  "guntur": {
+    "name": "Guntur",
+    "state": "Andhra Pradesh",
+    "aliases": ["Guntur City", "Guntur Andhra Pradesh"],
+    "nearby": ["hyderabad", "nellore"],
+    "localities": ["Brodipet", "Arundelpet", "Lakshmipuram", "Pattabhipuram", "Nallapadu", "Autonagar"],
+    "intro": "Guntur is a busy commercial centre, and families from the city and surrounding towns hold weddings and community events in its function halls, kalyana mandapams and open grounds.",
+    "tips": {
+      "general": "If your event is in a town around Guntur rather than the city itself, ask vendors about travel charges and whether the crew can arrive the day before.",
+      "decor": "Before you book, check what your function hall allows for hanging decor, open flame and flower installations."
+    }
+  },
+  "nellore": {
+    "name": "Nellore",
+    "state": "Andhra Pradesh",
+    "aliases": ["Nellore City", "SPSR Nellore"],
+    "nearby": ["guntur"],
+    "localities": ["Stonehousepeta", "Dargamitta", "Vedayapalem", "Magunta Layout", "Trunk Road"],
+    "intro": "Nellore, in southern coastal Andhra Pradesh, hosts weddings and functions in its function halls, kalyana mandapams and open grounds, and many families also book vendors for events in nearby towns.",
+    "tips": {
+      "general": "For events outside the city limits, ask vendors about delivery distance, extra labour and whether the quote includes transport both ways.",
+      "tent": "Coastal weather can turn quickly; ask for waterproof roofing and a drainage plan for any open-ground set-up."
+    }
+  },
+  "berhampur": {
+    "name": "Berhampur",
+    "state": "Odisha",
+    "aliases": ["Brahmapur", "Berhampur Odisha", "Berhampur Ganjam"],
+    "nearby": [],
+    "localities": ["Gosaninuagaon", "Lanjipalli", "Ambapua", "Bada Bazar", "Aska Road"],
+    "intro": "Berhampur, also called Brahmapur, is the main commercial centre of Ganjam district in southern Odisha, where Odia and Telugu communities both celebrate weddings and festivals.",
+    "tips": {
+      "general": "If your ceremonies follow a particular community tradition, tell vendors early so rituals, music and food are planned around it."
+    }
+  }
+}

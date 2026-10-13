@@ -1,0 +1,26 @@
+{
+  "baseUrl": "https://eventry.online",
+  "brand": "Eventry",
+  "locale": "en-IN",
+  "themeColor": "#2A2868",
+  "appUrl": "https://eventry.online/",
+  "listVendorUrl": "https://eventry.online/",
+  "vendorLinkTemplate": null,
+  "ogImage": null,
+  "directoryPath": "locations",
+  "minVendorsToIndex": 3,
+  "thinPagePolicy": "noindex",
+  "requireApproved": true,
+  "maxVendorsPerPage": 60,
+  "privacy": {
+    "showWhatsAppLink": true,
+    "phoneInJsonLd": false
+  },
+  "robots": {
+    "allowAiCrawlers": true,
+    "extraDisallow": []
+  },
+  "existingUrls": ["/"],
+  "protectedFiles": ["index.html", "sw.js", "manifest.json", "manifest.webmanifest", "CNAME", "llms.txt", "404.html", "favicon.ico"],
+  "reservedPaths": ["assets", "css", "js", "img", "images", "icons", "seo", "blog", "api", "static", "node_modules", ".github"]
+}

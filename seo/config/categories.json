@@ -1,0 +1,251 @@
+{
+  "wedding-photographers": {
+    "label": "Wedding Photographers",
+    "singular": "wedding photographer",
+    "group": "photo",
+    "match": {
+      "categories": ["photo", "video"],
+      "keywords": ["photograph", "videograph", "candid", "cinemat", "drone"]
+    },
+    "eventsFor": "weddings, engagements, receptions and family functions",
+    "services": ["candid photography", "traditional photography", "pre-wedding shoots", "cinematic wedding films", "drone coverage", "albums and prints"],
+    "intro": "A wedding photographer's work outlasts every other line in the budget, so the choice deserves more than a quick call. Coverage for Indian weddings often spans several functions across days, which makes team size and hours of coverage the first things to settle.",
+    "tips": [
+      "Ask to see two or three complete wedding albums rather than a highlight reel; a full set shows consistency across lighting, crowds and long days.",
+      "Confirm who will actually shoot your event. Many studios send an associate, so ask for the lead photographer's name in writing.",
+      "Clarify candid versus traditional coverage, and how many photographers and videographers are included for each function.",
+      "Agree on delivery: the number of edited photos, turnaround for previews, rounds of album design, and how long raw files are kept.",
+      "Ask what happens if the lead photographer falls ill or the schedule overruns, and whether overtime is charged hourly or per function.",
+      "Share your muhurtham time and ritual list early so the team can plan positions for the key moments.",
+      "Discuss usage rights: whether the studio may share your images online and whether you receive full-resolution files.",
+      "Visit the venue together if you can, especially indoor halls where light is limited."
+    ],
+    "faq": [
+      {
+        "q": ["How early should I book a wedding photographer in {city}?", "When should I book a wedding photographer for a {city} wedding?"],
+        "a": "For dates in busy wedding months, start enquiring three to four months ahead; good teams fill up quickly around auspicious dates. For smaller functions a few weeks is often enough. Whatever the date, confirm availability and advance terms in writing."
+      },
+      {
+        "q": ["What is the difference between candid and traditional wedding photography?"],
+        "a": "Traditional photography covers posed portraits and rituals in a planned sequence. Candid photography captures unposed moments as they happen. Many couples book both, so ask each photographer how the two are combined and priced."
+      },
+      {
+        "q": ["What should be in a wedding photography agreement?", "What should I get in writing from a wedding photographer?"],
+        "a": "Dates and hours of coverage, the team on each day, deliverables with delivery timelines, overtime rules, the advance and balance schedule, cancellation terms and image-usage rights."
+      }
+    ]
+  },
+  "tent-houses": {
+    "label": "Tent Houses",
+    "singular": "tent house",
+    "group": "tent",
+    "match": {
+      "categories": ["tent"],
+      "keywords": ["tent", "shamiana", "pandal"]
+    },
+    "eventsFor": "weddings, receptions, festivals and community gatherings",
+    "services": ["shamiana and pandal tents", "stage and mandap structures", "chairs and tables", "carpets and flooring", "curtains and draping", "coolers and fans"],
+    "intro": "Tent houses supply the physical frame of an outdoor event: the pandal or shamiana, seating, flooring, stage and often lighting. Because equipment is hired by the day, availability on popular dates and the condition of the material matter more than the headline rate.",
+    "tips": [
+      "Visit the godown or ask for recent photos of the actual stock; tent fabric, chairs and carpets vary widely in condition.",
+      "Share the guest count and layout early so the vendor can quote the right tent size, seating blocks and aisle space.",
+      "Ask what the quote includes: transport, labour, set-up and dismantling, and any charges for extra hours or distance.",
+      "Check weather cover. Waterproof roofing and a drainage plan are essential for the monsoon and for sudden showers.",
+      "Confirm fire-safety basics such as extinguisher placement and clear exits, especially with kitchens or lighting nearby.",
+      "Agree on the set-up window. A day-before set-up is common for large events; confirm crew arrival time and venue permission.",
+      "Ask about damage and loss terms for chairs, carpets and decor items, and how any deposit is returned.",
+      "Compare vendors on a like-for-like item list rather than a single bundle price."
+    ],
+    "faq": [
+      {
+        "q": ["How do I estimate the tent size for my guest count?", "How big a tent do I need for my event in {city}?"],
+        "a": "Tell the vendor how many guests will be seated and whether you want a stage, buffet counters or a dance floor. A seated-plus-buffet layout needs more space than seating alone, so the vendor will usually measure the venue and propose a layout."
+      },
+      {
+        "q": ["Can a tent house also provide chairs, stage and lighting?"],
+        "a": "Many tent houses offer chairs, tables, stage and mandap structures, carpets and basic lighting under one quote. Ask for an itemised list so you can compare it with separate decorators or lighting vendors."
+      },
+      {
+        "q": ["Is a deposit usually required when hiring a tent house?"],
+        "a": "Most vendors take an advance to block the date and sometimes a refundable security deposit for equipment. Ask for the amounts, the conditions for return and a receipt."
+      }
+    ]
+  },
+  "wedding-caterers": {
+    "label": "Wedding Caterers",
+    "singular": "wedding caterer",
+    "group": "catering",
+    "match": {
+      "categories": ["cater", "food"],
+      "keywords": ["cater", "buffet", "cook"]
+    },
+    "eventsFor": "weddings, receptions, engagements and festival feasts",
+    "services": ["vegetarian and non-vegetarian menus", "regional specialities", "live counters", "buffet and plated service", "breakfast and tiffin service", "serving staff"],
+    "intro": "Food is the part of an event guests remember, and the part most likely to go wrong at scale. A good caterer plans quantities, kitchen space, serving staff and timing together, so tastings and clear menus should come before price comparison.",
+    "tips": [
+      "Ask for a tasting of the exact menu items you plan to serve, not a general sample.",
+      "Fix the menu, the per-plate rate and the guest-count basis in writing, and ask how final billing treats guests above or below the estimate.",
+      "Clarify who provides plates, serving ware, tables and serving staff, and how many staff are assigned per hundred guests.",
+      "Check kitchen requirements: space, water, gas or power, and whether cooking happens on site or off site.",
+      "Confirm dietary needs early: pure vegetarian, Jain, no onion or garlic, diabetic-friendly and allergy requests.",
+      "Ask about food safety: ingredient sourcing, hygiene practices, and what happens to leftover food.",
+      "Plan meal timing around the ritual schedule so food is ready when guests are, and ask for a backup plan for delays.",
+      "Agree on the payment schedule: advance, balance on the day, and any charges for extra counters or late hours."
+    ],
+    "faq": [
+      {
+        "q": ["How do I decide the per-plate budget for a wedding?", "How should I compare per-plate quotes from caterers in {city}?"],
+        "a": "Start from the guest count and the number of meals, then compare quotes on a like-for-like menu: the same dishes, service style and staffing. A lower rate may leave out serving staff, plates or live counters."
+      },
+      {
+        "q": ["How far in advance should I book a caterer?"],
+        "a": "For busy wedding dates, three to four months ahead is a sensible starting point. Smaller functions can often be arranged with a few weeks' notice. Book the tasting as soon as you have shortlisted two or three caterers."
+      },
+      {
+        "q": ["Can a caterer manage both vegetarian and non-vegetarian menus?"],
+        "a": "Many can, but ask how they keep the two kitchens, utensils and counters separate. Confirm this in writing if your family or guests need strictly separate preparation."
+      }
+    ]
+  },
+  "event-decorators": {
+    "label": "Event Decorators",
+    "singular": "event decorator",
+    "group": "decor",
+    "match": {
+      "categories": ["decor", "floral", "flower"],
+      "keywords": ["decor", "floral", "flower", "balloon", "backdrop"]
+    },
+    "eventsFor": "weddings, receptions, engagements, birthdays and corporate events",
+    "services": ["mandap and stage decoration", "floral decor", "entrance and gate decor", "theme and backdrop design", "lighting accents", "balloon decor"],
+    "intro": "Decoration turns a bare hall into the setting people photograph. The best decorators work backwards from the venue, the guest flow and the photographs, and tell you plainly what the budget can and cannot cover.",
+    "tips": [
+      "Ask for a mood board or 3D mock-up of the stage and entrance before you pay the advance.",
+      "Be clear on flowers: fresh, artificial or mixed. Fresh flower prices swing with season and demand around festival and wedding dates.",
+      "Visit the venue with the decorator to check ceiling height, power points, load-bearing points and set-up access.",
+      "Agree on the set-up and dismantling schedule, and who coordinates with the venue and with the tent or lighting team.",
+      "Ask what is rented and what you keep, such as props, backdrops and floral pieces.",
+      "Get the inventory list in writing so you can match what was promised with what is delivered.",
+      "Discuss a backup plan for weather or last-minute changes, especially for open-air events.",
+      "Look at completed events at venues like yours rather than only styled photo shoots."
+    ],
+    "faq": [
+      {
+        "q": ["What does wedding decoration usually include?", "What is included in event decoration packages in {city}?"],
+        "a": "A typical package covers the stage or mandap, entrance, photo backdrop and seating or aisle styling. Lighting, flowers and props may be quoted separately, so ask for an itemised list that lets you compare quotes fairly."
+      },
+      {
+        "q": ["Should I choose fresh or artificial flowers?"],
+        "a": "Fresh flowers look and smell better but cost more and depend on seasonal supply. Artificial flowers last through long events and weather but can look flat in photographs. Many decorators combine the two."
+      },
+      {
+        "q": ["How early should I finalise the decoration?"],
+        "a": "For large events, lock the theme and budget at least a month ahead so the decorator can source materials and plan the build. For peak dates, book earlier."
+      }
+    ]
+  },
+  "event-lighting-sound": {
+    "label": "Event Lighting and Sound",
+    "singular": "lighting and sound vendor",
+    "group": "av",
+    "match": {
+      "categories": ["lighting", "av", "audio", "sound", "dj"],
+      "keywords": ["lighting", "sound system", "led wall", "truss", "dj"]
+    },
+    "eventsFor": "weddings, concerts, receptions, stage shows and corporate events",
+    "services": ["stage and truss lighting", "LED walls and screens", "DJ and sound systems", "microphones and PA", "generators and power backup", "special-effects lighting"],
+    "intro": "Lighting and sound shape how an event feels and whether the speeches, music and rituals are heard clearly. Power planning, speaker placement and a tested backup matter as much as the equipment list.",
+    "tips": [
+      "Share the venue size and event schedule so the vendor can size speakers, lights and power correctly.",
+      "Ask about power backup: generator capacity, fuel, and who operates it.",
+      "Check noise rules and permitted hours for your venue and area before booking a DJ.",
+      "Confirm how many technicians will be on site, not only the equipment list.",
+      "Schedule a sound check before guests arrive, including the microphones for speeches and rituals.",
+      "Ask for spares of critical items such as microphones, mixers and amplifiers.",
+      "Coordinate with the decorator on lighting accents so cables and trusses do not clash with the stage.",
+      "Get hours of operation and overtime rates in writing."
+    ],
+    "faq": [
+      {
+        "q": ["Do I need a generator for my event?", "Should I hire a generator for an event in {city}?"],
+        "a": "If the venue's power supply is limited or unreliable, or you are using large lighting and LED set-ups, a generator is sensible. Ask the vendor to size it for the full load and to keep a technician on site."
+      },
+      {
+        "q": ["Are there time limits for loudspeakers and DJs?"],
+        "a": "Local rules and venue policies often restrict amplified sound after certain hours. Check the rules with the venue and local authorities, then plan the schedule with your vendor accordingly."
+      },
+      {
+        "q": ["What is the difference between a DJ and a sound system vendor?"],
+        "a": "A DJ performs and manages the music. A sound vendor supplies and operates the speakers, mixers and microphones. Some businesses offer both, so ask whether one quote covers equipment, operator and music."
+      }
+    ]
+  },
+  "event-entertainers": {
+    "label": "Event Entertainers",
+    "singular": "event entertainer",
+    "group": "talent",
+    "match": {
+      "categories": ["entertain", "dance", "singer", "anchor", "band", "magic"],
+      "keywords": ["dancer", "singer", "anchor", "emcee", "band", "magician", "orchestra"]
+    },
+    "eventsFor": "weddings, sangeet nights, receptions, festivals and corporate events",
+    "services": ["dancers and choreographers", "singers and live bands", "anchors and emcees", "instrumentalists", "folk and traditional performers", "magicians"],
+    "intro": "Performers set the mood of an evening, from a sangeet choreography to an anchor who keeps a long programme moving. Book on the strength of a full performance video, and agree timings and technical needs ahead.",
+    "tips": [
+      "Ask for a full-length video of a recent live performance at a similar event.",
+      "Share the programme, audience mix and language preferences so the performer can plan the set.",
+      "Confirm technical needs: stage size, sound, lighting, green room and power.",
+      "Agree on performance length, rehearsal time, and what happens if the schedule runs late.",
+      "Clarify travel, stay and food arrangements for performers who come from out of town.",
+      "Get the fee, advance and cancellation terms in writing.",
+      "For choreographed performances, plan rehearsals well ahead of the event.",
+      "Check how many people are on the team and who performs on the day."
+    ],
+    "faq": [
+      {
+        "q": ["How do I choose an anchor or emcee for my event?", "What should I look for in an anchor for an event in {city}?"],
+        "a": "Look for a recent full-length video, check their comfort with the languages your guests speak, and talk through the programme with them. A good anchor adapts to the crowd and the schedule rather than reading a fixed script."
+      },
+      {
+        "q": ["How far ahead should I book performers?"],
+        "a": "For peak dates, book several weeks to months ahead, especially for popular bands and choreographers. Choreographed acts also need rehearsal time, so book before you finalise the rest of the programme."
+      },
+      {
+        "q": ["Do performers bring their own sound system?"],
+        "a": "It varies. Some bring their own equipment; others rely on the event's sound vendor. Confirm in writing who supplies microphones, monitors and tracks so there are no surprises on the day."
+      }
+    ]
+  },
+  "wedding-vendors": {
+    "label": "Wedding Vendors",
+    "singular": "wedding vendor",
+    "group": "all",
+    "match": "all",
+    "eventsFor": "weddings and every function around them",
+    "services": ["tent houses", "caterers", "decorators", "photographers", "lighting and sound", "entertainers"],
+    "intro": "A wedding is several businesses working to one timetable. Booking the main vendors in a sensible order and getting everything in writing keeps the day calm, and it is easier when you can compare options in one place.",
+    "tips": [
+      "Fix the date, venue and guest count first; every other quote depends on them.",
+      "Book the vendors with the least flexibility first, usually the venue, caterer and photographer for peak dates.",
+      "Ask each vendor for an itemised quote so you can compare like for like.",
+      "Share the same schedule with every vendor so set-up, food and rituals do not clash.",
+      "Name one family member as the point of contact for vendors on the day.",
+      "Keep a written record of advances, balances and cancellation terms for every booking.",
+      "Keep a contingency reserve in the budget for changes and last-minute needs.",
+      "Visit the venue with the decorator, tent house and lighting team together if you can."
+    ],
+    "faq": [
+      {
+        "q": ["Which wedding vendors should I book first?", "In what order should I book wedding vendors in {city}?"],
+        "a": "Start with the venue and date, then the caterer and photographer for popular dates, followed by the decorator, tent house, lighting and sound, and entertainers. Vendors with limited capacity fill up first."
+      },
+      {
+        "q": ["How do I compare quotes from different vendors?"],
+        "a": "Ask for itemised quotes built on the same assumptions: guest count, hours, services and staffing. Compare what is included, such as set-up, transport and overtime, before you compare totals."
+      },
+      {
+        "q": ["Should I keep a contingency in the wedding budget?"],
+        "a": "Yes. A reserve for last-minute changes, extra guests and overtime is sensible. Decide its size by how certain your guest count and schedule are."
+      }
+    ]
+  }
+}

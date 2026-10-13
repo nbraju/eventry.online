@@ -1,0 +1,339 @@
+{
+  "_sample": true,
+  "_note": "FAKE TEST DATA for previewing the generator. Never publish pages built from this file.",
+  "vendors": [
+    {
+      "uid": "TEST-001",
+      "name": "Sample Tent House 1 (test data)",
+      "category": "Tent House",
+      "subcategory": "",
+      "city": "Hyderabad",
+      "area": "Madhapur",
+      "services": [
+        "shamiana tents",
+        "chairs and tables",
+        "stage structures"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000001"
+    },
+    {
+      "uid": "TEST-002",
+      "name": "Sample Tent House 2 (test data)",
+      "category": "Tent House",
+      "subcategory": "",
+      "city": "Hyderabad",
+      "area": "Kukatpally",
+      "services": [
+        "shamiana tents",
+        "chairs and tables",
+        "stage structures"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000002"
+    },
+    {
+      "uid": "TEST-003",
+      "name": "Sample Tent House 3 (test data)",
+      "category": "Tent House",
+      "subcategory": "",
+      "city": "Hyderabad",
+      "area": "LB Nagar",
+      "services": [
+        "shamiana tents",
+        "chairs and tables",
+        "stage structures"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000003"
+    },
+    {
+      "uid": "TEST-004",
+      "name": "Sample Tent House 4 (test data)",
+      "category": "Tent House",
+      "subcategory": "",
+      "city": "Hyderabad",
+      "area": "Secunderabad",
+      "services": [
+        "shamiana tents",
+        "chairs and tables",
+        "stage structures"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000004"
+    },
+    {
+      "uid": "TEST-005",
+      "name": "Sample Caterer 1 (test data)",
+      "category": "Catering",
+      "subcategory": "",
+      "city": "Hyderabad",
+      "area": "Banjara Hills",
+      "services": [
+        "vegetarian menus",
+        "live counters",
+        "buffet service"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000005"
+    },
+    {
+      "uid": "TEST-006",
+      "name": "Sample Caterer 2 (test data)",
+      "category": "Catering",
+      "subcategory": "",
+      "city": "Hyderabad",
+      "area": "Gachibowli",
+      "services": [
+        "vegetarian menus",
+        "live counters",
+        "buffet service"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000006"
+    },
+    {
+      "uid": "TEST-007",
+      "name": "Sample Caterer 3 (test data)",
+      "category": "Catering",
+      "subcategory": "",
+      "city": "Hyderabad",
+      "area": "Ameerpet",
+      "services": [
+        "vegetarian menus",
+        "live counters",
+        "buffet service"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000007"
+    },
+    {
+      "uid": "TEST-008",
+      "name": "Sample Photographer 1 (test data)",
+      "category": "Others",
+      "subcategory": "Photography",
+      "city": "Hyderabad",
+      "area": "Jubilee Hills",
+      "services": [
+        "candid photography",
+        "cinematic video"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000008"
+    },
+    {
+      "uid": "TEST-009",
+      "name": "Sample Photographer 2 (test data)",
+      "category": "Others",
+      "subcategory": "Photography",
+      "city": "Hyderabad",
+      "area": "Madhapur",
+      "services": [
+        "candid photography",
+        "cinematic video"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000009"
+    },
+    {
+      "uid": "TEST-010",
+      "name": "Sample Decorator 1 (test data)",
+      "category": "Decorations",
+      "subcategory": "",
+      "city": "Secunderabad",
+      "area": "Secunderabad",
+      "services": [
+        "mandap decoration",
+        "floral decor"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000010"
+    },
+    {
+      "uid": "TEST-011",
+      "name": "Sample Decorator 2 (test data)",
+      "category": "Decorations",
+      "subcategory": "",
+      "city": "Secunderabad",
+      "area": "Secunderabad",
+      "services": [
+        "mandap decoration",
+        "floral decor"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000011"
+    },
+    {
+      "uid": "TEST-012",
+      "name": "Sample Decorator 3 (test data)",
+      "category": "Decorations",
+      "subcategory": "",
+      "city": "Secunderabad",
+      "area": "Secunderabad",
+      "services": [
+        "mandap decoration",
+        "floral decor"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000012"
+    },
+    {
+      "uid": "TEST-013",
+      "name": "Sample Decorator 1 (test data)",
+      "category": "Decorations",
+      "subcategory": "",
+      "city": "Guntur",
+      "area": "Brodipet",
+      "services": [
+        "stage decoration",
+        "floral decor",
+        "entrance decor"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000013"
+    },
+    {
+      "uid": "TEST-014",
+      "name": "Sample Decorator 2 (test data)",
+      "category": "Decorations",
+      "subcategory": "",
+      "city": "Guntur",
+      "area": "Arundelpet",
+      "services": [
+        "stage decoration",
+        "floral decor",
+        "entrance decor"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000014"
+    },
+    {
+      "uid": "TEST-015",
+      "name": "Sample Decorator 3 (test data)",
+      "category": "Decorations",
+      "subcategory": "",
+      "city": "Guntur",
+      "area": "Lakshmipuram",
+      "services": [
+        "stage decoration",
+        "floral decor",
+        "entrance decor"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000015"
+    },
+    {
+      "uid": "TEST-016",
+      "name": "Sample Caterer 1 (test data)",
+      "category": "Catering",
+      "subcategory": "",
+      "city": "Guntur",
+      "area": "Pattabhipuram",
+      "services": [
+        "tiffin service"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000016"
+    },
+    {
+      "uid": "TEST-017",
+      "name": "Sample Tent House 1 (test data)",
+      "category": "Tent House",
+      "subcategory": "",
+      "city": "Nellore",
+      "area": "Stonehousepeta",
+      "services": [
+        "pandal tents",
+        "carpets and flooring",
+        "chairs"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000017"
+    },
+    {
+      "uid": "TEST-018",
+      "name": "Sample Tent House 2 (test data)",
+      "category": "Tent House",
+      "subcategory": "",
+      "city": "Nellore",
+      "area": "Dargamitta",
+      "services": [
+        "pandal tents",
+        "carpets and flooring",
+        "chairs"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000018"
+    },
+    {
+      "uid": "TEST-019",
+      "name": "Sample Tent House 3 (test data)",
+      "category": "Tent House",
+      "subcategory": "",
+      "city": "Nellore",
+      "area": "Vedayapalem",
+      "services": [
+        "pandal tents",
+        "carpets and flooring",
+        "chairs"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000019"
+    },
+    {
+      "uid": "TEST-020",
+      "name": "Sample Tent House 1 (test data)",
+      "category": "Tent House",
+      "subcategory": "",
+      "city": "Brahmapur",
+      "area": "Gosaninuagaon",
+      "services": [
+        "tents"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000020"
+    },
+    {
+      "uid": "TEST-021",
+      "name": "Sample Decorator 1 (test data)",
+      "category": "Decorations",
+      "subcategory": "",
+      "city": "Berhampur",
+      "area": "Lanjipalli",
+      "services": [
+        "flower decor"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000021"
+    },
+    {
+      "uid": "TEST-022",
+      "name": "Sample Caterer 1 (test data)",
+      "category": "Catering",
+      "subcategory": "",
+      "city": "Berhampur",
+      "area": "Ambapua",
+      "services": [
+        "wedding menus"
+      ],
+      "status": "Approved",
+      "whatsapp": "9000000022"
+    },
+    {
+      "uid": "TEST-PENDING",
+      "name": "Sample Pending Vendor (test data)",
+      "category": "Tent House",
+      "city": "Hyderabad",
+      "status": "Pending",
+      "whatsapp": "9000099999"
+    },
+    {
+      "uid": "TEST-NOWHERE",
+      "name": "Sample Unknown City Vendor (test data)",
+      "category": "Tent House",
+      "city": "Atlantis",
+      "status": "Approved",
+      "whatsapp": "9000099998"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# SEO generator — never commit fetched vendor data or build output
+seo/data/vendors.json
+seo/state/touched.txt
+seo/reports/
+seo/out/
+seo/node_modules/
+
+# Local backups
+*.bak

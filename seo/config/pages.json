@@ -1,0 +1,10 @@
+{
+  "_comment": "'required' pages are always generated (as noindex if they have fewer vendors than minVendorsToIndex). Any other city/category combo is generated automatically once it reaches minVendorsToIndex vendors.",
+  "required": [
+    "hyderabad/wedding-photographers",
+    "hyderabad/wedding-caterers",
+    "guntur/event-decorators",
+    "nellore/tent-houses",
+    "berhampur/wedding-vendors"
+  ]
+}

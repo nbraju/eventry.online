@@ -1,0 +1,5 @@
+data/vendors.json
+out/
+reports/
+node_modules/
+state/touched.txt
