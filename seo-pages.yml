@@ -1,0 +1,45 @@
+# Place this file in the Pages repo at .github/workflows/seo-pages.yml
+# Assumes this generator lives in a folder named "seo/" at the repo root.
+name: Build SEO landing pages
+
+on:
+  schedule:
+    - cron: '30 22 * * *'   # daily, 04:00 IST
+  workflow_dispatch:
+  push:
+    paths: ['seo/config/**', 'seo/src/**']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: seo-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Fetch approved vendors (fails on HTML/empty/invalid response)
+        working-directory: seo
+        env:
+          EVENTRY_API_URL: ${{ secrets.EVENTRY_API_URL }}
+        run: node scripts/fetch-vendors.js
+      - name: Generate pages, sitemap.xml, robots.txt
+        working-directory: seo
+        run: node src/build.js --out .. --prune
+      - name: Validate
+        working-directory: seo
+        run: node scripts/validate.js --out ..
+      - name: Commit only generated paths
+        run: |
+          git config user.name  "eventry-seo-bot"
+          git config user.email "eventry-seo-bot@users.noreply.github.com"
+          git add $(cat seo/state/touched.txt) || true
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "seo: regenerate landing pages and sitemap"
+          git push
