@@ -4,8 +4,8 @@
     "singular": "wedding photographer",
     "group": "photo",
     "match": {
-      "categories": ["photo", "video"],
-      "keywords": ["photograph", "videograph", "candid", "cinemat", "drone"]
+      "categories": ["photo", "video", "cine arts", "cine"],
+      "keywords": ["photograph", "videograph", "candid", "cinemat", "drone", "cine"]
     },
     "eventsFor": "weddings, engagements, receptions and family functions",
     "services": ["candid photography", "traditional photography", "pre-wedding shoots", "cinematic wedding films", "drone coverage", "albums and prints"],
@@ -184,8 +184,8 @@
     "singular": "event entertainer",
     "group": "talent",
     "match": {
-      "categories": ["entertain", "dance", "singer", "anchor", "band", "magic"],
-      "keywords": ["dancer", "singer", "anchor", "emcee", "band", "magician", "orchestra"]
+      "categories": ["entertain", "dance", "singer", "anchor", "band", "magic", "telent", "musician"],
+      "keywords": ["dancer", "singer", "anchor", "emcee", "band", "magician", "orchestra", "musician"]
     },
     "eventsFor": "weddings, sangeet nights, receptions, festivals and corporate events",
     "services": ["dancers and choreographers", "singers and live bands", "anchors and emcees", "instrumentalists", "folk and traditional performers", "magicians"],
@@ -212,6 +212,150 @@
       {
         "q": ["Do performers bring their own sound system?"],
         "a": "It varies. Some bring their own equipment; others rely on the event's sound vendor. Confirm in writing who supplies microphones, monitors and tracks so there are no surprises on the day."
+      }
+    ]
+  },
+  "venues": {
+    "label": "Event Venues",
+    "singular": "event venue",
+    "group": "venue",
+    "match": {
+      "categories": ["venue", "hall", "banquet"],
+      "keywords": ["venue", "banquet", "function hall", "kalyana mandapam", "convention", "resort"]
+    },
+    "eventsFor": "weddings, receptions, corporate events and large gatherings",
+    "services": ["function halls", "banquet halls", "kalyana mandapams", "convention centres", "resorts and farmhouses", "open grounds"],
+    "intro": "The venue shapes everything else: guest capacity, kitchen access, decor permissions, parking and how vendors load in. Lock the venue first, and confirm what it provides versus what you must hire separately.",
+    "tips": [
+      "Visit at the same time of day as your event to check lighting, parking and noise levels.",
+      "Ask what is included: seating, tables, kitchen access, power, air conditioning, and set-up time before the event.",
+      "Confirm the rules: outside caterers, alcohol, amplified music, decoration, and how late the event can run.",
+      "Clarify the capacity in seating and standing terms, plus parking space for guests and vendor vehicles.",
+      "Ask about the deposit, cancellation policy and whether the date is held on payment or on signing.",
+      "Check load-in access for tents, stages, lighting trusses and catering equipment.",
+      "Ask for a venue manager's contact for the day of the event, not just the booking contact.",
+      "Get a written floor plan or ask to be shown where the stage, kitchen and guest flow will be."
+    ],
+    "faq": [
+      {
+        "q": ["What should I check before booking a venue in {city}?"],
+        "a": "Visit at the same time of day as the event, confirm capacity, parking, kitchen access, power supply, permitted hours, vendor rules and the cancellation policy. Get everything in writing."
+      },
+      {
+        "q": ["Can I use my own caterer at a venue?"],
+        "a": "It varies. Some venues allow outside caterers with a fee; others require in-house catering. Ask before you book, and confirm the kitchen access, water and power arrangements."
+      },
+      {
+        "q": ["How far in advance should I book a venue?"],
+        "a": "For peak wedding dates, book six to twelve months ahead, especially at popular halls or resorts. Off-peak dates can often be arranged with a few weeks' notice."
+      }
+    ]
+  },
+  "mehendi-artists": {
+    "label": "Mehendi Artists",
+    "singular": "mehendi artist",
+    "group": "mehendi",
+    "match": {
+      "categories": ["mehendi", "henna"],
+      "keywords": ["mehendi", "mehndi", "henna"]
+    },
+    "eventsFor": "weddings, engagements, sangeet nights and family functions",
+    "services": ["bridal mehendi", "guest mehendi", "Arabic and traditional designs", "groom mehendi", "family and party mehendi"],
+    "intro": "Mehendi is part of most Indian weddings, applied over hours to the bride, family and guests. Book an artist who has done full bridal designs before, and agree on the time and number of artists based on how many people need it.",
+    "tips": [
+      "Ask for photos of full bridal mehendi the artist has done, not just guest designs.",
+      "Discuss the design style: traditional, Arabic, minimal, or a mix. Bring reference images.",
+      "Confirm the number of artists coming. A single artist cannot cover a bride plus 50 guests in one evening.",
+      "Agree on the time slot for the bride: bridal mehendi often takes two to four hours, sometimes more.",
+      "Ask about aftercare advice and any prep the bride should do beforehand.",
+      "Confirm the henna they use; natural henna takes longer to darken but is safer than chemical mixes.",
+      "Bring extra artists if the family also wants mehendi on the same day.",
+      "Ask about travel charges if the artist is coming from out of town or from a distant part of the city."
+    ],
+    "faq": [
+      {
+        "q": ["How early should I book a mehendi artist for a {city} wedding?"],
+        "a": "For peak wedding dates, book one to three months ahead. Popular bridal artists fill up fast, especially in wedding season. For smaller functions, a few weeks is often enough."
+      },
+      {
+        "q": ["How many mehendi artists do I need?"],
+        "a": "One for the bride plus one per twenty to thirty guests is a reasonable starting point. If many guests want mehendi, book extra artists and start early."
+      },
+      {
+        "q": ["How long does bridal mehendi take?"],
+        "a": "Full bridal mehendi on hands and feet can take two to four hours, sometimes more for very detailed designs. Leave the bride free for the afternoon and schedule the artist to arrive with time to spare."
+      }
+    ]
+  },
+  "event-management": {
+    "label": "Event Management",
+    "singular": "event manager",
+    "group": "management",
+    "match": {
+      "categories": ["event management", "management", "planner"],
+      "keywords": ["event management", "event planner", "wedding planner", "coordinator"]
+    },
+    "eventsFor": "weddings, corporate events, conferences and large celebrations",
+    "services": ["full event planning", "vendor coordination", "on-day management", "corporate events", "destination events", "logistics and hospitality"],
+    "intro": "An event manager coordinates vendors, schedules and the day-of execution so you can be present at your own event. The right one saves you time, catches problems early, and negotiates on your behalf.",
+    "tips": [
+      "Ask what they will handle: vendor booking, on-day coordination, budget tracking, or all three.",
+      "Look at two or three events they have managed of a similar size and style.",
+      "Clarify their fee structure: flat fee, percentage of budget, or a hybrid.",
+      "Ask how many events they manage at once, and who is your point of contact on the day.",
+      "Confirm the vendors they will recommend are their regulars or open-market selections.",
+      "Get the scope of work and the deliverable list in writing before you pay anything.",
+      "Discuss the escalation plan if a vendor cancels or a schedule slips.",
+      "Ask for a post-event report or debrief if you have booked their full planning service."
+    ],
+    "faq": [
+      {
+        "q": ["What does an event manager do?"],
+        "a": "An event manager plans and coordinates the event: sourcing vendors, tracking budget, planning the schedule, running rehearsals and managing the day itself so the host can focus on guests."
+      },
+      {
+        "q": ["How much does an event manager cost in {city}?"],
+        "a": "Fees vary by scope and event size. Many charge a flat fee for smaller events, or a percentage of the total budget for large weddings. Ask for a written scope so the cost matches what is delivered."
+      },
+      {
+        "q": ["Do I need an event manager for a small wedding?"],
+        "a": "Not always. If your vendor count is small and you have family to help, a coordinator for the day itself may be enough. For larger weddings with multiple functions, a manager is usually worth it."
+      }
+    ]
+  },
+  "pujari-purohit": {
+    "label": "Pujari / Purohit",
+    "singular": "pujari",
+    "group": "pujari",
+    "match": {
+      "categories": ["pujari", "purohit", "pandit", "priest"],
+      "keywords": ["pujari", "purohit", "pandit", "priest", "panditji"]
+    },
+    "eventsFor": "weddings, gruhapravesham, naming ceremonies and family poojas",
+    "services": ["wedding ceremonies", "gruhapravesham", "naming ceremonies", "satyanarayana vratham", "pitru karmas", "homam and havans"],
+    "intro": "A pujari leads the rituals that anchor a wedding or family ceremony. Choose one who is fluent in your family's tradition and language, and who can explain each step so everyone can follow along.",
+    "tips": [
+      "Confirm the pujari knows your family's specific tradition and language.",
+      "Share the muhurtham time and the list of rituals in advance so nothing is missed.",
+      "Ask what samagri (materials) you need to arrange and what the pujari will bring.",
+      "Discuss the duration of each ritual and how much is led by the family versus the pujari.",
+      "Ask the pujari to explain the meaning of each step if family members are unfamiliar.",
+      "Confirm the fee and travel in writing, and whether it covers only the ceremony or also consultations.",
+      "Book well ahead during peak wedding months and festival dates.",
+      "For ceremonies at a temple, check the temple's own pujari arrangements first."
+    ],
+    "faq": [
+      {
+        "q": ["How do I choose a pujari for a wedding in {city}?"],
+        "a": "Ask for recommendations from family and friends, confirm the pujari knows your tradition and language, and meet them before the event. Discuss the rituals and samagri list in advance so there are no surprises."
+      },
+      {
+        "q": ["What samagri do I need for a wedding puja?"],
+        "a": "The list varies by tradition and by the specific rituals. Ask the pujari for a written list a week before the event, and check what they will bring versus what you need to arrange."
+      },
+      {
+        "q": ["How long does a wedding ceremony take?"],
+        "a": "Traditional wedding ceremonies range from one to four hours depending on the rituals. Share the schedule with the pujari and the family so everyone can plan food and photographs around the key moments."
       }
     ]
   },

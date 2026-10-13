@@ -3,7 +3,7 @@
     "name": "Hyderabad",
     "state": "Telangana",
     "aliases": ["Secunderabad", "Cyberabad", "Hyderabad Telangana"],
-    "nearby": ["guntur"],
+    "nearby": ["guntur", "vijayawada", "warangal"],
     "localities": ["Banjara Hills", "Jubilee Hills", "Madhapur", "Gachibowli", "Kukatpally", "Secunderabad", "LB Nagar", "Ameerpet"],
     "intro": "Hyderabad is one of India's busiest event cities, with celebrations spread from function halls in Secunderabad and the old city to convention centres, resorts and farmhouses on the outskirts.",
     "tips": {
@@ -12,11 +12,67 @@
       "catering": "Ask whether the caterer has worked at your venue before and what the venue's rules are on outside kitchens, gas and water."
     }
   },
+  "visakhapatnam": {
+    "name": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "aliases": ["Vizag", "Vishakhapatnam", "Visakha"],
+    "nearby": ["srikakulam", "vijayawada"],
+    "localities": ["MVP Colony", "Dwaraka Nagar", "Gajuwaka", "Madhurawada", "Beach Road", "Anakapalle"],
+    "intro": "Visakhapatnam, known as Vizag, hosts weddings and functions in its coastal function halls, kalyana mandapams, hotels and open grounds along the beach road.",
+    "tips": {
+      "general": "Coastal weather can change quickly, so ask vendors about waterproof cover and backup plans for open-air set-ups.",
+      "tent": "Sea breeze and humidity affect tent fabric and decor; ask vendors for materials suited to coastal conditions."
+    }
+  },
+  "kolkata": {
+    "name": "Kolkata",
+    "state": "West Bengal",
+    "aliases": ["Calcutta"],
+    "nearby": [],
+    "localities": ["Salt Lake", "New Town", "Ballygunge", "Alipore", "Howrah", "Park Street", "Behala"],
+    "intro": "Kolkata's celebrations range from traditional Bengali weddings in community halls to large banquets in Salt Lake and New Town, with decorators and caterers known for regional specialities.",
+    "tips": {
+      "general": "Confirm venue rules on outside caterers and decorators well in advance; some community halls have fixed vendor panels."
+    }
+  },
+  "berhampur": {
+    "name": "Berhampur",
+    "state": "Odisha",
+    "aliases": ["Brahmapur", "Berhampur Odisha", "Berhampur Ganjam"],
+    "nearby": ["chatrapur", "ganjam"],
+    "localities": ["Gosaninuagaon", "Lanjipalli", "Ambapua", "Bada Bazar", "Aska Road"],
+    "intro": "Berhampur, also called Brahmapur, is the main commercial centre of Ganjam district in southern Odisha, where Odia and Telugu communities both celebrate weddings and festivals.",
+    "tips": {
+      "general": "If your ceremonies follow a particular community tradition, tell vendors early so rituals, music and food are planned around it."
+    }
+  },
+  "srikakulam": {
+    "name": "Srikakulam",
+    "state": "Andhra Pradesh",
+    "aliases": ["Srikakulam district", "Chilakapalem"],
+    "nearby": ["visakhapatnam"],
+    "localities": ["Srikakulam Town", "Chilakapalem", "Amadalavalasa", "Palasa", "Narasannapeta"],
+    "intro": "Srikakulam district in north coastal Andhra Pradesh hosts weddings and family functions in kalyana mandapams and function halls, with vendors serving both the town and surrounding mandals.",
+    "tips": {
+      "general": "For events in small towns and villages, ask vendors about travel and set-up time; some may need to arrive a day early."
+    }
+  },
+  "sambalpur": {
+    "name": "Sambalpur",
+    "state": "Odisha",
+    "aliases": ["Sambalpur Odisha"],
+    "nearby": ["rourkela", "bargarh"],
+    "localities": ["Ainthapali", "Dhanupali", "Golebazar", "Burla", "Hirakud"],
+    "intro": "Sambalpur, in western Odisha on the Mahanadi, hosts weddings and community functions in its function halls and open grounds, with a strong tradition of local cuisine and decor.",
+    "tips": {
+      "general": "For events near Hirakud or Burla, ask vendors about travel distance and set-up logistics."
+    }
+  },
   "guntur": {
     "name": "Guntur",
     "state": "Andhra Pradesh",
-    "aliases": ["Guntur City", "Guntur Andhra Pradesh"],
-    "nearby": ["hyderabad", "nellore"],
+    "aliases": ["Guntur City", "Guntur Andhra Pradesh", "Tenali", "Ponnur"],
+    "nearby": ["hyderabad", "vijayawada", "tenali"],
     "localities": ["Brodipet", "Arundelpet", "Lakshmipuram", "Pattabhipuram", "Nallapadu", "Autonagar"],
     "intro": "Guntur is a busy commercial centre, and families from the city and surrounding towns hold weddings and community events in its function halls, kalyana mandapams and open grounds.",
     "tips": {
@@ -24,11 +80,44 @@
       "decor": "Before you book, check what your function hall allows for hanging decor, open flame and flower installations."
     }
   },
+  "chittoor": {
+    "name": "Chittoor",
+    "state": "Andhra Pradesh",
+    "aliases": ["Chittoor Andhra Pradesh"],
+    "nearby": ["nellore", "tirupati"],
+    "localities": ["Chittoor Town", "Kuppam", "Palamaner", "Punganur"],
+    "intro": "Chittoor district in southern Andhra Pradesh hosts weddings and family functions in town halls and kalyana mandapams, with many events linked to temple towns nearby.",
+    "tips": {
+      "general": "Events near temple towns may follow specific ritual timings; share the schedule with all vendors early."
+    }
+  },
+  "vijayawada": {
+    "name": "Vijayawada",
+    "state": "Andhra Pradesh",
+    "aliases": ["Bezawada", "Vijayawada Andhra Pradesh"],
+    "nearby": ["guntur", "hyderabad"],
+    "localities": ["Benz Circle", "Governorpet", "Labbipet", "Gunadala", "Patamata", "Ajit Singh Nagar"],
+    "intro": "Vijayawada, on the banks of the Krishna, is a major event city with function halls, kalyana mandapams and convention centres spread across Benz Circle, Labbipet and the outskirts.",
+    "tips": {
+      "general": "Peak wedding months fill popular venues fast; book the venue and caterer first, then plan decor around them."
+    }
+  },
+  "indore": {
+    "name": "Indore",
+    "state": "Madhya Pradesh",
+    "aliases": ["Indore MP"],
+    "nearby": [],
+    "localities": ["Vijay Nagar", "Palasia", "Rajwada", "Bhawarkuan", "Sudama Nagar", "Rau"],
+    "intro": "Indore, in central India, hosts a wide range of weddings, corporate events and festivals in its convention centres, hotels and community halls.",
+    "tips": {
+      "general": "Check venue rules on amplified sound and timing; some city zones restrict music after certain hours."
+    }
+  },
   "nellore": {
     "name": "Nellore",
     "state": "Andhra Pradesh",
-    "aliases": ["Nellore City", "SPSR Nellore"],
-    "nearby": ["guntur"],
+    "aliases": ["Nellore City", "SPSR Nellore", "Kovur"],
+    "nearby": ["guntur", "chittoor"],
     "localities": ["Stonehousepeta", "Dargamitta", "Vedayapalem", "Magunta Layout", "Trunk Road"],
     "intro": "Nellore, in southern coastal Andhra Pradesh, hosts weddings and functions in its function halls, kalyana mandapams and open grounds, and many families also book vendors for events in nearby towns.",
     "tips": {
@@ -36,15 +125,445 @@
       "tent": "Coastal weather can turn quickly; ask for waterproof roofing and a drainage plan for any open-ground set-up."
     }
   },
-  "berhampur": {
-    "name": "Berhampur",
-    "state": "Odisha",
-    "aliases": ["Brahmapur", "Berhampur Odisha", "Berhampur Ganjam"],
-    "nearby": [],
-    "localities": ["Gosaninuagaon", "Lanjipalli", "Ambapua", "Bada Bazar", "Aska Road"],
-    "intro": "Berhampur, also called Brahmapur, is the main commercial centre of Ganjam district in southern Odisha, where Odia and Telugu communities both celebrate weddings and festivals.",
+  "navi-mumbai": {
+    "name": "Navi Mumbai",
+    "state": "Maharashtra",
+    "aliases": ["Navi Mumbai Maharashtra", "Vashi", "Nerul", "Belapur"],
+    "nearby": ["mumbai", "pune"],
+    "localities": ["Vashi", "Nerul", "Belapur", "Kharghar", "Panvel", "Airoli"],
+    "intro": "Navi Mumbai's planned layout includes convention centres, hotels and community halls in Vashi, Nerul and Kharghar, well-suited to corporate events and large weddings.",
     "tips": {
-      "general": "If your ceremonies follow a particular community tradition, tell vendors early so rituals, music and food are planned around it."
+      "general": "Traffic between Navi Mumbai and Mumbai can affect vendor arrival; share the venue address and expected set-up time well ahead."
+    }
+  },
+  "mumbai": {
+    "name": "Mumbai",
+    "state": "Maharashtra",
+    "aliases": ["Bombay"],
+    "nearby": ["navi-mumbai", "pune"],
+    "localities": ["Andheri", "Bandra", "Powai", "Lower Parel", "Borivali", "Chembur", "Colaba"],
+    "intro": "Mumbai's event scene spans heritage banquet halls in South Mumbai, hotels and convention centres in the suburbs, and open grounds across the city.",
+    "tips": {
+      "general": "Parking and traffic are major constraints; choose vendors who know your venue and can arrive early for set-up.",
+      "catering": "Ask about kitchen access at your venue; some hotels restrict outside caterers and require in-house catering."
+    }
+  },
+  "bhubaneswar": {
+    "name": "Bhubaneswar",
+    "state": "Odisha",
+    "aliases": ["Bhubaneswar Odisha"],
+    "nearby": ["cuttack", "berhampur"],
+    "localities": ["Patia", "Chandrasekharpur", "Saheed Nagar", "Jaydev Vihar", "Old Town"],
+    "intro": "Bhubaneswar, Odisha's capital, hosts weddings and events in its hotels, convention centres and community halls, with vendors serving both the city and nearby Cuttack.",
+    "tips": {
+      "general": "For events in the twin-city area around Cuttack, confirm which vendor network covers your venue."
+    }
+  },
+  "cuttack": {
+    "name": "Cuttack",
+    "state": "Odisha",
+    "aliases": ["Cuttack Odisha"],
+    "nearby": ["bhubaneswar"],
+    "localities": ["Buxi Bazaar", "Chandi Chhak", "Link Road", "College Square"],
+    "intro": "Cuttack, the former capital of Odisha, hosts traditional weddings and community functions in its function halls and kalyana mandapams.",
+    "tips": {
+      "general": "Cuttack and Bhubaneswar are close enough that many vendors serve both; ask which side of the river they are based on."
+    }
+  },
+  "rourkela": {
+    "name": "Rourkela",
+    "state": "Odisha",
+    "aliases": ["Rourkela Odisha", "Rourkela based in Sundargarh", "Rourkela service available"],
+    "nearby": ["sambalpur"],
+    "localities": ["Civil Township", "Chhend", "Basanti Colony", "Bisra Road"],
+    "intro": "Rourkela, in Odisha's Sundargarh district, hosts weddings and events connected to its steel plant community, with vendors serving the township and surrounding areas.",
+    "tips": {
+      "general": "If your venue is inside the steel township, check visitor and vendor access rules in advance."
+    }
+  },
+  "siddipet": {
+    "name": "Siddipet",
+    "state": "Telangana",
+    "aliases": ["Siddipet Telangana"],
+    "nearby": ["hyderabad", "karimnagar"],
+    "localities": ["Siddipet Town", "Gajwel", "Dubbak"],
+    "intro": "Siddipet, in northern Telangana, hosts weddings and family functions in its function halls and kalyana mandapams, with many events linked to nearby villages.",
+    "tips": {
+      "general": "For events in nearby villages, ask vendors about travel time and whether they can set up the previous day."
+    }
+  },
+  "nizamabad": {
+    "name": "Nizamabad",
+    "state": "Telangana",
+    "aliases": ["Nizamabad Telangana"],
+    "nearby": ["hyderabad", "adilabad", "nirmal"],
+    "localities": ["Nizamabad Town", "Kanteshwar", "Kotagally"],
+    "intro": "Nizamabad, in northern Telangana, hosts weddings and community functions in its function halls and open grounds, with a mix of urban and rural celebrations.",
+    "tips": {
+      "general": "During peak agricultural seasons, vendor availability can be limited; book early."
+    }
+  },
+  "mahbubnagar": {
+    "name": "Mahbubnagar",
+    "state": "Telangana",
+    "aliases": ["Mahabubnagar", "Mahbubnagar Telangana", "Palamuru"],
+    "nearby": ["hyderabad", "nalgonda"],
+    "localities": ["Mahbubnagar Town", "Jadcherla", "Wanaparthy Road"],
+    "intro": "Mahbubnagar, in southern Telangana, hosts weddings and family events in its function halls and kalyana mandapams.",
+    "tips": {
+      "general": "The district is large; confirm the exact venue location with vendors to avoid travel surprises."
+    }
+  },
+  "khammam": {
+    "name": "Khammam",
+    "state": "Telangana",
+    "aliases": ["Khammam Telangana"],
+    "nearby": ["warangal", "hyderabad"],
+    "localities": ["Khammam Town", "Kothagudem Road", "Wyra Road"],
+    "intro": "Khammam, in eastern Telangana, hosts weddings and functions in its function halls and community centres, with vendors serving the town and surrounding mandals.",
+    "tips": {
+      "general": "For events in nearby Kothagudem or Palwancha, confirm travel charges in advance."
+    }
+  },
+  "tenali": {
+    "name": "Tenali",
+    "state": "Andhra Pradesh",
+    "aliases": ["Tenali Andhra Pradesh"],
+    "nearby": ["guntur", "vijayawada"],
+    "localities": ["Tenali Town", "Ganganammapeta", "Kothapet"],
+    "intro": "Tenali, in Andhra Pradesh's Guntur district, is known for its cultural heritage and hosts weddings and family functions in traditional kalyana mandapams.",
+    "tips": {
+      "general": "Many Tenali vendors also serve Guntur and Vijayawada; ask which areas they cover regularly."
+    }
+  },
+  "karimnagar": {
+    "name": "Karimnagar",
+    "state": "Telangana",
+    "aliases": ["Karimnagar Telangana"],
+    "nearby": ["hyderabad", "siddipet", "warangal"],
+    "localities": ["Karimnagar Town", "Mankammathota", "Kothirampur"],
+    "intro": "Karimnagar, in northern Telangana, hosts weddings and family events in its function halls and community centres.",
+    "tips": {
+      "general": "Confirm venue rules on outside vendors and timing restrictions before booking decorators."
+    }
+  },
+  "warangal": {
+    "name": "Warangal",
+    "state": "Telangana",
+    "aliases": ["Warangal Telangana", "Hanamkonda", "Kazipet"],
+    "nearby": ["hyderabad", "khammam", "karimnagar"],
+    "localities": ["Warangal Town", "Hanamkonda", "Kazipet", "Subedari"],
+    "intro": "Warangal and its twin city Hanamkonda host weddings, cultural events and family functions in function halls and community centres across the region.",
+    "tips": {
+      "general": "Warangal, Hanamkonda and Kazipet are close together; clarify the venue location with each vendor to plan set-up."
+    }
+  },
+  "hanamkonda": {
+    "name": "Hanamkonda",
+    "state": "Telangana",
+    "aliases": ["Hanamkonda Telangana"],
+    "nearby": ["warangal"],
+    "localities": ["Hanamkonda Town", "Subedari", "Kazipet"],
+    "intro": "Hanamkonda, part of the Warangal urban area, hosts weddings and community events in local function halls.",
+    "tips": {
+      "general": "Most Hanamkonda vendors also serve Warangal and Kazipet; ask about coverage area."
+    }
+  },
+  "adilabad": {
+    "name": "Adilabad",
+    "state": "Telangana",
+    "aliases": ["Adilabad Telangana"],
+    "nearby": ["nizamabad", "nirmal"],
+    "localities": ["Adilabad Town", "Bhainsa Road"],
+    "intro": "Adilabad, in northern Telangana, hosts weddings and family functions in its function halls and community centres.",
+    "tips": {
+      "general": "Some venues are a long drive from the nearest town; confirm vendor travel time in advance."
+    }
+  },
+  "nirmal": {
+    "name": "Nirmal",
+    "state": "Telangana",
+    "aliases": ["Nirmal Telangana"],
+    "nearby": ["adilabad", "nizamabad"],
+    "localities": ["Nirmal Town", "Bhainsa Road"],
+    "intro": "Nirmal, in northern Telangana, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "For village events in the district, ask vendors about travel time and set-up on the previous day."
+    }
+  },
+  "nalgonda": {
+    "name": "Nalgonda",
+    "state": "Telangana",
+    "aliases": ["Nalgonda Telangana"],
+    "nearby": ["hyderabad", "mahbubnagar"],
+    "localities": ["Nalgonda Town", "Miryalaguda Road"],
+    "intro": "Nalgonda, in southern Telangana, hosts weddings and family functions in its function halls and open grounds.",
+    "tips": {
+      "general": "For events in smaller towns of the district, ask vendors whether they can set up the day before."
+    }
+  },
+  "pune": {
+    "name": "Pune",
+    "state": "Maharashtra",
+    "aliases": ["Poona", "Pune Maharashtra"],
+    "nearby": ["mumbai", "navi-mumbai"],
+    "localities": ["Koregaon Park", "Baner", "Hinjewadi", "Kothrud", "Viman Nagar", "Pimpri"],
+    "intro": "Pune hosts weddings and corporate events in hotels, convention centres and heritage venues, with vendors serving both the city and nearby hill stations.",
+    "tips": {
+      "general": "For events in Lonavala, Mahabaleshwar or other hill venues, plan travel and set-up early."
+    }
+  },
+  "ncr": {
+    "name": "NCR",
+    "state": "Delhi NCR",
+    "aliases": ["Delhi", "New Delhi", "Gurgaon", "Gurugram", "Noida", "Faridabad", "Ghaziabad"],
+    "nearby": [],
+    "localities": ["Noida", "Gurgaon", "Delhi", "Faridabad", "Ghaziabad"],
+    "intro": "Delhi NCR encompasses Delhi, Noida, Gurgaon, Faridabad and Ghaziabad, and hosts events of every scale, from heritage venues in Delhi to large convention centres in the suburbs.",
+    "tips": {
+      "general": "Distances within NCR can be deceptive; confirm which city the vendor is based in and plan travel accordingly."
+    }
+  },
+  "balasore": {
+    "name": "Balasore",
+    "state": "Odisha",
+    "aliases": ["Baleshwar", "Balasore Odisha"],
+    "nearby": ["bhadrak"],
+    "localities": ["Balasore Town", "Sahadevkhunta", "OT Road"],
+    "intro": "Balasore, in coastal Odisha, hosts weddings and family functions in its function halls and community centres.",
+    "tips": {
+      "general": "Coastal weather can affect outdoor set-ups; ask vendors about waterproof cover."
+    }
+  },
+  "bargarh": {
+    "name": "Bargarh",
+    "state": "Odisha",
+    "aliases": ["Bargarh Odisha"],
+    "nearby": ["sambalpur"],
+    "localities": ["Bargarh Town", "Attabira Road"],
+    "intro": "Bargarh, in western Odisha, hosts weddings and community functions in its function halls and open grounds.",
+    "tips": {
+      "general": "For village events in the district, ask vendors about travel time and crew availability."
+    }
+  },
+  "nabarangpur": {
+    "name": "Nabarangpur",
+    "state": "Odisha",
+    "aliases": ["Nabarangpur Odisha", "Nabarangapur"],
+    "nearby": [],
+    "localities": ["Nabarangpur Town"],
+    "intro": "Nabarangpur, in southern Odisha, hosts weddings and family functions in local function halls and community centres.",
+    "tips": {
+      "general": "For events in remote parts of the district, confirm vendor travel and set-up time early."
+    }
+  },
+  "rayagada": {
+    "name": "Rayagada",
+    "state": "Odisha",
+    "aliases": ["Rayagada Odisha"],
+    "nearby": [],
+    "localities": ["Rayagada Town"],
+    "intro": "Rayagada, in southern Odisha, hosts weddings and community functions in its function halls.",
+    "tips": {
+      "general": "Some vendors based in Bhubaneswar or Visakhapatnam serve Rayagada; confirm travel charges."
+    }
+  },
+  "bhadrak": {
+    "name": "Bhadrak",
+    "state": "Odisha",
+    "aliases": ["Bhadrak Odisha", "Bhadrak based in Bhubaneswar"],
+    "nearby": ["balasore", "cuttack"],
+    "localities": ["Bhadrak Town"],
+    "intro": "Bhadrak, in coastal Odisha, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Confirm whether vendors are based in Bhadrak or travel from Bhubaneswar or Cuttack."
+    }
+  },
+  "keonjhar": {
+    "name": "Keonjhar",
+    "state": "Odisha",
+    "aliases": ["Kendujhar", "Keonjhar Kendujhar", "Keonjhar Odisha"],
+    "nearby": ["sambalpur"],
+    "localities": ["Keonjhar Town", "Barbil Road"],
+    "intro": "Keonjhar (Kendujhar) in northern Odisha hosts weddings and community functions in local function halls.",
+    "tips": {
+      "general": "The district is large and includes mining towns; confirm venue location with vendors."
+    }
+  },
+  "jagatsinghpur": {
+    "name": "Jagatsinghpur",
+    "state": "Odisha",
+    "aliases": ["Jagatsinghpur Odisha", "Jagatsinghapur"],
+    "nearby": ["cuttack"],
+    "localities": ["Jagatsinghpur Town"],
+    "intro": "Jagatsinghpur, in coastal Odisha near Cuttack, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Most events here are family-scale; ask vendors about minimum booking sizes."
+    }
+  },
+  "paralakhemundi": {
+    "name": "Paralakhemundi",
+    "state": "Odisha",
+    "aliases": ["Paralakhemundi Odisha", "Parlakhemundi"],
+    "nearby": ["srikakulam"],
+    "localities": ["Paralakhemundi Town"],
+    "intro": "Paralakhemundi, in southern Odisha near the Andhra border, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Vendors may be based in Srikakulam or Berhampur; confirm travel charges."
+    }
+  },
+  "burla": {
+    "name": "Burla",
+    "state": "Odisha",
+    "aliases": ["Burla Odisha"],
+    "nearby": ["sambalpur"],
+    "localities": ["Burla Town", "Hirakud"],
+    "intro": "Burla, adjacent to Sambalpur in western Odisha, hosts weddings and community events in local function halls.",
+    "tips": {
+      "general": "Most Burla vendors also serve Sambalpur and Hirakud; ask about coverage."
+    }
+  },
+  "chatrapur": {
+    "name": "Chatrapur",
+    "state": "Odisha",
+    "aliases": ["Chatrapur Odisha", "Chhatrapur"],
+    "nearby": ["berhampur", "ganjam"],
+    "localities": ["Chatrapur Town"],
+    "intro": "Chatrapur, the headquarters of Ganjam district in Odisha, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Most vendors serving Chatrapur are also based in or travel from Berhampur."
+    }
+  },
+  "ganjam": {
+    "name": "Ganjam",
+    "state": "Odisha",
+    "aliases": ["Ganjam district", "Ganjam Odisha"],
+    "nearby": ["berhampur", "chatrapur"],
+    "localities": ["Ganjam Town", "Chatrapur", "Berhampur"],
+    "intro": "Ganjam district in southern Odisha hosts weddings and family functions in local function halls and kalyana mandapams.",
+    "tips": {
+      "general": "For village events, confirm vendor travel time and set-up schedule in advance."
+    }
+  },
+  "palasa": {
+    "name": "Palasa",
+    "state": "Andhra Pradesh",
+    "aliases": ["Palasa Andhra Pradesh", "Palasa Kasibugga"],
+    "nearby": ["srikakulam"],
+    "localities": ["Palasa Town"],
+    "intro": "Palasa, in Srikakulam district of Andhra Pradesh, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Most vendors serving Palasa are also based in Srikakulam or Berhampur."
+    }
+  },
+  "narasannapeta": {
+    "name": "Narasannapeta",
+    "state": "Andhra Pradesh",
+    "aliases": ["Narasannapeta Andhra Pradesh"],
+    "nearby": ["srikakulam"],
+    "localities": ["Narasannapeta Town"],
+    "intro": "Narasannapeta, in Srikakulam district, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Confirm whether vendors travel from Srikakulam or are based locally."
+    }
+  },
+  "tadepalli": {
+    "name": "Tadepalli",
+    "state": "Andhra Pradesh",
+    "aliases": ["Tadepalli Andhra Pradesh", "Tadepalle"],
+    "nearby": ["vijayawada", "guntur"],
+    "localities": ["Tadepalli Town"],
+    "intro": "Tadepalli, near Vijayawada in Andhra Pradesh, hosts weddings and family events in local function halls.",
+    "tips": {
+      "general": "Most vendors serving Tadepalli are based in Vijayawada or Guntur."
+    }
+  },
+  "venkatagirikota": {
+    "name": "Venkatagirikota",
+    "state": "Andhra Pradesh",
+    "aliases": ["Venkatagirikota Andhra Pradesh", "V.Kota"],
+    "nearby": ["chittoor"],
+    "localities": ["Venkatagirikota Town"],
+    "intro": "Venkatagirikota, in Chittoor district, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "For village events, confirm vendor travel and set-up timing."
+    }
+  },
+  "kovur": {
+    "name": "Kovur",
+    "state": "Andhra Pradesh",
+    "aliases": ["Kovur Andhra Pradesh"],
+    "nearby": ["nellore"],
+    "localities": ["Kovur Town"],
+    "intro": "Kovur, near Nellore in Andhra Pradesh, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Most vendors serving Kovur are based in Nellore."
+    }
+  },
+  "narakoduru": {
+    "name": "Narakoduru",
+    "state": "Andhra Pradesh",
+    "aliases": ["Narakoduru Andhra Pradesh"],
+    "nearby": ["nellore"],
+    "localities": ["Narakoduru Village"],
+    "intro": "Narakoduru, in Nellore district, hosts weddings and family functions in local venues.",
+    "tips": {
+      "general": "For village events, confirm vendor travel and set-up timing."
+    }
+  },
+  "ponnur": {
+    "name": "Ponnur",
+    "state": "Andhra Pradesh",
+    "aliases": ["Ponnur Andhra Pradesh"],
+    "nearby": ["guntur", "tenali"],
+    "localities": ["Ponnur Town"],
+    "intro": "Ponnur, in Guntur district, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Most vendors serving Ponnur are based in Guntur or Tenali."
+    }
+  },
+  "singupuram": {
+    "name": "Singupuram",
+    "state": "Andhra Pradesh",
+    "aliases": ["Singupuram Andhra Pradesh"],
+    "nearby": ["srikakulam"],
+    "localities": ["Singupuram Village"],
+    "intro": "Singupuram, in Srikakulam district, hosts weddings and family functions in local venues.",
+    "tips": {
+      "general": "For village events, confirm vendor travel and set-up timing."
+    }
+  },
+  "surada": {
+    "name": "Surada",
+    "state": "Odisha",
+    "aliases": ["Surada Odisha", "Sorada"],
+    "nearby": ["berhampur", "ganjam"],
+    "localities": ["Surada Town"],
+    "intro": "Surada, in Ganjam district of Odisha, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Most vendors serving Surada travel from Berhampur."
+    }
+  },
+  "digapahandi": {
+    "name": "Digapahandi",
+    "state": "Odisha",
+    "aliases": ["Digapahandi Odisha"],
+    "nearby": ["berhampur"],
+    "localities": ["Digapahandi Town"],
+    "intro": "Digapahandi, in Ganjam district, hosts weddings and family functions in local function halls.",
+    "tips": {
+      "general": "Most vendors serving Digapahandi travel from Berhampur."
+    }
+  },
+  "patrapur": {
+    "name": "Patrapur",
+    "state": "Odisha",
+    "aliases": ["Patrapur Odisha"],
+    "nearby": ["berhampur"],
+    "localities": ["Patrapur Village"],
+    "intro": "Patrapur, in Ganjam district, hosts weddings and family functions in local venues.",
+    "tips": {
+      "general": "For village events, confirm vendor travel and set-up timing."
     }
   }
 }

@@ -4,17 +4,17 @@ const { slugify, sha1 } = require('./util');
 // Header aliases, so a renamed Google Sheet column does not silently produce "0 vendors".
 const ALIASES = {
   uid: ['uid', 'id', 'vendor_id', 'vendorid', 'listing_id'],
-  name: ['name', 'vendor_name', 'business_name', 'businessname', 'vendor', 'company', 'firm'],
+  name: ['name', 'vendor_name', 'business_name', 'businessname', 'vendor', 'company', 'firm', 'bizname'],
   category: ['category', 'cat', 'vendor_category', 'type'],
   subcategory: ['subcategory', 'sub_category', 'subcat', 'sub_type'],
   city: ['city', 'town'],
   area: ['area', 'locality', 'neighbourhood', 'neighborhood', 'location'],
-  services: ['services', 'offerings', 'service_list', 'tags', 'specialities', 'specialties'],
+  services: ['services', 'offerings', 'service_list', 'tags', 'specialities', 'specialties', 'items'],
   description: ['description', 'about', 'bio', 'details'],
   phone: ['phone', 'mobile', 'contact', 'contact_number', 'phone_number'],
   whatsapp: ['whatsapp', 'whatsapp_number', 'wa'],
   status: ['status', 'approval', 'approval_status'],
-  created: ['created', 'timestamp', 'created_at', 'added']
+  created: ['created', 'timestamp', 'created_at', 'added', 'createdat']
 };
 const normKey = (k) => String(k).toLowerCase().replace(/[^a-z0-9]/g, '');
 const LOOKUP = {};
