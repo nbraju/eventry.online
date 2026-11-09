@@ -25,11 +25,11 @@
     </script>
 
     <title>Eventry AI Cloud — Event Providers &amp; Talent Marketplace</title>
-    <meta name="description" content="AI-powered operating system for event infrastructure: list, search, select, enquire, and book venues, caterers, decorators, and more." />
+    <meta name="description" content="Find tent houses, caterers, decorators, lighting, photographers and event talent in Hyderabad. Providers list free, with zero commission on direct enquiries." />
     <link rel="canonical" href="https://eventry.online/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Eventry AI Cloud — Event Providers & Talent Marketplace" />
-    <meta property="og:description" content="AI-powered operating system for event infrastructure." />
+    <meta property="og:description" content="Find event providers and talent in Hyderabad, or list your event business free. Zero commission on direct enquiries." />
     <meta property="og:url" content="https://eventry.online/" />
     <meta name="twitter:card" content="summary" />
     <link rel="manifest" href="manifest.json" />
@@ -39,6 +39,15 @@
     <meta name="twitter:image" content="https://eventry.online/Logo.jpg" />
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%237c3aed'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E" />
 
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[
+      {"@type":"Organization","name":"Eventry AI Cloud","url":"https://eventry.online/","logo":"https://eventry.online/Logo.jpg",
+       "parentOrganization":{"@type":"Organization","name":"BharatStack Ventures"},
+       "areaServed":"Hyderabad, Telangana, India",
+       "contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+91-99486-80017","email":"hello@eventry.online"}},
+      {"@type":"WebSite","name":"Eventry AI Cloud","url":"https://eventry.online/"}
+    ]}
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
@@ -812,7 +821,7 @@
             <div class="mobile-hero-card">
                 <div class="mobile-hero-glow mobile-hero-glow-1"></div>
                 <div class="mobile-hero-glow mobile-hero-glow-2"></div>
-                <span class="mobile-hero-badge"><i class="fa-solid fa-bolt"></i> India's Largest Event Network</span>
+                <span class="mobile-hero-badge"><i class="fa-solid fa-bolt"></i> Hyderabad's Growing Event Network</span>
                 <h1>Discover Trusted Providers <span>or Get Discovered</span></h1>
                 <p class="mobile-hero-sub">Every Provider. Every Talent. <strong>Zero Commission.</strong></p>
 
@@ -826,7 +835,7 @@
                         <div class="lbl">Categories</div>
                     </div>
                     <div class="mobile-hero-stat">
-                        <div class="num">15 min</div>
+                        <div class="num">Same day</div>
                         <div class="lbl">Response</div>
                     </div>
                 </div>
@@ -842,12 +851,12 @@
                 <div class="mobile-ticker-track">
                     <span><i class="fa-solid fa-shield-heart"></i> Verified Providers</span>
                     <span><i class="fa-solid fa-indian-rupee-sign"></i> Zero Commission</span>
-                    <span><i class="fa-solid fa-bolt"></i> 15-min Response</span>
-                    <span><i class="fa-solid fa-map-location-dot"></i> Pan-India Reach</span>
+                    <span><i class="fa-solid fa-bolt"></i> Same-day Response</span>
+                    <span><i class="fa-solid fa-map-location-dot"></i> Hyderabad First</span>
                     <span><i class="fa-solid fa-shield-heart"></i> Verified Providers</span>
                     <span><i class="fa-solid fa-indian-rupee-sign"></i> Zero Commission</span>
-                    <span><i class="fa-solid fa-bolt"></i> 15-min Response</span>
-                    <span><i class="fa-solid fa-map-location-dot"></i> Pan-India Reach</span>
+                    <span><i class="fa-solid fa-bolt"></i> Same-day Response</span>
+                    <span><i class="fa-solid fa-map-location-dot"></i> Hyderabad First</span>
                 </div>
             </div>
 
@@ -877,13 +886,17 @@
                     <span class="mobile-cat-icon grad-pink"><i class="fa-solid fa-utensils"></i></span>
                     <span>Catering</span>
                 </button>
+                <button type="button" class="mobile-cat-item" onclick="mobileCategoryGo('Talent','Entertainer')">
+                    <span class="mobile-cat-icon grad-pink"><i class="fa-solid fa-microphone-lines"></i></span>
+                    <span>Talent</span>
+                </button>
             </div>
 
             <!-- Story / description -->
             <div class="mobile-landing-copy">
                 <div class="mobile-highlight-box">
                     <i class="fa-solid fa-circle-info"></i>
-                    <p>A single destination to source talent for any event: Anchors, Pujari's, Singers, Magicians, and so on — and to hire inventories such as Tent Houses, Lighting, Photography &amp; AVs. Two sides — event planners find providers, providers find customers. Zero commission on direct enquiries.</p>
+                    <p>One destination for talent — anchors, pujaris, singers, magicians — and for event inventory such as tent houses, lighting, photography and AV. Event planners find providers; providers find customers. Zero commission on direct enquiries.</p>
                 </div>
             </div>
         </div>
@@ -902,13 +915,13 @@
                         <div class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Free Listing</div>
                         <div class="text-3xl mb-2">🏪</div>
                         <h2 class="font-display text-xl sm:text-2xl font-extrabold text-white">Own an Event Business?</h2>
-                        <p class="text-sm text-slate-300 mt-2 mb-4">Get discovered by customers in your city. Free listing. Live in 1 hour. Zero commission on direct enquiries.</p>
+                        <p class="text-sm text-slate-300 mt-2 mb-4">Get discovered by customers in your city. Free listing, live once verified. Zero commission on direct enquiries.</p>
                         <a href="#" data-tab="list" class="block w-full text-center bg-purple-600 hover:bg-purple-700 text-white font-extrabold py-3 rounded-xl shadow-lg shadow-purple-500/30 transition">
                             List My Business — Free →
                         </a>
                         <div class="mt-3 flex flex-wrap gap-3 text-[11px] text-slate-300 font-mono">
                             <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> No commission</span>
-                            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Live in 1 hr</span>
+                            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Live once verified</span>
                             <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Edit anytime</span>
                         </div>
                     </div>
@@ -933,7 +946,7 @@
             <div class="max-w-6xl mx-auto relative z-10 mt-10 sm:mt-12">
                 <div class="text-center mb-10">
                     <div class="inline-block bg-purple-500/10 text-purple-300 text-[11px] font-bold tracking-widest uppercase px-5 py-1.5 rounded-full border border-purple-500/20 mb-6">
-                        <i class="fa-solid fa-calendar-check mr-1.5"></i> India's Free Event Providers &amp; Talent Network
+                        <i class="fa-solid fa-calendar-check mr-1.5"></i> Hyderabad's Free Event Providers &amp; Talent Network
                     </div>
                     <h1 style="font-family: 'Aparajita', serif; font-size: 24px; font-weight: bold; color: gold;">
                         Discover Trusted Providers <br class="hidden sm:inline">
@@ -947,8 +960,7 @@
                     </p>
                     <!-- Gold, bold, two-line description -->
                     <p class="hero-gold-desc">
-                        A single destination to source talent for any event, such as: Anchors, Pujari's, Singers, Magicians, and so on and for Hard Inventories such as<br class="hidden sm:block" />
-                        Tent Houses, Lighting, Photography &amp; AVs: two sides — event planners find providers, providers find customers. Zero commission on direct enquiries.
+                        One destination for talent — anchors, pujaris, singers, magicians — and for event inventory such as tent houses, lighting, photography and AV.<br class="hidden sm:block" /> Event planners find providers; providers find customers. Zero commission on direct enquiries.
                     </p>
                 </div>
 
@@ -966,11 +978,11 @@
                         <div class="mt-1">Commission*</div>
                     </div>
                     <div class="text-center">
-                        <div class="font-display text-3xl font-extrabold text-white">15 min</div>
+                        <div class="font-display text-3xl font-extrabold text-white">Same day</div>
                         <div class="mt-1">Enquiry Response</div>
                     </div>
                 </div>
-                <p class="text-[10px] text-slate-500 mt-3 text-center">*Direct enquiries only. Platform fee applies for managed bookings.</p>
+                <p class="text-xs text-slate-400 mt-4 text-center max-w-xl mx-auto">*Zero commission when you and the customer deal directly. A small platform fee applies only if you choose an Eventry-managed booking.</p>
             </div>
             <div class="absolute -top-32 -right-32 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -996,7 +1008,7 @@
                             <i class="fa-solid fa-users"></i> For Event Planners
                         </div>
                         <div class="space-y-4">
-                            <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">1</div><div><p class="font-semibold text-slate-800">Search &amp; filter</p><p class="text-xs text-slate-500 mt-0.5">Find providers by category, location, and rating.</p></div></div>
+                            <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">1</div><div><p class="font-semibold text-slate-800">Search &amp; filter</p><p class="text-xs text-slate-500 mt-0.5">Find providers by category and location.</p></div></div>
                             <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">2</div><div><p class="font-semibold text-slate-800">Select &amp; enquire</p><p class="text-xs text-slate-500 mt-0.5">Call directly or submit an enquiry form.</p></div></div>
                             <div class="flex items-start gap-3"><div class="step-num text-sm" style="background:var(--green)">3</div><div><p class="font-semibold text-slate-800">Book &amp; confirm</p><p class="text-xs text-slate-500 mt-0.5">Provider confirms availability and handles the rest.</p></div></div>
                         </div>
@@ -1014,7 +1026,7 @@
                 <div>
                     <span class="section-label">Live Directory</span>
                     <h2 class="font-display text-3xl font-bold text-slate-900 mt-2">All Event Providers &amp; Talent</h2>
-                    <p class="text-sm text-slate-500 mt-1">Real providers, real ratings · tap <i class="fa-solid fa-phone text-emerald-600"></i> to enquire directly</p>
+                    <p class="text-sm text-slate-500 mt-1">Reviewed providers · tap <i class="fa-solid fa-phone text-emerald-600"></i> to enquire directly</p>
                 </div>
                 <div class="flex items-center gap-3">
                     <span id="counter" class="bg-purple-50 border border-purple-200 text-purple-800 text-sm font-bold px-4 py-2 rounded-full flex items-center gap-2">
@@ -1046,6 +1058,7 @@
             </div>
 
             <div id="directoryGrid" class="space-y-4"></div>
+            <noscript><p class="text-sm text-slate-500 py-6">Providers load with JavaScript. Please enable it, or WhatsApp us on +91 99486 80017 and we will connect you with event providers in Hyderabad.</p></noscript>
             <div id="emptyState" class="hidden text-center py-12">
                 <i class="fa-solid fa-magnifying-glass text-4xl text-slate-300 mb-4"></i>
                 <p class="text-slate-500 font-medium">No providers found in your area yet.</p>
@@ -1068,7 +1081,7 @@
             <div class="text-center mb-8">
                 <span class="section-label">Free Provider Listing</span>
                 <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 mt-3">Get Listed in 7 Quick Steps</h2>
-                <p class="text-slate-500 mt-2 max-w-xl mx-auto">No app to download. No commission on direct enquiries. Fill this once and we'll verify within an hour.</p>
+                <p class="text-slate-500 mt-2 max-w-xl mx-auto">No app to download. No commission on direct enquiries. Fill this once and our team will review your listing, usually the same day.</p>
             </div>
 
             <div class="flex items-center gap-1.5 mb-8" id="wizardProgress">
@@ -1101,7 +1114,7 @@
                             <p class="text-sm text-slate-500">Customers will reach you here.</p></div>
                     </div>
                     <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">WhatsApp Number <span class="text-red-500">*</span></label>
-                    <input type="tel" id="wPhone" placeholder="+91 99887 76655" class="form-input" />
+                    <input type="tel" id="wPhone" placeholder="+91 99887 76655" inputmode="tel" class="form-input" />
                 </div>
 
                 <!-- Step 3 -->
@@ -1116,6 +1129,9 @@
                         <button type="button" class="w-cat-tile" data-cat="Catering"><div class="text-2xl mb-1">🍽️</div><div class="text-sm font-bold">Catering</div></button>
                         <button type="button" class="w-cat-tile" data-cat="Lighting"><div class="text-2xl mb-1">💡</div><div class="text-sm font-bold">Lighting</div></button>
                         <button type="button" class="w-cat-tile" data-cat="Decorations"><div class="text-2xl mb-1">🎨</div><div class="text-sm font-bold">Decorations</div></button>
+                        <button type="button" class="w-cat-tile" data-cat="Photography"><div class="text-2xl mb-1">📸</div><div class="text-sm font-bold">Photography</div></button>
+                        <button type="button" class="w-cat-tile" data-cat="AV"><div class="text-2xl mb-1">🔊</div><div class="text-sm font-bold">AV &amp; Sound</div></button>
+                        <button type="button" class="w-cat-tile" data-cat="Entertainer"><div class="text-2xl mb-1">🎭</div><div class="text-sm font-bold">Talent</div><div class="text-[10px] text-slate-500 font-normal mt-0.5">Anchors, singers, pujaris</div></button>
                         <button type="button" class="w-cat-tile" data-cat="Others"><div class="text-2xl mb-1">📦</div><div class="text-sm font-bold">Others</div></button>
                     </div>
                 </div>
@@ -1132,7 +1148,7 @@
                         <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Area / Locality</label>
                             <input type="text" id="wArea" placeholder="e.g., Banjara Hills" class="form-input" /></div>
                         <div class="sm:col-span-2"><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">PIN Code</label>
-                            <input type="text" id="wPin" placeholder="e.g., 500034" class="form-input" /></div>
+                            <input type="text" id="wPin" placeholder="e.g., 500034" inputmode="numeric" maxlength="6" class="form-input" /></div>
                     </div>
                 </div>
 
@@ -1143,7 +1159,7 @@
                         <div><h3 class="font-display text-xl font-bold text-slate-900">What do you rent or provide?</h3></div>
                     </div>
                     <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Items / Services <span class="text-red-500">*</span></label>
-                    <textarea id="wItems" rows="4" placeholder="e.g., 200 chairs, 20 tables, shamiyana tent, LED lights, stage setup" class="form-input resize-none"></textarea>
+                    <textarea id="wItems" rows="4" placeholder="e.g., 200 chairs, shamiyana tent, LED lights, or: wedding anchor, live singer, pujari" class="form-input resize-none"></textarea>
                 </div>
 
                 <!-- Step 6 -->
@@ -1155,13 +1171,14 @@
                     <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Description <span class="text-red-500">*</span></label>
                     <textarea id="wDescription" rows="3" placeholder="e.g., Family-run tent house since 2005. Specialising in weddings." class="form-input resize-none"></textarea>
                     <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo URL 1</label>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo link 1 (optional)</label>
                             <input type="url" id="wImg1" placeholder="https://…" class="form-input" /></div>
-                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo URL 2</label>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo link 2 (optional)</label>
                             <input type="url" id="wImg2" placeholder="https://…" class="form-input" /></div>
-                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo URL 3</label>
+                        <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Photo link 3 (optional)</label>
                             <input type="url" id="wImg3" placeholder="https://…" class="form-input" /></div>
                     </div>
+                    <p class="text-xs text-slate-500 mt-3">No photo links? Skip this. You can <a href="https://wa.me/919948680017?text=Hi%20Eventry%2C%20I%20am%20listing%20my%20business%20and%20want%20to%20send%20photos." target="_blank" rel="noopener noreferrer" class="text-emerald-600 font-semibold hover:underline">send photos on WhatsApp</a> and we will add them for you.</p>
                 </div>
 
                 <!-- Step 7 -->
@@ -1169,7 +1186,7 @@
                     <div class="flex items-center gap-3 mb-6">
                         <div class="step-num">7</div>
                         <div><h3 class="font-display text-xl font-bold text-slate-900">Ready to submit!</h3>
-                            <p class="text-sm text-slate-500">Review what you're about to send. We'll verify within 1 hour.</p></div>
+                            <p class="text-sm text-slate-500">Review what you're about to send. Our team reviews every listing before it goes live.</p></div>
                     </div>
                     <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 text-sm text-slate-700 space-y-1.5">
                         <p><b>Business:</b> <span id="wReviewBiz">—</span></p>
@@ -1177,7 +1194,7 @@
                         <p><b>Category:</b> <span id="wReviewCat">—</span></p>
                         <p><b>City:</b> <span id="wReviewCity">—</span></p>
                     </div>
-                    <p class="text-xs text-slate-500 mt-4"><i class="fa-solid fa-shield-halved text-emerald-500 mr-1"></i> By submitting, you agree to be contacted by Eventry ops for verification.</p>
+                    <p class="text-xs text-slate-500 mt-4"><i class="fa-solid fa-shield-halved text-emerald-500 mr-1"></i> By submitting, you agree to be contacted by Eventry for verification, and to our <a href="#" data-tab="terms" class="text-purple-600 font-semibold hover:underline">Terms</a> and <a href="#" data-tab="privacy" class="text-purple-600 font-semibold hover:underline">Privacy Policy</a>. Your business name, phone number and services will be shown publicly.</p>
                 </div>
 
                 <div class="flex items-center justify-between gap-3 mt-8 pt-5 border-t border-slate-100">
@@ -1268,7 +1285,7 @@
                     <form id="aiOnboardingForm" class="space-y-4">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Provider Name *</label><input type="text" id="aiFormName" required placeholder="Business name" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm" /></div>
-                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Category *</label><select id="aiFormCategory" required class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm"><option value="Tent House">Tent House</option><option value="Venue">Venue</option><option value="Catering">Catering</option><option value="Lighting">Lighting</option><option value="Decorations">Decorations</option><option value="Others">Others</option></select></div>
+                            <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Category *</label><select id="aiFormCategory" required class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm"><option value="Tent House">Tent House</option><option value="Venue">Venue</option><option value="Catering">Catering</option><option value="Lighting">Lighting</option><option value="Decorations">Decorations</option><option value="Photography">Photography</option><option value="AV">AV &amp; Sound</option><option value="Entertainer">Talent (anchors, singers, pujaris)</option><option value="Others">Others</option></select></div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phone *</label><input type="tel" id="aiFormPhone" required placeholder="+91 9988776655" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl outline-none text-sm" /></div>
@@ -1407,7 +1424,7 @@
             <div class="text-center mb-8">
                 <span class="section-label">Enquiry</span>
                 <h2 class="font-display text-3xl font-bold text-slate-900 mt-3">Tell Us What You Need</h2>
-                <p class="text-slate-500 mt-2">Our ops team will match you with the right provider and call you back within 15 minutes.</p>
+                <p class="text-slate-500 mt-2">Our ops team will match you with the right provider and call you back the same day.</p>
             </div>
             <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-10">
                 <form id="enquiryForm" class="space-y-4">
@@ -1426,12 +1443,13 @@
                         <button type="button" id="enqCallbackBtn" class="btn-green flex-1 py-3 text-sm rounded-xl"><i class="fa-solid fa-phone"></i> Request Callback</button>
                     </div>
                     <div id="enquiryFeedback" class="hidden text-sm font-medium text-center py-2 rounded-xl"></div>
+                    <p class="text-xs text-slate-400 text-center">By sending this you agree to our <a href="#" data-tab="terms" class="text-purple-600 hover:underline">Terms</a> and <a href="#" data-tab="privacy" class="text-purple-600 hover:underline">Privacy Policy</a>. Your details are shared with matched providers.</p>
                 </form>
             </div>
             <div class="mt-6 text-center">
                 <p class="text-sm text-slate-500 mb-3">Or reach us directly:</p>
                 <a href="https://wa.me/919948680017?text=Hi%20Eventry%2C%20I%20need%20help%20with%20my%20event." target="_blank" rel="noopener noreferrer" class="btn-wa inline-flex px-8 py-3 rounded-xl text-sm shadow"><i class="fa-brands fa-whatsapp text-lg"></i> Chat on WhatsApp</a>
-                <p class="text-xs text-slate-400 mt-2">WhatsApp</p>
+                <p class="text-xs text-slate-400 mt-2">Or call <a href="tel:+919948680017" class="hover:text-purple-600">+91 99486 80017</a></p>
             </div>
         </div>
     </section>
@@ -1442,7 +1460,7 @@
             <div class="text-center mb-8">
                 <span class="section-label">Contact Us</span>
                 <h2 class="font-display text-3xl font-bold text-slate-900 mt-3">Get in Touch</h2>
-                <p class="text-slate-500 mt-2">Send us a message and it'll open in your email app, ready to send to <span class="font-semibold text-slate-700">nbraju@hotmail.com</span>.</p>
+                <p class="text-slate-500 mt-2">Send us a message and we will reply by email. You can also write to <span class="font-semibold text-slate-700">hello@eventry.online</span>.</p>
             </div>
             <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-10">
                 <form id="contactForm" class="space-y-4">
@@ -1454,14 +1472,77 @@
                     <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Subject <span class="text-red-500">*</span></label><input type="text" id="cuSubject" required placeholder="What is this about?" class="form-input" /></div>
                     <div><label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Message <span class="text-red-500">*</span></label><textarea id="cuMessage" rows="4" required placeholder="Write your message…" class="form-input resize-none"></textarea></div>
                     <div class="pt-1">
-                        <button type="submit" class="btn-primary w-full py-3.5 text-base rounded-xl shadow-lg"><i class="fa-solid fa-paper-plane"></i> Send Email</button>
+                        <button type="submit" class="btn-primary w-full py-3.5 text-base rounded-xl shadow-lg"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
                     </div>
                     <div id="contactFeedback" class="hidden text-sm font-medium text-center py-2 rounded-xl"></div>
                 </form>
             </div>
             <div class="mt-6 text-center">
                 <p class="text-sm text-slate-500 mb-1">Or reach us directly:</p>
-                <a href="mailto:nbraju@hotmail.com" class="text-purple-600 font-semibold hover:underline text-sm"><i class="fa-solid fa-envelope mr-1"></i> nbraju@hotmail.com</a>
+                <a href="mailto:hello@eventry.online" class="text-purple-600 font-semibold hover:underline text-sm"><i class="fa-solid fa-envelope mr-1"></i> hello@eventry.online</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB: ABOUT -->
+    <section id="tab-about" class="tab-content py-10 bg-white border-t border-slate-200">
+        <div class="max-w-3xl mx-auto px-4">
+            <span class="section-label">About</span>
+            <h2 class="font-display text-3xl font-bold text-slate-900 mt-3 mb-6">About Eventry</h2>
+            <div class="space-y-6 text-sm text-slate-600 leading-relaxed">
+                <p>Eventry is a free directory that connects people planning events with the tent houses, venues, caterers, decorators, lighting and AV crews, photographers and performers who run them. It is an initiative of BharatStack Ventures, based in Hyderabad.</p>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">How it works</h3><p>Providers list their business for free. Our team reviews each listing before it goes live. Planners then browse, call or WhatsApp providers directly, so there is no commission on direct enquiries.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Where we are</h3><p>We are starting in Hyderabad and growing city by city. If you serve events elsewhere, you are welcome to list; we will add your city as the network grows.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Get in touch</h3><p>Email <a href="mailto:hello@eventry.online" class="text-purple-600 font-semibold hover:underline">hello@eventry.online</a> or call or WhatsApp <a href="tel:+919948680017" class="text-purple-600 font-semibold hover:underline">+91 99486 80017</a>.</p></div>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="#" data-tab="list" class="btn-primary px-6 py-2.5 text-sm rounded-xl">List my business free</a>
+                    <a href="#" data-tab="browse" class="btn-green px-6 py-2.5 text-sm rounded-xl">Find providers</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB: PRIVACY -->
+    <section id="tab-privacy" class="tab-content py-10 bg-white border-t border-slate-200">
+        <div class="max-w-3xl mx-auto px-4">
+            <span class="section-label">Legal</span>
+            <h2 class="font-display text-3xl font-bold text-slate-900 mt-3 mb-1">Privacy Policy</h2>
+            <p class="text-xs text-slate-400 mb-6">Last updated: 9 November 2026</p>
+            <div class="space-y-6 text-sm text-slate-600 leading-relaxed">
+                <p>Eventry AI Cloud ("Eventry", "we") is run by BharatStack Ventures. This page explains what personal data we collect through eventry.online, why, and the choices you have. We follow the principles of India's Digital Personal Data Protection Act, 2023.</p>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">What we collect</h3>
+                    <p><b>Providers:</b> business name, phone or WhatsApp number, category, city, area, PIN code, items or services, description and any photo links you give us.<br>
+                    <b>Event planners:</b> name, mobile number, event date, guest count, event location and what you need.<br>
+                    <b>Contact form:</b> name, email, phone and your message.<br>
+                    <b>Automatically:</b> basic usage statistics through Google Analytics, a cached copy of the provider directory in your browser, and, only if you allow it, your approximate location to show nearby providers.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Why we use it</h3><p>To review and publish listings, match planners with providers, call or message you about your listing or enquiry, answer your messages and improve the service. We do not sell personal data.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">What is public</h3><p>Provider listings are public by design. Your business name, category, city or area, services, description, photos and phone number are shown so customers can contact you directly. Please do not include anything you do not want shown. Enquiry details are shared with the providers we match you with.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Where it is stored</h3><p>Data is stored using Google services (Google Sheets and Apps Script) and messages may pass through WhatsApp. These providers process data on our behalf under their own terms and security practices.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Keeping and deleting data</h3><p>We keep provider listings while they are active and enquiry records for as long as needed to follow up. You can ask us to access, correct or delete your data, or withdraw your consent, at any time using the contact details below. We will act on requests within a reasonable time.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Children</h3><p>Eventry is meant for adults. We do not knowingly collect data from anyone under 18.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Security</h3><p>We use reasonable safeguards, but no online service is completely secure.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Questions and complaints</h3><p>Email <a href="mailto:hello@eventry.online" class="text-purple-600 font-semibold hover:underline">hello@eventry.online</a> or WhatsApp +91 99486 80017. We may update this policy and will change the date above when we do.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB: TERMS -->
+    <section id="tab-terms" class="tab-content py-10 bg-white border-t border-slate-200">
+        <div class="max-w-3xl mx-auto px-4">
+            <span class="section-label">Legal</span>
+            <h2 class="font-display text-3xl font-bold text-slate-900 mt-3 mb-1">Terms of Use</h2>
+            <p class="text-xs text-slate-400 mb-6">Last updated: 9 November 2026</p>
+            <div class="space-y-6 text-sm text-slate-600 leading-relaxed">
+                <p>By using eventry.online you agree to these terms.</p>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">What Eventry is</h3><p>Eventry is a directory that helps planners find event providers. We are not a party to any agreement between a planner and a provider, and we do not guarantee the quality, price, availability or conduct of any provider.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">If you list your business</h3><p>You confirm that you are authorised to list the business, that the information and photos are accurate and yours to use, and that nothing you submit is misleading, unlawful or offensive. We review listings and may edit, decline or remove any listing, including duplicates and listings we cannot verify.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">If you are hiring a provider</h3><p>Check the provider's details yourself, ask for a written quote and confirm dates, prices and what is included before you pay. Payments are between you and the provider unless an Eventry-managed booking has been agreed in writing.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Fees</h3><p>Listing is free. There is no commission on direct enquiries, where you and the customer deal with each other. A platform fee applies only to Eventry-managed bookings, and we will tell you the fee before you agree.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Your content</h3><p>You allow Eventry to display your listing content on this site and in our promotion of the directory. You keep ownership of it.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Acceptable use</h3><p>Do not scrape the site, send spam, harass anyone or try to disrupt the service.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Liability</h3><p>The service is provided as is. To the extent the law allows, Eventry is not liable for losses arising from dealings between planners and providers, or from delays, cancellations or errors in listings.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Changes and governing law</h3><p>We may update these terms and will change the date above when we do. These terms are governed by the laws of India, and the courts at Hyderabad, Telangana have jurisdiction.</p></div>
+                <div><h3 class="font-display text-lg font-bold text-slate-900 mb-1.5">Contact</h3><p><a href="mailto:hello@eventry.online" class="text-purple-600 font-semibold hover:underline">hello@eventry.online</a> or WhatsApp +91 99486 80017.</p></div>
             </div>
         </div>
     </section>
@@ -1483,7 +1564,7 @@
                 <div class="space-y-3">
                     <a href="#" class="btn-primary w-full py-4 text-lg rounded-xl shadow-xl" data-tab="list"><i class="fa-solid fa-store"></i> List My Services — Free</a>
                     <a href="https://wa.me/919948680017?text=Hello%2C%20I%20want%20to%20partner%20with%20Eventry" target="_blank" rel="noopener noreferrer" class="btn-wa w-full py-3.5 text-base rounded-xl"><i class="fa-brands fa-whatsapp text-xl"></i> Partner via WhatsApp</a>
-                    <p class="text-xs text-slate-500 text-center">📞 Ops Line: WhatsAPP</p>
+                    <p class="text-xs text-slate-400 text-center">📞 Ops line: <a href="tel:+919948680017" class="underline hover:text-white">+91 99486 80017</a> (call or WhatsApp)</p>
                 </div>
             </div>
         </div>
@@ -1498,7 +1579,7 @@
                         <div style="width:2rem;height:2rem;background:#7c3aed;border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-family:'Sora',sans-serif;">E</div>
                         <span class="font-display text-xl font-extrabold text-slate-900"><span style="color:var(--primary)">Eventry</span>AI</span>
                     </div>
-                    <p class="text-xs text-slate-400 mt-1">India's AI event provider &amp; talent network</p>
+                    <p class="text-xs text-slate-400 mt-1">AI-powered event provider &amp; talent network, starting in Hyderabad</p>
                     <p class="text-xs text-slate-400">A BharatStack Ventures initiative · Contact Us</p>
                 </div>
                 <div class="flex flex-wrap gap-4 text-sm text-slate-500">
@@ -1508,6 +1589,9 @@
                     <a href="#" data-tab="ai-onboard" class="hover:text-purple-600 transition">AI Onboard</a>
                     <a href="#" data-tab="guide" class="hover:text-amber-600 transition">Guide</a>
                     <a href="#" data-tab="enquire" class="hover:text-purple-600 transition">Enquire</a>
+                    <a href="#" data-tab="about" class="hover:text-purple-600 transition">About</a>
+                    <a href="#" data-tab="privacy" class="hover:text-purple-600 transition">Privacy</a>
+                    <a href="#" data-tab="terms" class="hover:text-purple-600 transition">Terms</a>
                     <a href="https://wa.me/919948680017" target="_blank" rel="noopener noreferrer" class="hover:text-green-600 transition"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                     <a href="#" data-tab="contact" class="hover:text-purple-600 transition font-semibold"><i class="fa-solid fa-envelope"></i> Contact Us</a>
                 </div>
@@ -1530,7 +1614,7 @@
     <button class="chat-toggle" id="chatToggle" title="Chat with AI Assistant"><i class="fa-regular fa-comment-dots"></i></button>
     <div class="chat-widget" id="chatWidget">
         <div class="chat-header"><span><i class="fa-regular fa-comment-dots mr-2"></i> Eventry AI</span><button class="text-white/80 hover:text-white bg-transparent border-none text-xl cursor-pointer" id="chatClose">&times;</button></div>
-        <div class="chat-messages" id="chatMessages"><div class="chat-message bot">👋 Hi! I'm your AI assistant. Ask about providers, categories, or pricing!</div></div>
+        <div class="chat-messages" id="chatMessages"><div class="chat-message bot">👋 Hi! I'm your AI assistant. Ask about providers or categories. For prices, use the enquiry form.</div></div>
         <div class="chat-input-area">
             <input type="text" id="chatInput" placeholder="Type your question..." />
             <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition text-sm font-bold" id="chatSend">Send</button>
@@ -1551,9 +1635,9 @@
 
             // ============ CONFIG ============
             const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoVztxlXPiVu6zCecoS8TToKQCegm3MxzkOodmKMA2eM12QiD5RGrXQ2dC1h_yzFGQ-w/exec';
-            const OPS_WA_NUMBER = 'WhatsApp';
+            const OPS_WA_NUMBER = '919948680017';
             const PAGE_SIZE = 10;
-            const CONTACT_EMAIL = 'nbraju@hotmail.com';
+            const CONTACT_EMAIL = 'hello@eventry.online';
 
             // ============ FROZEN NAV SPACER ============
             function syncNavSpacer() {
@@ -1612,7 +1696,10 @@
                 'ai-onboard': document.getElementById('tab-ai-onboard'),
                 guide: document.getElementById('tab-guide'),
                 enquire: document.getElementById('tab-enquire'),
-                contact: document.getElementById('tab-contact')
+                contact: document.getElementById('tab-contact'),
+                about: document.getElementById('tab-about'),
+                privacy: document.getElementById('tab-privacy'),
+                terms: document.getElementById('tab-terms')
             };
             const navLinks = document.querySelectorAll('.nav-link');
 
@@ -1657,7 +1744,7 @@
             let searchTerm = '';
             let currentPage = 1;
             let userCoords = null;
-            const CORE_CATEGORIES = ['Tent House', 'Venue', 'Catering', 'Lighting', 'Decorations', 'Others'];
+            const CORE_CATEGORIES = ['Tent House', 'Venue', 'Catering', 'Lighting', 'Decorations', 'Photography', 'AV', 'Entertainer', 'Others'];
 
             const vLat = v => num(v.lat ?? v.latitude);
             const vLng = v => num(v.lng ?? v.lon ?? v.longitude);
@@ -2102,6 +2189,7 @@
                 }
                 if (n === 3 && !draft.category) return 'Please pick a category.';
                 if (n === 4 && !document.getElementById('wCity').value.trim()) return 'Please enter your city.';
+                if (n === 4 && document.getElementById('wPin').value.trim() && !/^\d{6}$/.test(document.getElementById('wPin').value.trim())) return 'PIN code should be 6 digits (or leave it blank).';
                 if (n === 5 && !document.getElementById('wItems').value.trim()) return 'Please list what you rent or provide.';
                 if (n === 6 && !document.getElementById('wDescription').value.trim()) return 'Please add a short description.';
                 return '';
@@ -2202,7 +2290,7 @@
                 });
                 const fb = document.getElementById('enquiryFeedback');
                 fb.className = 'text-sm font-medium text-center py-3 rounded-xl bg-blue-50 text-blue-700 border border-blue-200';
-                fb.textContent = `📞 Got it, ${name}! We'll call ${phone} within 15 minutes.`;
+                fb.textContent = `📞 Got it, ${name}! We'll call you on ${phone} the same day.`;
                 fb.classList.remove('hidden');
                 showToast('Callback request logged!');
                 setTimeout(() => fb.classList.add('hidden'), 8000);
@@ -2234,10 +2322,10 @@
 
                 const fb = document.getElementById('contactFeedback');
                 fb.className = 'text-sm font-medium text-center py-3 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200';
-                fb.textContent = `✅ Thanks ${name}! Your email app should now open — just hit send.`;
+                fb.textContent = `✅ Thanks ${name}! We have logged your message and will reply soon. If your email app opens, send that email too.`;
                 fb.classList.remove('hidden');
                 this.reset();
-                showToast('Opening your email app…');
+                showToast('Message sent');
                 setTimeout(() => fb.classList.add('hidden'), 8000);
             });
 
@@ -2255,8 +2343,12 @@
                         const match = text.match(pattern);
                         if (match) result[key] = (match[1] || match[0]).trim();
                     }
-                    const catMatch = text.match(/(Venue|Caterer|Decor|Tent|Sound|Photography|Hall|Banquet|Kitchen|Stage|Speaker)/i);
-                    if (catMatch) result.category = catMatch[0];
+                    const catMap = [
+                        [/venue|hall|banquet/i, 'Venue'], [/cater|kitchen/i, 'Catering'], [/decor/i, 'Decorations'],
+                        [/tent|shamiyana/i, 'Tent House'], [/sound|speaker|stage|\bav\b/i, 'AV'], [/photo|video/i, 'Photography'],
+                        [/light/i, 'Lighting'], [/anchor|singer|pujari|magician|dancer|\bdj\b|band/i, 'Entertainer']
+                    ];
+                    for (const [re, cat] of catMap) { if (re.test(text)) { result.category = cat; break; } }
                     return result;
                 }
             };
@@ -2301,7 +2393,7 @@
                 const label = document.getElementById('aiQualityLabel');
                 label.textContent = quality.quality;
                 document.getElementById('aiStatusBadge').innerHTML = quality.percentage >= 60 ?
-                    '<i class="fa-regular fa-circle-check text-emerald-500 mr-1.5"></i> Auto-Approved' :
+                    '<i class="fa-regular fa-circle-check text-emerald-500 mr-1.5"></i> Ready to submit' :
                     '<i class="fa-regular fa-clock mr-1.5"></i> Needs Review';
                 document.getElementById('aiMissingFields').innerHTML = quality.missing.map(f =>
                     `<span class="text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full border border-red-200">⚠️ ${f}</span>`
@@ -2414,6 +2506,7 @@
                     else if (lower.includes('cater') || lower.includes('food')) response = 'Caterers offer a variety of cuisines. Browse the Catering category.';
                     else if (lower.includes('decor')) response = 'Decorators can transform any space. Check the Decorations category.';
                     else if (lower.includes('tent')) response = 'Tent houses are available for outdoor events. Browse Tent House.';
+                    else if (/anchor|singer|pujari|magician|dancer|\bdj\b|band|talent/.test(lower)) response = 'We list talent such as anchors, singers, pujaris and magicians. Open Browse and pick Entertainer.';
                     else if (lower.includes('price') || lower.includes('cost')) response = 'Pricing varies by provider. Use the enquiry form for custom quotes.';
                     chatMessages.innerHTML += `<div class="chat-message bot">${esc(response)}</div>`;
                     chatMessages.scrollTop = chatMessages.scrollHeight;
